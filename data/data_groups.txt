@@ -1,0 +1,107 @@
+num|null||ноль|
+num|eins||один (1)|
+num|zwei||два (2)|
+num|drei||три (3)|
+num|vier||четыре (4)|
+num|fünf||пять (5)|
+num|sechs||шесть (6)|
+num|sieben||семь (7)|
+num|acht||восемь (8)|
+num|neun||девять (9)|
+num|zehn||десять (10)|
+num|elf||одиннадцать (11)|
+num|zwölf||двенадцать (12)|
+num|dreizehn||тринадцать (13)|
+num|vierzehn||четырнадцать (14)|
+num|fünfzehn||пятнадцать (15)|
+num|sechzehn||шестнадцать (16)|
+num|siebzehn||семнадцать (17)|
+num|achtzehn||восемнадцать (18)|
+num|neunzehn||девятнадцать (19)|
+num|zwanzig||двадцать (20)|
+num|einundzwanzig||двадцать один (21)|
+num|dreißig||тридцать (30)|
+num|vierzig||сорок (40)|
+num|fünfzig||пятьдесят (50)|
+num|sechzig||шестьдесят (60)|
+num|siebzig||семьдесят (70)|
+num|achtzig||восемьдесят (80)|
+num|neunzig||девяносто (90)|
+num|hundert||сто (100)|
+num|hunderteins||сто один (101)|
+num|zweihundert||двести (200)|
+num|tausend||тысяча (1000)|
+num|die Million|Millionen|миллион|
+num|die Milliarde|Milliarden|миллиард|
+num|erste||первый|Heute ist der [erste] März.
+num|zweite||второй|Wir wohnen im [zweiten] Stock.
+num|dritte||третий|
+num|vierte||четвёртый|
+num|halb||половина; пол- (о времени)|Es ist [halb] drei.
+num|das Viertel|Viertel|четверть|Es ist [Viertel] nach zwei.
+time|die Sekunde|Sekunden|секунда|
+time|die Minute|Minuten|минута|Fünf [Minuten] nach eins.
+time|der Tag|Tage|день|Heute ist ein schöner [Tag].
+time|die Woche|Wochen|неделя|Sehen wir uns nächste [Woche]?
+time|der Monat|Monate|месяц|Er bekommt sein Geld am Ende des [Monats].
+time|das Jahr|Jahre|год|Ein gutes neues [Jahr]!
+time|der Wochentag|Wochentage|день недели|
+time|der Montag|Montage|понедельник|Die Prüfung ist am [Montag].
+time|der Dienstag|Dienstage|вторник|Meine Schwester kommt am [Dienstag].
+time|der Mittwoch|Mittwoche|среда|
+time|der Donnerstag|Donnerstage|четверг|
+time|der Freitag|Freitage|пятница|
+time|der Samstag|Samstage|суббота|Die Bank hat am [Samstag] geschlossen.
+time|der Sonntag|Sonntage|воскресенье|Am [Sonntag] frühstücke ich gern im Bett.
+time|das Wochenende|Wochenenden|выходные|Am [Wochenende] haben wir Gäste.
+time|der Morgen|Morgen|утро|Guten [Morgen]!
+time|der Vormittag|Vormittage|первая половина дня|
+time|der Mittag|Mittage|полдень|
+time|der Nachmittag|Nachmittage|вторая половина дня|
+time|der Abend|Abende|вечер|Was machst du heute [Abend]?
+time|die Nacht|Nächte|ночь|Heute [Nacht] war das Licht an.
+time|der Januar||январь|
+time|der Februar||февраль|
+time|der März||март|Heute ist der erste [März].
+time|der April||апрель|
+time|der Mai||май|
+time|der Juni||июнь|
+time|der Juli||июль|Wir machen Anfang [Juli] Urlaub.
+time|der August||август|
+time|der September||сентябрь|Ich nehme im [September] Urlaub.
+time|der Oktober||октябрь|Das Studium beginnt im [Oktober].
+time|der November||ноябрь|
+time|der Dezember||декабрь|
+time|der Frühling|Frühlinge|весна|
+time|der Sommer|Sommer|лето|Im [Sommer] ist das Obst billig.
+time|der Herbst|Herbste|осень|
+time|der Winter|Winter|зима|
+shop|der Euro|Euro|евро|Die Jacke kostet nur 10 [Euro].
+shop|der Cent|Cent|цент|
+meas|der Meter|Meter|метр|
+meas|der Zentimeter|Zentimeter|сантиметр|
+meas|der Kilometer|Kilometer|километр|Ich schwimme jeden Tag einen [Kilometer].
+meas|der Quadratmeter|Quadratmeter|квадратный метр|
+meas|das Prozent|Prozent|процент|
+meas|der Liter|Liter|литр|
+meas|das Gramm|Gramm|грамм|
+meas|das Pfund|Pfund|фунт (500 г)|Ein [Pfund] Äpfel bitte.
+meas|das Kilo|Kilo|килограмм|Ein [Kilo] Birnen, bitte!
+meas|Deutschland||Германия|
+meas|der Deutsche|Deutschen|немец|
+meas|deutsch||немецкий|Wie heißt das auf [Deutsch]?
+meas|Europa||Европа|
+meas|der Europäer|Europäer|европеец|
+meas|europäisch||европейский|
+meas|schwarz||чёрный|
+meas|weiß||белый|
+meas|grau||серый|
+meas|rot||красный|
+meas|blau||синий, голубой|Er hat [blaue] Augen.
+meas|gelb||жёлтый|
+meas|grün||зелёный|Die Tomate ist noch [grün].
+meas|braun||коричневый|
+meas|der Norden||север|
+meas|der Süden||юг|
+meas|der Westen||запад|
+meas|der Osten||восток|Der Wind kommt aus [Osten].

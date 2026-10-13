@@ -1,0 +1,385 @@
+gram|ab||с (какого-то момента), от|[Ab] morgen muss ich arbeiten.
+gram|aber||но, однако|Ich bin oft im Büro, [aber] nur für wenige Stunden.
+trav|abfahren||отправляться, уезжать|Wir [fahren] um zwölf Uhr ab.
+trav|die Abfahrt|Abfahrten|отправление, отъезд|Vor der [Abfahrt] rufe ich an.
+verb|abgeben||сдавать, отдавать|Ich muss meine Schlüssel [abgeben].
+verb|abholen||забирать (кого-то/что-то)|Wir müssen noch meinen Bruder [abholen].
+serv|der Absender|Absender|отправитель|Da ist ein Brief für dich ohne [Absender].
+comm|Achtung||внимание!|[Achtung]! Das dürfen Sie nicht tun.
+per|die Adresse|Adressen|адрес|Können Sie mir seine [Adresse] sagen?
+gram|all-||все, всё|Das ist [alles].
+adj|allein||один, в одиночку|Er kommt [allein].
+gram|also||итак, значит, поэтому|Er hat Zeit, [also] muss er uns helfen.
+adj|alt||старый; сколько лет|Wie [alt] sind Sie?
+per|das Alter||возраст|[Alter]: 26 Jahre.
+gram|an||у, на, к (вертикально)|Wir treffen uns [am] Bahnhof.
+shop|anbieten||предлагать|Was darf ich dir [anbieten]?
+shop|das Angebot|Angebote|предложение, скидка|Heute sind Sportschuhe im [Angebot].
+gram|ander-||другой|Nein, ich möchte die [andere].
+verb|anfangen||начинать(ся)|Der Unterricht [fängt] gleich an.
+time|der Anfang|Anfänge|начало|Sie wohnt am [Anfang] der Straße.
+free|anklicken||кликать, нажимать (мышью)|Da musst du dieses Wort [anklicken].
+trav|ankommen||прибывать|Wann [kommt] dieser Zug in Hamburg an?
+trav|die Ankunft|Ankünfte|прибытие|Auf diesem Plan steht nur die [Ankunft] der Züge.
+learn|ankreuzen||отмечать крестиком|Auf dem Formular müssen Sie etwas [ankreuzen].
+home|anmachen||включать|[Mach] bitte das Licht an!
+serv|(sich) anmelden||регистрироваться, записываться|Wo kann ich mich [anmelden]?
+serv|die Anmeldung|Anmeldungen|регистрация, запись|Eine [Anmeldung] für diesen Kurs ist nicht mehr möglich.
+learn|die Anrede|Anreden|обращение (в письме)|Schreiben Sie auch eine [Anrede] und einen Gruß.
+serv|anrufen||звонить (по телефону)|Kann man Sie [anrufen]?
+serv|der Anruf|Anrufe|звонок|Sie bekommt viele [Anrufe] auf ihrem Handy.
+serv|der Anrufbeantworter|Anrufbeantworter|автоответчик|Sprechen Sie bitte auf den [Anrufbeantworter].
+trav|die Ansage|Ansagen|объявление (устное)|Hören Sie die [Ansagen].
+trav|der Anschluss|Anschlüsse|пересадка; подключение|In Mannheim haben Sie [Anschluss] nach Saarbrücken.
+home|an sein||быть включённым|Heute Nacht war das Licht [an].
+comm|antworten||отвечать|Er [antwortet] nicht.
+comm|die Antwort|Antworten|ответ|Er gibt leider keine [Antwort].
+free|die Anzeige|Anzeigen|объявление (в газете)|Ich habe Ihre [Anzeige] in der Zeitung gelesen.
+shop|(sich) anziehen||одеваться, надевать|Ich muss mich noch [anziehen].
+home|das Apartment|Apartments|апартаменты, квартира|Wir haben ein [Apartment] gemietet.
+food|der Apfel|Äpfel|яблоко|Ein Pfund [Äpfel] bitte.
+food|der Appetit||аппетит|Guten [Appetit]!
+work|arbeiten||работать|Wo [arbeiten] Sie?
+work|die Arbeit|Arbeiten|работа|Mein Bruder sucht [Arbeit].
+work|arbeitslos||безработный|Viele Leute sind schon lange [arbeitslos].
+work|der Arbeitsplatz|Arbeitsplätze|рабочее место|An meinem [Arbeitsplatz] fehlt ein Drucker.
+body|der Arm|Arme|рука (от плеча)|Mein [Arm] tut weh.
+body|der Arzt|Ärzte|врач|Morgen habe ich einen Termin bei meiner [Ärztin].
+gram|auch||тоже, также|Ich bin [auch] Spanier.
+gram|auf||на (поверхности); по-|Die Kinder spielen [auf] der Straße.
+learn|die Aufgabe|Aufgaben|задание, задача|Das ist eine schwere [Aufgabe].
+verb|aufhören||заканчивать(ся), прекращать|Der Kurs [hört] in einer Woche auf.
+home|auf sein||быть открытым|Die Wohnung ist [auf].
+verb|aufstehen||вставать|Ich muss immer um vier Uhr [aufstehen].
+home|der Aufzug|Aufzüge|лифт|In diesem Haus gibt es keinen [Aufzug].
+body|das Auge|Augen|глаз|Er hat blaue [Augen].
+gram|aus||из|Er kommt [aus] Brasilien.
+free|der Ausflug|Ausflüge|экскурсия, поездка|Morgen machen wir einen [Ausflug] nach Heidelberg.
+serv|ausfüllen||заполнять (анкету)|[Füllen] Sie bitte dieses Formular aus.
+trav|der Ausgang|Ausgänge|выход|Wo ist der [Ausgang]?
+serv|die Auskunft|Auskünfte|справка, информация|Können Sie mir eine [Auskunft] geben?
+trav|das Ausland||заграница|Fahren Sie ins [Ausland]?
+per|der Ausländer|Ausländer|иностранец|Sind Sie [Ausländerin]?
+per|ausländisch||иностранный|Leider habe ich nur [ausländisches] Geld.
+home|ausmachen||выключать|[Mach] bitte das Licht aus!
+learn|die Aussage|Aussagen|высказывание, утверждение|Ist die [Aussage] richtig oder falsch?
+per|aussehen||выглядеть|Das [sieht] schön aus.
+home|aus sein||быть выключенным; закончиться|Das Licht ist [aus].
+trav|aussteigen||выходить (из транспорта)|Wo muss ich [aussteigen]?
+serv|der Ausweis|Ausweise|удостоверение личности|Hier ist mein [Ausweis].
+shop|(sich) ausziehen||раздеваться, снимать|[Zieh] die Schuhe aus, bitte!
+trav|das Auto|Autos|машина, автомобиль|Er kommt mit dem [Auto].
+trav|die Autobahn|Autobahnen|автобан, шоссе|Wo geht's hier bitte zur [Autobahn]?
+trav|der Automat|Automaten|автомат|Die Fahrkarten gibt es nur am [Automaten].
+adj|automatisch||автоматически|Das geht [automatisch].
+per|das Baby|Babys|младенец|Mein Kind ist noch ein [Baby].
+shop|die Bäckerei|Bäckereien|пекарня|Ich geh mal schnell zur [Bäckerei].
+home|das Bad|Bäder|ванная|Wir haben kein großes [Bad].
+home|baden||купаться (в ванне)|Ich [bade] nicht so gern, ich dusche lieber.
+trav|die Bahn|Bahnen|железная дорога, поезд|Wir fahren lieber mit der [Bahn].
+trav|der Bahnhof|Bahnhöfe|вокзал|Komme ich hier zum [Bahnhof]?
+trav|der Bahnsteig|Bahnsteige|перрон, платформа|Auf welchem [Bahnsteig] fährt der Zug?
+time|bald||скоро|Ich komme [bald].
+home|der Balkon|Balkone|балкон|Die Wohnung hat auch einen kleinen [Balkon].
+food|die Banane|Bananen|банан|Drei [Bananen], bitte!
+serv|die Bank|Banken|банк; скамейка|Die [Bank] schließt schon um vier Uhr.
+shop|bar||наличными|Muss ich [bar] zahlen?
+body|der Bauch|Bäuche|живот|Seit gestern tut mir der [Bauch] weh.
+env|der Baum|Bäume|дерево|Vorsicht, fahr nicht an den [Baum]!
+serv|der Beamte|Beamten|чиновник, служащий|Fragen Sie die [Beamtin] an Schalter acht!
+learn|bedeuten||значить, означать|Was [bedeutet] das Wort?
+verb|beginnen||начинать(ся)|Das Spiel [beginnt] um 15.30 Uhr.
+gram|bei||у, при, около|Ich wohne [bei] meinen Eltern.
+gram|beide||оба|[Beide] Eltern arbeiten.
+body|das Bein|Beine|нога|Mein rechtes [Bein] tut weh.
+learn|das Beispiel|Beispiele|пример|Kannst du mir ein [Beispiel] sagen?
+comm|zum Beispiel||например|Viele meiner Verwandten, [zum Beispiel] meine Brüder, arbeiten hier.
+adj|bekannt||известный|Picasso ist sehr [bekannt].
+per|der Bekannte|Bekannten|знакомый|Ein [Bekannter] von mir heißt Klaus.
+verb|bekommen||получать|Haben Sie meinen Brief [bekommen]?
+verb|benutzen||пользоваться|Die Aufzüge bitte nicht [benutzen]!
+work|der Beruf|Berufe|профессия|Was sind Sie von [Beruf]?
+adj|besetzt||занят (место, линия)|Der Platz ist [besetzt].
+trav|besichtigen||осматривать (достопримечательности)|Ich möchte gern den Dom [besichtigen].
+adj|besser||лучше|Es geht mir schon [besser].
+adj|best-||лучший; лучше всего|Am [besten] treffen wir uns morgen.
+food|bestellen||заказывать|Wir möchten [bestellen], bitte.
+verb|besuchen||посещать, навещать|Darf ich dich [besuchen]?
+home|das Bett|Betten|кровать|Wir brauchen noch ein [Bett].
+shop|bezahlen||оплачивать|Wo muss ich [bezahlen]?
+food|das Bier|Biere|пиво|Noch ein [Bier] bitte.
+free|das Bild|Bilder|картина, фото, изображение|Hast du ein [Bild] von deinem Sohn?
+shop|billig||дешёвый|Die ist aber [billig]!
+food|die Birne|Birnen|груша|Ein Kilo [Birnen], bitte!
+gram|bis||до|Ich warte [bis] morgen.
+gram|bisschen||немного|Ich spreche ein [bisschen] Deutsch.
+comm|bitte||пожалуйста|Eine Tasse Kaffee, [bitte]!
+comm|die Bitte|Bitten|просьба|Ich habe noch eine [Bitte].
+comm|bitten||просить|Darf ich Sie um etwas [bitten]?
+food|bitter||горький|Der Kaffee schmeckt [bitter].
+verb|bleiben||оставаться|Ich [bleibe] heute zu Hause.
+learn|der Bleistift|Bleistifte|карандаш|Hast du einen [Bleistift]?
+trav|der Blick|Blicke|вид, взгляд|Von diesem Hotel hat man einen guten [Blick] auf den Rhein.
+env|die Blume|Blumen|цветок|Gefallen dir die [Blumen]?
+learn|der Bogen|Bögen|лист (бланк)|Schreiben Sie Ihre Lösungen bitte auf den Antwort[bogen].
+adj|böse||злой, сердитый|Sie ist [böse] auf mich.
+verb|brauchen||нуждаться, нужно|[Brauchst] du die Zeitung noch?
+adj|breit||широкий|Wie [breit] ist der Schrank?
+serv|der Brief|Briefe|письмо|Haben Sie einen [Brief] für mich?
+serv|die Briefmarke|Briefmarken|почтовая марка|Kaufst du bitte [Briefmarken] bei der Post.
+verb|bringen||приносить, отвозить|[Bringen] Sie mir bitte noch einen Kaffee!
+food|das Brot|Brote|хлеб|Haben Sie auch Weiß[brot]?
+food|das Brötchen|Brötchen|булочка|Möchtest du [Brötchen] zum Frühstück?
+per|der Bruder|Brüder|брат|Sein [Bruder] arbeitet auch hier.
+free|das Buch|Bücher|книга|Gute [Bücher] sind oft sehr teuer.
+learn|der Buchstabe|Buchstaben|буква|Diesen [Buchstaben] gibt es in meiner Sprache nicht.
+learn|buchstabieren||произносить по буквам|Bitte [buchstabieren] Sie Ihren Namen.
+trav|der Bus|Busse|автобус|Wann kommt der nächste [Bus]?
+food|die Butter||сливочное масло|Ein Brötchen mit [Butter] und Käse.
+food|das Café|Cafés|кафе|Sollen wir uns im [Café] treffen?
+free|die CD|CDs|компакт-диск|Bring bitte deine Lieblings-[CD] mit.
+work|der Chef|Chefs|начальник, шеф|Wir haben eine neue [Chefin].
+gram|circa||примерно, около|Von Mainz nach Frankfurt sind es [circa] fünfzig Kilometer.
+work|der Computer|Computer|компьютер|Wann bekommst du deinen neuen [Computer]?
+gram|da||там, тут, вот|[Da] hinten ist er ja.
+per|die Dame|Damen|дама|Sehr geehrte [Damen] und Herren!
+gram|daneben||рядом (с этим)|[Daneben] ist die Bank.
+comm|danken||благодарить|Ich [danke] Ihnen für die Einladung.
+comm|der Dank||благодарность|Vielen [Dank]!
+comm|danke||спасибо|Nein, [danke]!
+gram|dann||потом, затем|Ich muss noch zur Post, [dann] komme ich.
+time|das Datum|Daten|дата|Bitte schreiben Sie noch das [Datum] auf das Formular.
+time|dauern||длиться|Wie lange [dauert] der Film?
+gram|dein-||твой|Ist das [dein] Auto?
+gram|denn||так как, ведь|Ich kann nicht kommen, [denn] ich bin krank.
+gram|der, die, das||определённый артикль; который|Hier ist der Brief, [den] du suchst.
+gram|dich||тебя|Die Blumen sind für [dich].
+gram|dies-||этот|Ich nehme lieber [diesen] Kuchen.
+gram|dir||тебе|Gefallen [dir] die Blumen?
+free|die Disco|Discos|дискотека|Heute Abend gehen wir in die [Disco] tanzen.
+body|der Doktor|Doktoren|доктор|Wir gehen zum [Doktor].
+trav|das Doppelzimmer|Doppelzimmer|двухместный номер|Wollen Sie ein [Doppelzimmer] oder ein Einzelzimmer?
+env|das Dorf|Dörfer|деревня|Meine Familie lebt in einem [Dorf].
+gram|dort||там|[Dort] ist unser Haus.
+gram|draußen||снаружи, на улице|Wollen wir [draußen] sitzen?
+work|drucken||печатать|Bitte [drucke] das Formular für mich.
+work|der Drucker|Drucker|принтер|Mein [Drucker] ist kaputt.
+verb|drücken||нажимать|[Drück] hier, dann geht der Computer an.
+gram|durch||через, сквозь|Am besten gehen Sie [durch] die Breite Straße.
+trav|die Durchsage|Durchsagen|объявление (по громкой связи)|Ich habe die [Durchsage] nicht verstanden.
+verb|dürfen||мочь (иметь разрешение)|Sie [dürfen] hier nicht rauchen.
+food|der Durst||жажда|Ich habe großen [Durst].
+home|(sich) duschen||принимать душ|Ich bade nicht so gern, ich [dusche] lieber.
+home|die Dusche|Duschen|душ|Unsere Wohnung hat nur eine [Dusche].
+trav|die Ecke|Ecken|угол|An der nächsten [Ecke] links.
+per|die Ehefrau|Ehefrauen|жена, супруга|Das ist meine [Ehefrau].
+per|der Ehemann|Ehemänner|муж, супруг|Das ist mein [Ehemann].
+food|das Ei|Eier|яйцо|Möchtest du ein [Ei] zum Frühstück?
+adj|eilig||срочный; спешить (es eilig haben)|Hast du es [eilig]?
+gram|ein-||один, некий (неопр. артикль)|Ich nehme [ein] Bier.
+adj|einfach||простой; в одну сторону|Die Prüfung ist ganz [einfach].
+trav|der Eingang|Eingänge|вход|Der [Eingang] ist um die Ecke.
+shop|einkaufen||делать покупки|Ich muss noch für morgen [einkaufen].
+free|einladen||приглашать|Darf ich Sie zu einem Kaffee [einladen]?
+free|die Einladung|Einladungen|приглашение|Danke für die [Einladung]!
+time|einmal||один раз; однажды|Diese Prüfung mache ich nicht noch [einmal].
+trav|einsteigen||садиться (в транспорт)|Schnell, [steig] ein, der Zug fährt gleich.
+free|der Eintritt|Eintritte|вход; плата за вход|Der Preis für den [Eintritt] ist 5 Euro.
+trav|das Einzelzimmer|Einzelzimmer|одноместный номер|Haben Sie noch ein [Einzelzimmer]?
+per|die Eltern|Eltern|родители (мн.ч.)|Meine [Eltern] leben in Spanien.
+serv|die E-Mail|E-Mails|электронное письмо|Ich habe Ihre [E-Mail] nicht bekommen.
+serv|der Empfänger|Empfänger|получатель|Auf dem Brief steht dein Name, also bist du der [Empfänger].
+food|empfehlen||рекомендовать|Welchen Wein können Sie mir [empfehlen]?
+verb|enden||заканчиваться|Die Straße [endet] hier.
+time|das Ende|Enden|конец|Sie wohnt am [Ende] der Straße.
+comm|entschuldigen||извинять|[Entschuldigen] Sie bitte!
+comm|die Entschuldigung|Entschuldigungen|извинение; извините!|[Entschuldigung]! – Bitte.
+gram|er||он|[Er] heißt Ali.
+learn|das Ergebnis|Ergebnisse|результат|Das [Ergebnis] des Tests bekommen Sie in zwei Wochen.
+learn|erklären||объяснять|Kannst du mir das [erklären]?
+verb|erlauben||разрешать|Rauchen ist hier nicht [erlaubt].
+per|der Erwachsene|Erwachsenen|взрослый|Dieser Film ist nur für [Erwachsene].
+comm|erzählen||рассказывать|Wir müssen euch etwas [erzählen]!
+gram|es||оно; (безличное)|[Es] regnet.
+food|essen||есть, кушать|Was gibt es zu [essen]?
+food|das Essen|Essen|еда|Das [Essen] ist heute sehr gut.
+gram|euer||ваш (вас много)|[Euer] Kurs beginnt heute.
+trav|fahren||ехать|Ich [fahre] mit dem Auto zur Arbeit.
+trav|der Fahrer|Fahrer|водитель|Bitte nicht mit dem [Fahrer] sprechen!
+trav|die Fahrkarte|Fahrkarten|проездной билет|Hast du schon eine [Fahrkarte]?
+trav|das Fahrrad|Fahrräder|велосипед|Fährst du mit dem [Fahrrad] oder mit dem Auto?
+adj|falsch||неправильный, неверный|Das ist [falsch].
+per|die Familie|Familien|семья|Meine [Familie] lebt in Spanien.
+per|der Familienname|Familiennamen|фамилия|Meine [Familiennamen] sind García González.
+per|der Familienstand||семейное положение|Bei „[Familienstand]“ musst du „ledig“ ankreuzen.
+meas|die Farbe|Farben|цвет|Die [Farbe] gefällt mir gut.
+serv|das Fax|Faxe|факс|Schicken Sie uns einfach ein [Fax]!
+work|der Feierabend|Feierabende|конец рабочего дня|Um fünf Uhr habe ich [Feierabend].
+time|der Feiertag|Feiertage|праздничный день|Am Montag ist [Feiertag].
+free|feiern||праздновать|Wir [feiern] heute meinen Geburtstag.
+verb|fehlen||отсутствовать, не хватать|Herr Müller [fehlt] schon seit drei Tagen.
+learn|der Fehler|Fehler|ошибка|Diesen [Fehler] mache ich immer.
+free|fernsehen||смотреть телевизор|Wollen wir heute Abend mal [fernsehen]?
+adj|fertig||готовый|Bist du [fertig]?
+home|das Feuer|Feuer|огонь|Haben Sie [Feuer]?
+body|das Fieber||температура (жар)|Mein Mann hat noch immer [Fieber].
+free|der Film|Filme|фильм|Ich möchte gern diesen [Film] sehen.
+verb|finden||находить; считать|Wir müssen den Schlüssel [finden].
+work|die Firma|Firmen|фирма|Er arbeitet jetzt bei einer anderen [Firma].
+food|der Fisch|Fische|рыба|Ich esse gern [Fisch].
+food|die Flasche|Flaschen|бутылка|Eine [Flasche] Bier, bitte.
+food|das Fleisch||мясо|[Fleisch] mag ich nicht.
+trav|fliegen||летать|Ich [fliege] nicht gern.
+trav|abfliegen||вылетать|Wann [fliegst] du ab?
+trav|der Abflug|Abflüge|вылет|Der [Abflug] ist um 11.20 Uhr.
+trav|der Flughafen|Flughäfen|аэропорт|Kannst du mich zum [Flughafen] bringen?
+trav|das Flugzeug|Flugzeuge|самолёт|Das [Flugzeug] aus Berlin kommt heute später an.
+serv|das Formular|Formulare|бланк, анкета|Sie müssen dieses [Formular] ausfüllen.
+free|das Foto|Fotos|фотография|Darf ich ein [Foto] machen?
+comm|fragen||спрашивать|Er möchte Sie etwas [fragen].
+comm|die Frage|Fragen|вопрос|Ich habe eine [Frage].
+per|die Frau|Frauen|женщина; жена; госпожа|Das ist [Frau] Becker.
+adj|frei||свободный|Ist der Platz noch [frei]?
+free|die Freizeit||свободное время|In meiner [Freizeit] spiele ich oft Fußball.
+adj|fremd||чужой, незнакомый|Ich bin [fremd] hier.
+comm|(sich) freuen||радоваться|Ich [freue] mich auf den Urlaub.
+per|der Freund|Freunde|друг|Das ist ein [Freund] von mir.
+time|früher||раньше|[Früher] waren wir oft zusammen im Kino.
+food|frühstücken||завтракать|Am Sonntag [frühstücke] ich gern im Bett.
+food|das Frühstück|Frühstücke|завтрак|Möchtest du ein Ei zum [Frühstück]?
+trav|die Führung|Führungen|экскурсия (с гидом)|Die [Führung] durch das Haus beginnt in 3 Minuten.
+gram|für||для, за|Das ist [für] Sie.
+body|der Fuß|Füße|ступня, нога|Der linke [Fuß] tut mir weh.
+free|der Fußball|Fußbälle|футбол|Spielt ihr gerne [Fußball]?
+home|der Garten|Gärten|сад|Wir haben leider keinen [Garten].
+free|der Gast|Gäste|гость|Am Wochenende haben wir mehrere [Gäste].
+verb|geben||давать; es gibt — есть, имеется|Kannst du mir bitte deinen Kugelschreiber [geben]?
+per|geboren||родился|Ich bin in Zagreb [geboren].
+per|das Geburtsjahr|Geburtsjahre|год рождения|Das [Geburtsjahr] Ihres Sohnes, bitte?
+per|der Geburtsort|Geburtsorte|место рождения|Bitte schreiben Sie Ihren [Geburtsort] auf das Formular.
+per|der Geburtstag|Geburtstage|день рождения|Herzlichen Glückwunsch zum [Geburtstag]!
+verb|gefallen||нравиться|Das [gefällt] mir.
+gram|gegen||против; о (удариться)|Ich bin [gegen] diese Lösung.
+verb|gehen||идти; работать (о вещах)|Ich muss zum Arzt [gehen].
+verb|gehören||принадлежать|Wem [gehört] das?
+serv|das Geld||деньги|Hast du noch [Geld]?
+food|das Gemüse||овощи|[Gemüse] brauchen wir auch noch.
+trav|das Gepäck||багаж|Wollen Sie Ihr [Gepäck] mitnehmen?
+time|gerade||как раз, сейчас|Da kommt er ja [gerade].
+trav|geradeaus||прямо|Gehen Sie immer [geradeaus]!
+adj|gern(e)||охотно, с удовольствием|Ich gehe [gerne] einkaufen.
+shop|das Geschäft|Geschäfte|магазин; дело|Die [Geschäfte] schließen um 18.30 Uhr.
+free|das Geschenk|Geschenke|подарок|Danke für das schöne [Geschenk].
+per|die Geschwister|Geschwister|братья и сёстры (мн.ч.)|Ich habe leider keine [Geschwister].
+comm|das Gespräch|Gespräche|разговор, беседа|Das [Gespräch] mit Frau Kunz ist um 14 Uhr.
+time|gestern||вчера|[Gestern] war ich krank.
+per|gestorben||умер|Meine Frau ist gestern [gestorben].
+food|das Getränk|Getränke|напиток|Mein Lieblings[getränk] ist Tomatensaft.
+per|das Gewicht|Gewichte|вес|Bei „[Gewicht]“ schreibst du: 62 Kilo.
+free|gewinnen||выигрывать|Wer [gewinnt] das Spiel?
+food|das Glas|Gläser|стакан; стекло|Wir brauchen noch drei [Gläser].
+verb|glauben||верить; думать, полагать|Ich [glaube], er kommt gleich.
+adj|gleich||сейчас, сразу; одинаковый|Ich komme [gleich].
+trav|das Gleis|Gleise|путь (ж/д)|Der ICE nach Berlin hält heute an [Gleis] 12.
+comm|das Glück||счастье, удача|Viel [Glück]!
+adj|glücklich||счастливый|Meine Kinder sind [glücklich] verheiratet.
+comm|der Glückwunsch|Glückwünsche|поздравление|Herzlichen [Glückwunsch] zum Geburtstag.
+env|der Grad|Grad|градус|Heute haben wir dreißig [Grad].
+comm|gratulieren||поздравлять|Ich [gratuliere] dir!
+food|grillen||жарить на гриле|Heute [grillen] wir im Garten.
+adj|groß||большой; высокий|Frankfurt ist eine [große] Stadt.
+shop|die Größe|Größen|размер; рост|Haben Sie das auch in [Größe] 40?
+per|die Großeltern|Großeltern|бабушка и дедушка (мн.ч.)|Meine [Großeltern] leben in Japan.
+per|die Großmutter|Großmütter|бабушка|Meine [Großmutter] heißt Eva.
+per|der Großvater|Großväter|дедушка|Mein [Großvater] ist schon 80.
+learn|die Gruppe|Gruppen|группа|Die erste [Gruppe] beginnt um 16 Uhr.
+comm|der Gruß|Grüße|привет, приветствие|Viele [Grüße] an Ihre Frau.
+serv|gültig||действительный (документ)|Der Pass ist nicht mehr [gültig].
+shop|günstig||выгодный, недорогой|Dort gibt es [günstige] Angebote.
+adj|gut||хороший; хорошо|Das finde ich [gut].
+body|das Haar|Haare|волос(ы)|Sie hat lange [Haare].
+verb|haben||иметь|Ich [habe] ein neues Auto.
+food|das Hähnchen|Hähnchen|курица (жареная)|Ein [Hähnchen] mit Pommes bitte!
+trav|die Halbpension||полупансион|Möchten Sie Vollpension oder [Halbpension]?
+trav|die Halle|Hallen|зал, павильон|Wir treffen uns in [Halle] B.
+comm|hallo||привет|[Hallo] Inge! Wie geht's?
+trav|halten||останавливаться; держать|Dieser Zug [hält] nicht in Rüdesheim.
+trav|die Haltestelle|Haltestellen|остановка|An der nächsten [Haltestelle] müssen Sie aussteigen.
+body|die Hand|Hände|рука (кисть)|Er gibt mir die [Hand].
+serv|das Handy|Handys|мобильный телефон|In der Schule bitte die [Handys] ausmachen!
+home|das Haus|Häuser|дом|In welchem [Haus] wohnst du?
+learn|die Hausaufgabe|Hausaufgaben|домашнее задание|Kannst du mir bei den [Hausaufgaben] helfen?
+work|die Hausfrau|Hausfrauen|домохозяйка|Die [Hausfrau] wäscht, kocht und kauft ein.
+work|der Hausmann|Hausmänner|домохозяин|Der [Hausmann] wäscht, kocht und kauft ein.
+per|die Heimat||родина|Das ist meine [Heimat].
+per|heiraten||жениться, выходить замуж|Meine Schwester [heiratet] einen Japaner.
+per|heißen||называться, зваться|Ich [heiße] Charlotte Meier.
+verb|helfen||помогать|Können Sie mir [helfen], bitte?
+adj|hell||светлый|Im Sommer ist es bis 21 Uhr [hell].
+home|der Herd|Herde|плита|In der neuen Küche fehlt noch der [Herd].
+per|der Herr|Herren|господин, мужчина|Guten Tag, [Herr] Sommer!
+comm|herzlich||сердечный|[Herzlichen] Glückwunsch!
+time|heute||сегодня|[Heute] ist ein schöner Tag.
+gram|hier||здесь|[Hier] wohne ich.
+comm|die Hilfe||помощь|Brauchen Sie meine [Hilfe]?
+gram|hinten||сзади|Die Tür zum Aussteigen ist [hinten].
+free|das Hobby|Hobbys|хобби|Meine [Hobbys] sind Wandern und Schwimmen.
+adj|hoch||высокий|Der Mount Everest ist 8.880 Meter [hoch].
+per|die Hochzeit|Hochzeiten|свадьба|Zu dieser [Hochzeit] kommen mehr als fünfzig Gäste.
+verb|holen||приносить, сходить за|Ich [hole] zwei Flaschen Wasser aus der Küche.
+verb|hören||слышать, слушать|Ich habe das Lied schon mal [gehört].
+trav|das Hotel|Hotels|отель|Im Urlaub sind wir in einem [Hotel] am Meer.
+env|der Hund|Hunde|собака|Der [Hund] ist noch jung.
+food|der Hunger||голод|Ich habe [Hunger]!
+gram|ich||я|[Ich] heiße Veronika.
+gram|ihr/ihm/ihn||ей / ему / его|Ruf [ihn] bitte an.
+time|immer||всегда|Frau Bast kommt [immer] zu spät.
+gram|in||в|Ich wohne [in] Wiesbaden.
+trav|die Information|Informationen|информация; справочная|Gehen Sie zur [Information].
+adj|international||международный|Unser Deutschkurs ist [international].
+free|das Internet||интернет|Das findest du im [Internet].
+comm|ja||да|Sind Sie Herr Watanabe? – [Ja].
+shop|die Jacke|Jacken|куртка|Zieh dir eine [Jacke] an. Es ist kalt.
+gram|jed-||каждый|Blumen kannst du in [jedem] Bahnhof kaufen.
+time|jetzt||сейчас|[Jetzt] machen wir eine Pause.
+work|der Job|Jobs|работа, подработка|Jenny hat einen neuen [Job] bei der Post.
+per|der Jugendliche|Jugendlichen|подросток, молодой человек|Viele [Jugendliche] kaufen gern ein.
+adj|jung||молодой|Noch so [jung]?
+per|der Junge|Jungen|мальчик|Einen [Jungen] und ein Mädchen.
+food|der Kaffee|Kaffees|кофе|Zum Frühstück trinke ich immer [Kaffee].
+adj|kaputt||сломанный|Mein Drucker ist [kaputt].
+free|die Karte|Karten|открытка; карта; билет; меню|Wollen wir [Karten] spielen?
+shop|die Kreditkarte|Kreditkarten|кредитная карта|Kann ich auch mit [Kreditkarte] zahlen?
+food|die Kartoffel|Kartoffeln|картофель|Für Pommes frites braucht man [Kartoffeln].
+shop|die Kasse|Kassen|касса|Zahlen Sie bitte an der [Kasse].
+shop|kaufen||покупать|Tim [kauft] sich ein neues Auto.
+gram|kein||никакой, не (с сущ.)|Es gibt [keine] Eintrittskarten mehr.
+verb|kennen||знать (быть знакомым)|[Kennen] Sie diese Frau?
+per|kennenlernen||знакомиться|Wir möchten Sie [kennenlernen].
+per|das Kind|Kinder|ребёнок|Wie viele [Kinder] haben Sie?
+learn|der Kindergarten|Kindergärten|детский сад|Laura geht schon in den [Kindergarten].
+free|das Kino|Kinos|кинотеатр|Wir sehen heute Abend im [Kino] einen Film.
+shop|der Kiosk|Kioske|киоск|Am [Kiosk] bekommen Sie Getränke und Zeitungen.
+comm|klar||ясно, конечно|Kommst du mit? – [Klar]!
+learn|die Klasse|Klassen|класс|In unserer [Klasse] sind fünfundzwanzig Schüler.
+shop|die Kleidung||одежда|Wo finde ich [Kleidung]?
+adj|klein||маленький|Eltville ist eine [kleine] Stadt am Rhein.
+food|kochen||готовить, варить|Herr Georgi kann gut [kochen].
+trav|der Koffer|Koffer|чемодан|Ist das Ihr [Koffer]?
+work|der Kollege|Kollegen|коллега|Wie heißt die neue [Kollegin]?
+verb|kommen||приходить, приезжать|Woher [kommen] Sie?
+verb|können||мочь, уметь|[Können] Sie mir helfen?
+serv|das Konto|Konten|счёт (банковский)|Das Geld überweisen wir auf Ihr [Konto].
+body|der Kopf|Köpfe|голова|Mein [Kopf] tut weh!
+shop|kosten||стоить|Wie viel [kostet] das?
+body|krank||больной|Ich bin [krank] und liege im Bett.
+verb|kriegen||получать (разг.)|Ich [kriege] 15 Euro in der Stunde.
+home|die Küche|Küchen|кухня|Der neue Herd kommt in die [Küche].
+food|der Kuchen|Kuchen|пирог, торт|Ich nehme ein Stück [Kuchen].
+learn|der Kugelschreiber|Kugelschreiber|шариковая ручка|Hast du einen [Kugelschreiber] für mich?
+home|der Kühlschrank|Kühlschränke|холодильник|Haben wir noch Milch? – Ja, im [Kühlschrank].
+free|kulturell||культурный|Ich bin [kulturell] interessiert.
+per|sich kümmern||заботиться|Jede Mutter [kümmert] sich um ihre Kinder.
+shop|der Kunde|Kunden|клиент, покупатель|Ich habe eine [Kundin].
+learn|der Kurs|Kurse|курс|Der Deutsch[kurs] geht bis zum Sommer.
+adj|kurz||короткий|Ricardo hat [kurzes] Haar.
