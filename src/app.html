@@ -128,6 +128,11 @@ h2{font-size:21px}
 .arts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .artbtn{border:2px solid var(--c);color:var(--c);background:var(--surface);border-radius:14px;padding:18px 0;font-family:var(--display);font-size:30px;font-weight:700}
 .artbtn.on{background:var(--c);color:var(--surface)}
+.mine{display:flex;flex-direction:column;gap:2px;padding:4px 2px}
+.mytxt{font-family:var(--display);font-size:30px;font-weight:600;line-height:1.15;overflow-wrap:anywhere}
+.mine.ok .mytxt{color:var(--ok)}
+.mytxt s.wrong{color:var(--bad);text-decoration:line-through 2px}
+.mytxt i.miss{font-style:normal;color:var(--bad);border-bottom:3px solid var(--bad);opacity:.85}
 .fb{border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px}
 .fb.ok{background:var(--ok-bg)} .fb.bad{background:var(--bad-bg)} .fb.mid{background:var(--warn-bg)}
 .fb .v{font-weight:700}
@@ -170,7 +175,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 
 <script>
 const WORDS = /*WORDS*/[];
-const APP_VERSION = "1.0.2";
+const APP_VERSION = "1.0.4";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -294,9 +299,9 @@ function checkDE(w,input,opts={}){
     if(d>tol(nounN))return{g:1,msg:"Неверно"};
     if(!hasArt)return{g:1,msg:`Нужен артикль: ${want}`};
     if(art!==want)return{g:1,msg:`Не тот артикль: правильно ${want}`};
-    if(d>0)return{g:2,msg:"Почти: опечатка"};
+    if(d>0)return{g:2,msg:"опечатка"};
     const restRaw=raw.split(/\s+/).slice(1).join(" ");
-    if(restRaw&&restRaw[0]!==restRaw[0].toUpperCase())return{g:3,msg:"Верно. Существительные пишутся с большой буквы"};
+    if(restRaw&&restRaw[0]!==restRaw[0].toUpperCase())return{g:3,msg:"существительные пишутся с большой буквы"};
     return{g:3,msg:"Верно"};
   }
   const targets=opts.targets||(w.g?[nounPart(w)]:deTargets(w));
@@ -304,7 +309,7 @@ function checkDE(w,input,opts={}){
   for(const t of targets){const tn=norm(t);const d=lev(n,tn);if(d<best){best=d;bt=tn}
     if(t.endsWith("-")&&n.startsWith(norm(t))){best=0;break}}
   if(best===0)return{g:3,msg:"Верно"};
-  if(best<=tol(bt))return{g:2,msg:"Почти: опечатка"};
+  if(best<=tol(bt))return{g:2,msg:"опечатка"};
   return{g:1,msg:"Неверно"};
 }
 function ruOptions(w){return w.ru.replace(/\(.*?\)/g," ").split(/[,;\/]|—/).map(s=>s.trim().toLowerCase().replace(/ё/g,"е").replace(/[!?.«»]/g,"").trim()).filter(Boolean)}
@@ -578,7 +583,7 @@ function exChoice(w){
     btns.forEach(x=>{x.disabled=true;if(opts[+x.dataset.i].id===w.id)x.classList.add("ok")});if(!ok)b.classList.add("bad");
     grade(ok?3:1);$app.querySelector("#fb").innerHTML=feedback({g:ok?3:1,msg:""},w);bindFeedback(w)});
 }
-function typeEx(promptHTML,w,checker,{showUml=true,lang="de",extraTop=""}={}){
+function typeEx(promptHTML,w,checker,{showUml=true,lang="de",extraTop="",target=null}={}){
   shell(`${extraTop}${promptHTML}
   <form class="field" id="f"><input class="inp" id="inp" ${INP_ATTR} lang="${lang}" placeholder="${lang==="de"?"Ответ по-немецки":"Перевод"}" aria-label="Ответ">${showUml?umlautBar():""}
   <div class="row"><button class="btn" type="button" id="bSkip">Не знаю</button><button class="btn main" type="submit">Проверить</button></div></form><div id="fb"></div>`);
@@ -586,7 +591,8 @@ function typeEx(promptHTML,w,checker,{showUml=true,lang="de",extraTop=""}={}){
   const finish=res=>{f.remove();grade(res.g);
     let extra="";
     if(lang==="ru"&&res.g===1&&inp.value.trim())extra=`<button class="btn" id="bOver" type="button">Мой ответ тоже верный</button>`;
-    $app.querySelector("#fb").innerHTML=`<div class="hint">Твой ответ: <b>${esc(inp.value||"—")}</b></div>`+feedback(res,w,extra);bindFeedback(w);
+    const tg=lang==="de"?(target||w.de.replace(/^\(sich\)\s*/,"")):null;
+    $app.querySelector("#fb").innerHTML=`<div class="mine ${res.g===3?"ok":res.g===2?"mid":"bad"}"><span class="label">Твой ответ</span><span class="mytxt">${inp.value.trim()?(tg&&res.g<3?diffHTML(/^(der|die|das)\s/i.test(tg)?inp.value.trim():inp.value.trim().replace(/^(der|die|das)\s+/i,""),tg):esc(inp.value.trim())):"—"}</span></div>`+feedback(res,w,extra);bindFeedback(w);
     const ov=$app.querySelector("#bOver");if(ov)ov.onclick=()=>{undoWrong(w);ov.remove();toast("Засчитано как верно")}};
   f.onsubmit=e=>{e.preventDefault();if(!inp.value.trim())return inp.focus();finish(checker(inp.value))};
   $app.querySelector("#bSkip").onclick=()=>finish({g:1,msg:"Ничего, повторим"});
@@ -598,13 +604,27 @@ function undoWrong(w){
   review(w.id,3);S.right++;S.wrongIds.delete(w.id);
   const i=S.queue.findIndex(q=>q.w.id===w.id&&q.retry);if(i>=0){S.queue.splice(i,1);S.total--}
 }
+/* Подсветка ошибочных букв в ответе (по LCS, без учёта регистра) */
+function diffHTML(a,b){
+  const A=[...a],B=[...b],x=A.map(c=>c.toLowerCase()),y=B.map(c=>c.toLowerCase());
+  const m=A.length,n=B.length,L=Array.from({length:m+1},()=>new Array(n+1).fill(0));
+  for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)L[i][j]=x[i]===y[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+  let i=0,j=0,out="";
+  while(i<m){
+    if(j<n&&x[i]===y[j]){out+=esc(A[i]);i++;j++}
+    else if(j<n&&L[i][j+1]>L[i+1][j]){out+='<i class="miss" aria-label="пропущена буква">'+esc(B[j])+'</i>';j++}
+    else{out+='<s class="wrong">'+esc(A[i])+'</s>';i++}
+  }
+  while(j<n){out+='<i class="miss">'+esc(B[j])+'</i>';j++}
+  return out;
+}
 function exRu2De(w){typeEx(`<div class="prompt ru">${esc(w.ru)}</div>${w.g?`<div class="hint">Существительное: напиши с артиклем</div>`:""}`,w,v=>checkDE(w,v))}
 function exDe2Ru(w){typeEx(`<div style="display:flex;align-items:center;gap:10px;justify-content:space-between"><div class="prompt">${deHTML(w)}</div><button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>`,w,v=>checkRU(w,v),{showUml:false,lang:"ru"});
   $app.querySelectorAll("[data-speak]").forEach(x=>x.onclick=()=>sayWord(w));if(state.settings.autoAudio)sayWord(w)}
 function exCloze(w){
   const t=clozeTarget(w);
   const sent=esc(w.ex).replace(/\[(.+?)\]/,()=>`<span class="gap">${"_".repeat(Math.max(3,Math.min(10,t.length)))}</span>`);
-  typeEx(`<div class="cloze">${sent}</div><div class="hint">Подсказка: ${esc(w.ru)} · начинается на «${esc(t[0])}»</div>`,w,v=>checkDE(w,v,{noArticle:true,targets:[t]}));
+  typeEx(`<div class="cloze">${sent}</div><div class="hint">Подсказка: ${esc(w.ru)} · начинается на «${esc(t[0])}»</div>`,w,v=>checkDE(w,v,{noArticle:true,targets:[t]}),{target:t});
 }
 function exDict(w){
   typeEx(`<button class="speak big-speak" id="bPlay" aria-label="Прослушать ещё раз">${ICON.sound}</button><div class="hint" style="text-align:center">Нажми, чтобы прослушать ещё раз${w.g?" · пиши с артиклем":""}</div>${deVoice?"":`<div class="warnbox">Немецкий голос не найден. На Pixel: Настройки → Система → Языки → Синтез речи → Google → установить «Deutsch».</div>`}`,w,v=>checkDE(w,v));
@@ -621,7 +641,7 @@ function exArticle(w){
 }
 function exPlural(w){
   typeEx(`<div class="prompt">${deHTML(w)}</div><div class="hint">${esc(w.ru)} · напиши форму множественного числа (die …)</div>`,w,
-    v=>checkDE(w,v.replace(/^\s*die\s+/i,""),{noArticle:true,targets:[w.pl]}));
+    v=>checkDE(w,v.replace(/^\s*die\s+/i,""),{noArticle:true,targets:[w.pl]}),{target:w.pl});
 }
 
 /* ---------- Match game ---------- */
@@ -721,6 +741,16 @@ function renderSettings(){
 document.addEventListener("keydown",e=>{if(e.key==="Enter"){const b=document.getElementById("bNext");if(b&&document.activeElement!==b&&!document.getElementById("inp")){e.preventDefault();b.click()}}});
 (async()=>{
   await loadState(); renderHome();
-  if("serviceWorker" in navigator&&document.querySelector('link[rel="manifest"]')){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+  if("serviceWorker" in navigator&&IS_PWA){
+    const had=!!navigator.serviceWorker.controller;
+    navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>{try{r.update()}catch(e){}}).catch(()=>{});
+    let reloaded=false;
+    navigator.serviceWorker.addEventListener("controllerchange",()=>{
+      if(!had||reloaded)return; reloaded=true; save(true);
+      // обновляемся сразу, только если человек не в середине тренировки
+      if(!S){toast("Приложение обновлено");setTimeout(()=>location.reload(),600)}
+      else toast("Доступна новая версия — откроется при следующем запуске");
+    });
+  }
 })();
 </script>
