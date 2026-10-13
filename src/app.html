@@ -170,7 +170,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 
 <script>
 const WORDS = /*WORDS*/[];
-const APP_VERSION = "1.0.1";
+const APP_VERSION = "1.0.2";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -193,7 +193,7 @@ const ALIASES = {};
 /* ---------- Storage (IndexedDB + localStorage mirror, schema versioned) ---------- */
 const SCHEMA = 1;
 const LS_KEY = "a1trainer.state";
-const DEFAULT_SETTINGS = {sessionLen:20,newPerSession:8,goal:30,autoAudio:true,order:"smart"};
+const DEFAULT_SETTINGS = {sessionLen:20,newPerSession:8,goal:30,autoAudio:true,order:"smart",cardFront:"de"};
 function freshState(){return {v:SCHEMA,cards:{},log:{},settings:{...DEFAULT_SETTINGS},scope:"all",savedAt:0}}
 const MIGRATIONS = { /* 2: s => { ...; return s } */ };
 function migrate(s){
@@ -517,7 +517,7 @@ const INP_ATTR='autocomplete="off" autocorrect="off" autocapitalize="off" spellc
 
 /* Flashcard (Quizlet-like) */
 function exFlash(w){
-  const reverse = Math.random()<0.5 && S.mode!=="learn";
+  const cf=state.settings.cardFront; const reverse = cf==="ru" || (cf==="mix" && Math.random()<0.5);
   const front = reverse?`<div class="prompt ru">${esc(w.ru)}</div>`:`<div class="prompt">${deHTML(w)}</div>${w.pl?`<div class="hint">die ${esc(w.pl)}</div>`:""}`;
   const back = `<div class="prompt" style="font-size:34px">${deHTML(w)}</div>${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div style="font-size:19px;font-weight:600">${esc(w.ru)}</div>${w.ex?`<div class="exs">${exHTML(w)}</div>`:""}<button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button>`;
   const gc=w.g?`var(--${{m:"der",f:"die",n:"das",p:"pl"}[w.g]})`:"var(--line)";
@@ -679,6 +679,7 @@ function renderSettings(){
     <div class="setrow"><label for="sLen">Слов в раунде</label>${sel("sLen",[10,15,20,30,40],st.sessionLen)}</div>
     <div class="setrow"><label for="sNew">Новых слов в «Учить»</label>${sel("sNew",[3,5,8,10,15,20],st.newPerSession)}</div>
     <div class="setrow"><label for="sGoal">Цель ответов в день</label>${sel("sGoal",[20,30,50,80,120],st.goal)}</div>
+    <div class="setrow"><label for="sFront">Лицевая сторона карточки</label><select id="sFront">${[["de","Немецкий"],["ru","Русский"],["mix","Вперемешку"]].map(([v,t])=>`<option value="${v}" ${st.cardFront===v?"selected":""}>${t}</option>`).join("")}</select></div>
     <div class="setrow"><label for="sAudio">Автоматически озвучивать</label><input type="checkbox" id="sAudio" ${st.autoAudio?"checked":""} style="width:22px;height:22px"></div>
     <div class="setrow"><span>Немецкий голос</span><button class="btn" id="bTest">${deVoice?esc(deVoice.name.slice(0,22)):"Проверить"}</button></div>
     ${deVoice?"":`<div class="note">Если звука нет: Настройки телефона → Система → Языки → Синтез речи → Google → скачать «Deutsch». Работает без интернета.</div>`}
@@ -700,6 +701,7 @@ function renderSettings(){
   q("#sLen").onchange=e=>{st.sessionLen=+e.target.value;save()};
   q("#sNew").onchange=e=>{st.newPerSession=+e.target.value;save()};
   q("#sGoal").onchange=e=>{st.goal=+e.target.value;save()};
+  q("#sFront").onchange=e=>{st.cardFront=e.target.value;save()};
   q("#sAudio").onchange=e=>{st.autoAudio=e.target.checked;save()};
   q("#bTest").onclick=()=>{pickVoice();speak("Guten Tag! Ich lerne Deutsch.");if(!deVoice)toast("Немецкий голос не найден, используется голос по умолчанию")};
   const dump=()=>JSON.stringify({app:"a1trainer",exported:new Date().toISOString(),state},null,0);
