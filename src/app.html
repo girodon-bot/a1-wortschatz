@@ -98,7 +98,10 @@ h2{font-size:21px}
 .hint{color:var(--muted);font-size:14px}
 .g-m{color:var(--der)} .g-f{color:var(--die)} .g-n{color:var(--das)} .g-p{color:var(--pl)}
 .art{font-weight:700}
-.card{position:relative;min-height:300px;perspective:1200px;touch-action:pan-y;user-select:none}
+.card{position:relative;min-height:300px;perspective:1200px;touch-action:none;user-select:none;-webkit-user-select:none}
+.card .face{touch-action:none}
+.card.swipe-r .face{box-shadow:0 0 0 3px var(--ok)}
+.card.swipe-l .face{box-shadow:0 0 0 3px var(--bad)}
 .card .inner{position:absolute;inset:0;transition:transform .45s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
 .card.flip .inner{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:12px;overflow:auto}
@@ -167,7 +170,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 
 <script>
 const WORDS = /*WORDS*/[];
-const APP_VERSION = "1.0.0";
+const APP_VERSION = "1.0.1";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -533,13 +536,17 @@ function exFlash(w){
   card.onkeydown=e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();flip()}};
   $app.querySelectorAll("[data-speak]").forEach(x=>x.onclick=e=>{e.stopPropagation();sayWord(w)});
   grades.querySelectorAll("[data-g]").forEach(b=>b.onclick=()=>doGrade(+b.dataset.g));
-  const drag={x:0,dx:0,on:false,moved:false};
-  card.onpointerdown=e=>{drag.on=true;drag.x=e.clientX;drag.dx=0;drag.moved=false};
-  card.onpointermove=e=>{if(!drag.on)return;drag.dx=e.clientX-drag.x;if(Math.abs(drag.dx)>8)drag.moved=true;card.style.transform=`translateX(${drag.dx}px) rotate(${drag.dx/25}deg)`};
-  const end=()=>{if(!drag.on)return;drag.on=false;const dx=drag.dx;card.style.transform="";
-    if(Math.abs(dx)>90){card.style.transition="transform .2s";card.style.transform=`translateX(${dx>0?500:-500}px)`;setTimeout(()=>doGrade(dx>0?3:1),180)}
+  const drag={x:0,y:0,dx:0,on:false,moved:false,id:null};
+  const TH=70;
+  card.onpointerdown=e=>{drag.on=true;drag.id=e.pointerId;drag.x=e.clientX;drag.y=e.clientY;drag.dx=0;drag.moved=false;card.style.transition="none";try{card.setPointerCapture(e.pointerId)}catch(_){}};
+  card.onpointermove=e=>{if(!drag.on||e.pointerId!==drag.id)return;drag.dx=e.clientX-drag.x;if(Math.abs(drag.dx)>8)drag.moved=true;
+    card.style.transform=`translateX(${drag.dx}px) rotate(${drag.dx/25}deg)`;
+    card.classList.toggle("swipe-r",drag.dx>TH);card.classList.toggle("swipe-l",drag.dx<-TH)};
+  const end=e=>{if(!drag.on||(e&&e.pointerId!==drag.id))return;drag.on=false;const dx=drag.dx;card.style.transition="transform .2s";card.classList.remove("swipe-r","swipe-l");
+    if(Math.abs(dx)>TH){card.style.transform=`translateX(${dx>0?600:-600}px) rotate(${dx/10}deg)`;setTimeout(()=>doGrade(dx>0?3:1),170)}
+    else card.style.transform="";
     setTimeout(()=>drag.moved=false,30)};
-  card.onpointerup=end;card.onpointercancel=end;card.onpointerleave=end;
+  card.onpointerup=end;card.onpointercancel=end;
   card.focus({preventScroll:true});
 }
 /* New word intro → потом проверка выбором */
