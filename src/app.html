@@ -175,7 +175,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 
 <script>
 const WORDS = /*WORDS*/[];
-const APP_VERSION = "1.0.4";
+const APP_VERSION = "1.0.5";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -194,6 +194,9 @@ const SEC = Object.fromEntries(SECTIONS.map(s=>[s.id,s]));
 const BYID = Object.fromEntries(WORDS.map(w=>[w.id,w]));
 /* Если в будущей версии слово переименуют — старый id сюда, прогресс переедет */
 const ALIASES = {};
+/* Синонимы из списка Goethe, которые тоже засчитываются */
+const ALT = {"der Samstag":["der Sonnabend"],"der Frühling":["das Frühjahr"]};
+const altLine=w=>ALT[w.id]?`<div class="hint">также: ${ALT[w.id].map(a=>esc(a)).join(", ")}</div>`:"";
 
 /* ---------- Storage (IndexedDB + localStorage mirror, schema versioned) ---------- */
 const SCHEMA = 1;
@@ -288,6 +291,10 @@ function deTargets(w){
 }
 /* grade: 3 верно, 2 почти, 1 неверно */
 function checkDE(w,input,opts={}){
+  if(ALT[w.id]&&!opts.noAlt&&!opts.targets){
+    const cands=[w,...ALT[w.id].map(de=>{const a=de.split(" ")[0];return{...w,de,g:{der:"m",die:"f",das:"n"}[a]||""}})];
+    return cands.map(c=>checkDE(c,input,{...opts,noAlt:true})).sort((a,b)=>(b.g-a.g)||((/артикль/.test(b.msg)?1:0)-(/артикль/.test(a.msg)?1:0)))[0];
+  }
   const raw=input.trim(); if(!raw)return{g:1,msg:"Пустой ответ"};
   const n=norm(raw);
   if(w.g&&!opts.noArticle){
@@ -506,7 +513,7 @@ function feedback(res,w,extra=""){
   const cls=res.g===3?"ok":res.g===2?"mid":"bad";
   const v=res.g===3?"Верно":res.g===2?"Почти":"Неверно";
   return `<div class="fb ${cls}" role="status"><div class="v">${v}${res.msg&&res.msg!==v?" · "+esc(res.msg):""}</div>
-  <div style="display:flex;align-items:center;gap:10px;justify-content:space-between"><div style="min-width:0"><div class="ans">${deHTML(w)}</div>${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div>${esc(w.ru)}</div></div>
+  <div style="display:flex;align-items:center;gap:10px;justify-content:space-between"><div style="min-width:0"><div class="ans">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div>${esc(w.ru)}</div></div>
   <button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>
   ${w.ex?`<div class="exs">${exHTML(w)}</div>`:""}${extra}</div>
   <button class="btn main wide" id="bNext">Дальше</button>`;
@@ -524,7 +531,7 @@ const INP_ATTR='autocomplete="off" autocorrect="off" autocapitalize="off" spellc
 function exFlash(w){
   const cf=state.settings.cardFront; const reverse = cf==="ru" || (cf==="mix" && Math.random()<0.5);
   const front = reverse?`<div class="prompt ru">${esc(w.ru)}</div>`:`<div class="prompt">${deHTML(w)}</div>${w.pl?`<div class="hint">die ${esc(w.pl)}</div>`:""}`;
-  const back = `<div class="prompt" style="font-size:34px">${deHTML(w)}</div>${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div style="font-size:19px;font-weight:600">${esc(w.ru)}</div>${w.ex?`<div class="exs">${exHTML(w)}</div>`:""}<button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button>`;
+  const back = `<div class="prompt" style="font-size:34px">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div style="font-size:19px;font-weight:600">${esc(w.ru)}</div>${w.ex?`<div class="exs">${exHTML(w)}</div>`:""}<button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button>`;
   const gc=w.g?`var(--${{m:"der",f:"die",n:"das",p:"pl"}[w.g]})`:"var(--line)";
   shell(`<div class="card" id="card" tabindex="0" aria-label="Карточка, нажмите чтобы перевернуть"><div class="inner">
     <div class="face"><div class="stripe" style="--c:${reverse?"var(--line)":gc}"></div>${front}<div class="tapnote">Нажми, чтобы перевернуть · свайп ← не знаю, → знаю</div></div>
@@ -557,7 +564,7 @@ function exFlash(w){
 /* New word intro → потом проверка выбором */
 function exIntro(w){
   shell(`<div class="panel" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
-    <div style="display:flex;justify-content:space-between;width:100%;gap:10px;align-items:center"><div class="prompt">${deHTML(w)}</div><button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>
+    <div style="display:flex;justify-content:space-between;width:100%;gap:10px;align-items:center"><div class="prompt">${deHTML(w)}</div><button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>${altLine(w)}
     ${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}
     <div style="font-size:20px;font-weight:600">${esc(w.ru)}</div>${w.ex?`<div class="exs">${exHTML(w)}</div>`:""}
     ${w.g&&w.g!=="p"?`<div class="note">Запоминай слово вместе с артиклем и цветом: <span class="g-m art">der</span> · <span class="g-f art">die</span> · <span class="g-n art">das</span></div>`:""}
