@@ -8,7 +8,7 @@
   --bg:#F2F4F7; --surface:#FFFFFF; --sunk:#E8ECF1; --ink:#17202B; --muted:#5B6676; --line:#D7DDE5;
   --accent:#F4B400; --accent-ink:#1C1500; --focus:#2563C9;
   --ok:#1E8A5A; --ok-bg:#E2F3EA; --bad:#C2352B; --bad-bg:#FBE6E3; --warn:#9A6400; --warn-bg:#FBF0D6;
-  --der:#2161C4; --die:#C8364F; --das:#1E8A5A; --pl:#7449B8;
+  --der:#2161C4; --sepc:#C2560C; --die:#C8364F; --das:#1E8A5A; --pl:#7449B8;
   --lv-new:#C9D0DA; --lv-learn:#F4B400; --lv-firm:#5AA9E6; --lv-known:#1E8A5A;
   --display:"Barlow Condensed","Roboto Condensed","Arial Narrow",sans-serif;
   --body:"Source Sans 3","Roboto",system-ui,-apple-system,sans-serif;
@@ -18,13 +18,13 @@
   --bg:#0F131A; --surface:#181E27; --sunk:#222A35; --ink:#E7EBF1; --muted:#9AA5B4; --line:#2A3340;
   --accent:#F4B400; --accent-ink:#1C1500; --focus:#7FA8F2;
   --ok:#3DBB82; --ok-bg:#16332A; --bad:#F26B5E; --bad-bg:#3A1E1E; --warn:#F0B84A; --warn-bg:#3A2E14;
-  --der:#76A6F5; --die:#F2738A; --das:#4CC48C; --pl:#B392EE;
+  --der:#76A6F5; --sepc:#F59E4B; --die:#F2738A; --das:#4CC48C; --pl:#B392EE;
   --lv-new:#38424F; --lv-learn:#F4B400; --lv-firm:#5AA9E6; --lv-known:#3DBB82; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0F131A; --surface:#181E27; --sunk:#222A35; --ink:#E7EBF1; --muted:#9AA5B4; --line:#2A3340;
   --accent:#F4B400; --accent-ink:#1C1500; --focus:#7FA8F2;
   --ok:#3DBB82; --ok-bg:#16332A; --bad:#F26B5E; --bad-bg:#3A1E1E; --warn:#F0B84A; --warn-bg:#3A2E14;
-  --der:#76A6F5; --die:#F2738A; --das:#4CC48C; --pl:#B392EE;
+  --der:#76A6F5; --sepc:#F59E4B; --die:#F2738A; --das:#4CC48C; --pl:#B392EE;
   --lv-new:#38424F; --lv-learn:#F4B400; --lv-firm:#5AA9E6; --lv-known:#3DBB82; color-scheme:dark}
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -100,6 +100,7 @@ h2{font-size:21px}
 .prompt{font-family:var(--display);font-size:clamp(30px,9vw,42px);font-weight:600;line-height:1.1;text-wrap:balance;overflow-wrap:anywhere}
 .prompt.ru{font-family:var(--body);font-weight:600;font-size:clamp(24px,7vw,32px)}
 .hint{color:var(--muted);font-size:14px}
+.sep{color:var(--sepc);font-weight:700}
 .g-m{color:var(--der)} .g-f{color:var(--die)} .g-n{color:var(--das)} .g-p{color:var(--pl)}
 .art{font-weight:700}
 .card{position:relative;min-height:300px;perspective:1200px;touch-action:none;user-select:none;-webkit-user-select:none}
@@ -181,7 +182,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 
 <script>
 const WORDS = /*WORDS*/[];
-const APP_VERSION = "1.0.7";
+const APP_VERSION = "1.0.8";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -277,8 +278,25 @@ function streak(){let n=0;const d=new Date();if(!(state.log[todayKey(d)]>=10))d.
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ARTS={m:"der",f:"die",n:"das",p:"die"};
 function nounPart(w){return w.g?w.de.slice(w.de.indexOf(" ")+1):w.de}
-function deHTML(w){if(!w.g)return esc(w.de);return `<span class="art g-${w.g}">${ARTS[w.g]}</span> ${esc(nounPart(w))}`}
-function exHTML(w){return esc(w.ex||"").replace(/\[(.+?)\]/g,"<mark>$1</mark>")}
+/* Отделяемые приставки: глагол → приставка */
+const SEP={"abfahren":"ab","abgeben":"ab","abholen":"ab","abfliegen":"ab","anbieten":"an","anfangen":"an","anklicken":"an","ankommen":"an","ankreuzen":"an","anmachen":"an","(sich) anmelden":"an","anrufen":"an","(sich) anziehen":"an","aufhören":"auf","aufstehen":"auf","ausfüllen":"aus","ausmachen":"aus","aussehen":"aus","aussteigen":"aus","(sich) ausziehen":"aus","einkaufen":"ein","einladen":"ein","einsteigen":"ein","fernsehen":"fern","kennenlernen":"kennen","mitbringen":"mit","mitkommen":"mit","mitmachen":"mit","mitnehmen":"mit","umziehen":"um","(sich) vorstellen":"vor","weh tun":"weh"};
+const sepSpan=t=>`<span class="sep">${t}</span>`;
+function sepWord(w){const p=SEP[w.id];if(!p)return null;
+  const m=w.de.match(/^(\(sich\) )?(.*)$/);const v=m[2];
+  if(v.startsWith(p+" "))return esc(m[1]||"")+sepSpan(esc(p))+esc(v.slice(p.length));
+  return esc(m[1]||"")+sepSpan(esc(p))+esc(v.slice(p.length));}
+/* В примере: приставка внутри выделенного слова (abholen) или отдельным словом после глагола (macht … mit) */
+function sepSentence(w,html){const p=SEP[w.id];if(!p)return html;
+  const i=html.indexOf("</mark>");if(i<0)return html;
+  let head=html.slice(0,i),tail=html.slice(i);
+  const mk=head.lastIndexOf("<mark>");const inner=head.slice(mk+6);
+  if(inner.toLowerCase().startsWith(p)&&inner.length>p.length+2){head=head.slice(0,mk+6)+sepSpan(inner.slice(0,p.length))+inner.slice(p.length);return head+tail}
+  const re=new RegExp("(^|[\\s(])("+p+")(?=[\\s.,!?;:)]|$)","gi");let last=null,mm;
+  while((mm=re.exec(tail))){last=mm}
+  if(last){const at=last.index+last[1].length;tail=tail.slice(0,at)+sepSpan(last[2])+tail.slice(at+last[2].length)}
+  return head+tail;}
+function deHTML(w){if(!w.g){const s=sepWord(w);return s||esc(w.de)}return `<span class="art g-${w.g}">${ARTS[w.g]}</span> ${esc(nounPart(w))}`}
+function exHTML(w){return sepSentence(w,esc(w.ex||"").replace(/\[(.+?)\]/g,"<mark>$1</mark>"))}
 function exBlock(w){return w.ex?`<div class="exwrap"><div class="exs">${exHTML(w)}</div>${w.exr?`<div class="exr">${esc(w.exr)}</div>`:""}</div>`:""}
 function translit(s){return s.replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss")}
 function norm(s){return translit(String(s).toLowerCase().replace(/[.,!?;:„“"'’‘()–—]/g," ").replace(/-$/,"").replace(/\s+/g," ").trim())}
@@ -638,7 +656,7 @@ function exDe2Ru(w){typeEx(`<div style="display:flex;align-items:center;gap:10px
   $app.querySelectorAll("[data-speak]").forEach(x=>x.onclick=()=>sayWord(w));if(state.settings.autoAudio)sayWord(w)}
 function exCloze(w){
   const t=clozeTarget(w);
-  const sent=esc(w.ex).replace(/\[(.+?)\]/,()=>`<span class="gap">${"_".repeat(Math.max(3,Math.min(10,t.length)))}</span>`);
+  const sent=sepSentence(w,esc(w.ex).replace(/\[(.+?)\]/,()=>`<mark class="gapm"><span class="gap">${"_".repeat(Math.max(3,Math.min(10,t.length)))}</span></mark>`)).replace(/<mark class="gapm">(.*?)<\/mark>/,"$1");
   typeEx(`<div class="cloze">${sent}</div><div class="hint">Подсказка: ${esc(w.ru)} · начинается на «${esc(t[0])}»</div>`,w,v=>checkDE(w,v,{noArticle:true,targets:[t]}),{target:t});
 }
 function exDict(w){
