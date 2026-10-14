@@ -1,0 +1,545 @@
+# id|иконка Phosphor (duotone). Слова без строки показываются без картинки.
+# Для цветов: circle:#RRGGBB — кружок этого цвета.
+abfahren|train-regional
+die Abfahrt|train-regional
+abgeben|hand-deposit
+abholen|hand-grabbing
+der Absender|paper-plane-tilt
+Achtung|warning-octagon
+die Adresse|map-pin
+allein|person-simple
+das Alter|hourglass
+anbieten|hand-heart
+das Angebot|seal-percent
+anfangen|play
+der Anfang|play
+anklicken|cursor-click
+ankommen|sign-in
+die Ankunft|sign-in
+ankreuzen|check-square
+anmachen|toggle-right
+(sich) anmelden|user-plus
+die Anmeldung|user-plus
+die Anrede|hand-waving
+anrufen|phone-outgoing
+der Anruf|phone-incoming
+der Anrufbeantworter|voicemail
+die Ansage|megaphone
+an sein|lightbulb
+antworten|chat-teardrop-text
+die Antwort|chat-teardrop-text
+die Anzeige|newspaper-clipping
+(sich) anziehen|t-shirt
+das Apartment|building-apartment
+der Appetit|fork-knife
+arbeiten|briefcase
+die Arbeit|briefcase
+der Arbeitsplatz|desk
+der Arzt|stethoscope
+die Aufgabe|clipboard-text
+aufhören|stop
+auf sein|lock-simple-open
+aufstehen|alarm
+der Aufzug|elevator
+das Auge|eye
+der Ausflug|bus
+ausfüllen|note-pencil
+der Ausgang|sign-out
+die Auskunft|info
+das Ausland|globe-hemisphere-east
+ausmachen|toggle-left
+die Aussage|quotes
+aussehen|user-focus
+aus sein|power
+aussteigen|arrow-square-out
+der Ausweis|identification-card
+(sich) ausziehen|coat-hanger
+das Auto|car
+die Autobahn|road-horizon
+automatisch|gear
+das Baby|baby
+die Bäckerei|bread
+das Bad|bathtub
+baden|bathtub
+die Bahn|train-simple
+der Bahnhof|train
+der Bahnsteig|train-regional
+bald|clock-countdown
+die Bank|bank
+bar|money
+der Baum|tree
+der Beamte|identification-badge
+bedeuten|translate
+beginnen|play
+bekannt|star
+der Bekannte|user
+bekommen|hand-arrow-down
+benutzen|hand-tap
+der Beruf|briefcase-metal
+besetzt|prohibit
+besichtigen|binoculars
+besser|trend-up
+best-|medal
+bestellen|note
+besuchen|map-pin-line
+das Bett|bed
+bezahlen|hand-coins
+das Bier|beer-stein
+das Bild|image
+billig|seal-percent
+bitte|hands-praying
+die Bitte|hands-praying
+bitten|hands-praying
+der Bleistift|pencil
+der Blick|mountains
+die Blume|flower
+der Bogen|file
+böse|smiley-angry
+breit|arrows-horizontal
+der Brief|envelope
+die Briefmarke|stamp
+bringen|package
+das Brot|bread
+das Brötchen|bread
+das Buch|book
+der Buchstabe|text-aa
+buchstabieren|text-aa
+der Bus|bus
+das Café|coffee
+die CD|disc
+der Chef|crown-simple
+circa|approximate-equals
+der Computer|desktop
+die Dame|gender-female
+danken|hands-clapping
+der Dank|hands-clapping
+danke|hands-clapping
+das Datum|calendar
+dauern|timer
+die Disco|disco-ball
+der Doktor|first-aid
+das Doppelzimmer|bed
+das Dorf|barn
+draußen|park
+drucken|printer
+der Drucker|printer
+drücken|hand-pointing
+die Durchsage|megaphone-simple
+dürfen|check-circle
+der Durst|drop-half-bottom
+(sich) duschen|shower
+die Dusche|shower
+das Ei|egg
+eilig|lightning
+der Eingang|door
+einkaufen|shopping-cart
+einladen|envelope-simple-open
+die Einladung|envelope-simple-open
+einmal|number-one
+einsteigen|arrow-square-in
+der Eintritt|ticket
+das Einzelzimmer|bed
+die Eltern|users
+die E-Mail|at
+der Empfänger|tray-arrow-down
+empfehlen|star-four
+enden|flag-checkered
+das Ende|flag-checkered
+entschuldigen|smiley-nervous
+die Entschuldigung|smiley-nervous
+das Ergebnis|chart-bar
+erklären|presentation
+erlauben|seal-check
+der Erwachsene|user
+erzählen|chat-dots
+essen|fork-knife
+das Essen|bowl-food
+fahren|steering-wheel
+der Fahrer|steering-wheel
+die Fahrkarte|ticket
+das Fahrrad|bicycle
+falsch|x-circle
+die Familie|users-three
+der Familienname|user-rectangle
+die Farbe|palette
+das Fax|printer
+der Feierabend|clock-afternoon
+der Feiertag|calendar-star
+feiern|confetti
+der Fehler|warning-circle
+fernsehen|television
+fertig|check-fat
+das Feuer|fire
+das Fieber|thermometer-hot
+der Film|film-strip
+die Firma|building-office
+der Fisch|fish
+die Flasche|beer-bottle
+fliegen|airplane-in-flight
+abfliegen|airplane-takeoff
+der Abflug|airplane-takeoff
+der Flughafen|air-traffic-control
+das Flugzeug|airplane
+das Formular|clipboard
+das Foto|camera
+fragen|question
+die Frage|question
+die Frau|gender-female
+frei|seat
+die Freizeit|beach-ball
+(sich) freuen|smiley
+der Freund|handshake
+früher|clock-counter-clockwise
+frühstücken|bowl-steam
+das Frühstück|bowl-steam
+die Führung|flag-pennant
+der Fuß|footprints
+der Fußball|soccer-ball
+der Garten|plant
+der Gast|user-circle
+geben|hand-arrow-up
+geboren|baby
+das Geburtsjahr|calendar
+der Geburtsort|map-pin
+der Geburtstag|cake
+gefallen|heart-straight
+gehen|person-simple-walk
+das Geld|coins
+das Gemüse|carrot
+das Gepäck|suitcase-rolling
+geradeaus|arrow-up
+das Geschäft|storefront
+das Geschenk|gift
+das Gespräch|chats
+gestern|calendar-minus
+das Getränk|brandy
+das Gewicht|scales
+gewinnen|trophy
+das Glas|pint-glass
+das Gleis|train-regional
+das Glück|clover
+glücklich|smiley
+der Glückwunsch|balloon
+der Grad|thermometer
+gratulieren|balloon
+grillen|campfire
+groß|arrows-out
+die Größe|ruler
+die Gruppe|users-four
+der Gruß|hand-waving
+gültig|certificate
+günstig|seal-percent
+gut|thumbs-up
+die Halle|warehouse
+hallo|hand-waving
+die Haltestelle|signpost
+die Hand|hand
+das Handy|device-mobile
+das Haus|house
+die Hausaufgabe|notebook
+die Hausfrau|broom
+der Hausmann|broom
+die Heimat|house-line
+helfen|lifebuoy
+hell|sun-dim
+der Herd|oven
+der Herr|gender-male
+herzlich|heart
+heute|calendar-dot
+hier|map-pin-simple
+das Hobby|puzzle-piece
+hoch|arrow-fat-up
+die Hochzeit|champagne
+holen|hand-grabbing
+hören|ear
+das Hotel|building
+der Hund|dog
+der Hunger|hamburger
+die Information|info
+international|globe
+das Internet|wifi-high
+ja|check
+die Jacke|hoodie
+jetzt|clock
+der Job|briefcase
+der Kaffee|coffee
+kaputt|x-square
+die Karte|cards
+die Kreditkarte|credit-card
+die Kasse|cash-register
+kaufen|shopping-bag
+kennenlernen|handshake
+das Kind|person-simple
+der Kindergarten|lego-smiley
+das Kino|popcorn
+der Kiosk|newspaper-clipping
+klar|check
+die Klasse|chalkboard
+die Kleidung|dress
+klein|arrows-in
+kochen|cooking-pot
+der Koffer|suitcase
+der Kollege|user-list
+das Konto|piggy-bank
+kosten|currency-eur
+krank|pill
+kriegen|hand-arrow-down
+die Küche|chef-hat
+der Kuchen|cake
+der Kugelschreiber|pen
+der Kühlschrank|thermometer-cold
+kulturell|mask-happy
+sich kümmern|hand-heart
+der Kunde|user-check
+der Kurs|student
+lachen|smiley
+der Laden|storefront
+das Land|map-trifold
+lang|arrows-out-line-horizontal
+lange|hourglass-high
+laufen|person-simple-run
+laut|speaker-high
+leben|heartbeat
+das Leben|heartbeat
+die Lebensmittel|basket
+ledig|user
+der Lehrer|chalkboard-teacher
+leicht|feather
+leider|smiley-sad
+leise|speaker-low
+lernen|book-open
+lesen|book-open-text
+die Leute|users
+das Licht|lightbulb
+lieben|heart
+Lieblings-|star
+das Lied|music-notes
+links|arrow-left
+der Lkw|truck
+das Lokal|picnic-table
+die Lösung|lightbulb-filament
+lustig|smiley-wink
+der Mann|gender-male
+männlich|gender-male
+die Maschine|washing-machine
+das Meer|waves
+mehr|plus
+der Mensch|person
+mieten|key-return
+die Miete|invoice
+mitbringen|package
+mitnehmen|tote
+die Mitte|crosshair
+die Möbel|armchair
+der Moment|hourglass-medium
+morgen|calendar-plus
+müde|moon
+der Name|tag-simple
+nehmen|hand-grabbing
+nein|x
+neu|sparkle
+nichts|empty
+die Nummer|hash
+oben|arrow-line-up
+das Obst|orange
+öffnen|door-open
+geöffnet|lock-open
+oft|repeat
+ohne|minus-circle
+das Öl|jar
+der Ort|map-pin-area
+das Papier|note-blank
+die Papiere|files
+die Party|cheers
+der Pass|identification-card
+die Pause|pause
+der Plan|blueprint
+der Platz|seat
+die Polizei|police-car
+die Post|mailbox
+die Postleitzahl|map-pin-simple-area
+die Praxis|hospital
+der Preis|tag
+das Problem|warning-diamond
+der Prospekt|article
+die Prüfung|exam
+pünktlich|clock-user
+Rad fahren|person-simple-bike
+rauchen|cigarette
+die Rechnung|receipt
+rechts|arrow-right
+regnen|cloud-rain
+der Regen|cloud-rain
+der Reis|grains
+reisen|globe-stand
+die Reise|globe-stand
+das Reisebüro|airplane-tilt
+der Reiseführer|book-bookmark
+reparieren|wrench
+die Reparatur|wrench
+das Restaurant|fork-knife
+die Rezeption|call-bell
+richtig|check-circle
+der Saft|orange-slice
+sagen|chat
+der Salat|leaf
+der Satz|text-align-left
+die S-Bahn|train-simple
+scheinen|sun
+schicken|paper-plane-right
+das Schild|traffic-sign
+schlafen|bed
+schlecht|thumbs-down
+schließen|lock
+geschlossen|lock-simple
+der Schluss|flag-checkered
+der Schlüssel|key
+schnell|speedometer
+schön|flower-lotus
+der Schrank|dresser
+schreiben|pencil-line
+der Schuh|sneaker
+die Schule|backpack
+der Schüler|student
+schwer|barbell
+schwimmen|person-simple-swim
+das Schwimmbad|swimming-pool
+der See|sailboat
+sehen|eye
+die Sehenswürdigkeit|castle-turret
+zu sein|lock
+sitzen|chair
+das Sofa|couch
+die Sonne|sun
+spät|hourglass-low
+später|clock-clockwise
+die Speisekarte|list-bullets
+spielen|dice-five
+der Sport|basketball
+die Sprache|chat-centered-text
+sprechen|microphone
+die Stadt|city
+der Stock|stack
+die Straße|path
+die Straßenbahn|tram
+studieren|graduation-cap
+das Studium|graduation-cap
+der Student|graduation-cap
+die Stunde|clock
+suchen|magnifying-glass
+tanzen|person-arms-spread
+die Tasche|handbag
+das Taxi|taxi
+der Tee|tea-bag
+der Teil|chart-pie-slice
+telefonieren|phone
+das Telefon|phone
+der Termin|calendar-check
+der Test|list-checks
+teuer|diamond
+der Text|file-text
+das Ticket|ticket
+der Tisch|table
+die Toilette|toilet
+die Treppe|stairs
+trinken|pint-glass
+tschüss|hand-waving
+übernachten|tent
+überweisen|arrows-left-right
+die Uhr|watch
+umziehen|van
+unten|arrow-down
+unter|arrow-line-down
+der Unterricht|chalkboard-simple
+unterschreiben|signature
+die Unterschrift|signature
+der Urlaub|tree-palm
+verboten|prohibit-inset
+verdienen|money-wavy
+der Verein|flag-banner
+vermieten|house-line
+der Vermieter|house-line
+verstehen|brain
+der Verwandte|users
+der Vorname|user-rectangle
+die Vorsicht|warning
+(sich) vorstellen|user-sound
+die Vorwahl|phone-list
+wandern|person-simple-hike
+warten|hourglass-simple
+(sich) waschen|hand-soap
+das Wasser|drop
+weh tun|bandaids
+weiblich|gender-female
+der Wein|wine
+die Welt|globe-hemisphere-west
+wenig|minus
+das Wetter|cloud-sun
+wichtig|exclamation-mark
+wiederholen|arrows-clockwise
+auf Wiederhören|phone-disconnect
+auf Wiedersehen|hand-waving
+der Wind|wind
+wohnen|house-simple
+die Wohnung|building-apartment
+das Wort|text-t
+wunderbar|star
+zahlen|hand-coins
+die Zeit|clock
+die Zeitung|newspaper
+die Zigarette|cigarette
+das Zimmer|door
+zufrieden|smiley
+der Zug|train
+zurück|arrow-u-up-left
+null|number-zero
+eins|number-one
+zwei|number-two
+drei|number-three
+vier|number-four
+fünf|number-five
+sechs|number-six
+sieben|number-seven
+acht|number-eight
+neun|number-nine
+halb|circle-half
+das Viertel|chart-pie-slice
+die Sekunde|timer
+die Minute|clock-countdown
+der Tag|sun
+die Woche|calendar
+der Monat|calendar-blank
+das Jahr|calendar-dots
+der Morgen|sun-horizon
+der Mittag|sun
+der Abend|cloud-moon
+die Nacht|moon-stars
+der Frühling|flower-tulip
+der Sommer|sun
+der Herbst|leaf
+der Winter|snowflake
+der Euro|currency-eur
+der Cent|coin
+der Meter|ruler
+der Zentimeter|ruler
+der Kilometer|ruler
+der Quadratmeter|square
+das Prozent|percent
+der Liter|drop
+das Gramm|scales
+das Pfund|scales
+das Kilo|scales
+Deutschland|flag
+Europa|globe-simple
+schwarz|circle:#1F2328
+weiß|circle:#FFFFFF
+grau|circle:#9AA3AE
+rot|circle:#D33A2C
+blau|circle:#2F6FDE
+gelb|circle:#F2C200
+grün|circle:#2E9D5B
+braun|circle:#8B5A2B
+der Norden|compass-rose
+der Süden|compass-rose
+der Westen|compass-rose
+der Osten|compass-rose

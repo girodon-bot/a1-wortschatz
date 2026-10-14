@@ -8,7 +8,7 @@
   --bg:#F2F4F7; --surface:#FFFFFF; --sunk:#E8ECF1; --ink:#17202B; --muted:#5B6676; --line:#D7DDE5;
   --accent:#F4B400; --accent-ink:#1C1500; --focus:#2563C9;
   --ok:#1E8A5A; --ok-bg:#E2F3EA; --bad:#C2352B; --bad-bg:#FBE6E3; --warn:#9A6400; --warn-bg:#FBF0D6;
-  --der:#2161C4; --sepc:#C2560C; --die:#C8364F; --das:#1E8A5A; --pl:#7449B8;
+  --der:#2161C4; --sepc:#C2560C; --icon:#4A5668; --die:#C8364F; --das:#1E8A5A; --pl:#7449B8;
   --lv-new:#C9D0DA; --lv-learn:#F4B400; --lv-firm:#5AA9E6; --lv-known:#1E8A5A;
   --display:"Barlow Condensed","Roboto Condensed","Arial Narrow",sans-serif;
   --body:"Source Sans 3","Roboto",system-ui,-apple-system,sans-serif;
@@ -18,13 +18,13 @@
   --bg:#0F131A; --surface:#181E27; --sunk:#222A35; --ink:#E7EBF1; --muted:#9AA5B4; --line:#2A3340;
   --accent:#F4B400; --accent-ink:#1C1500; --focus:#7FA8F2;
   --ok:#3DBB82; --ok-bg:#16332A; --bad:#F26B5E; --bad-bg:#3A1E1E; --warn:#F0B84A; --warn-bg:#3A2E14;
-  --der:#76A6F5; --sepc:#F59E4B; --die:#F2738A; --das:#4CC48C; --pl:#B392EE;
+  --der:#76A6F5; --sepc:#F59E4B; --icon:#AEB8C6; --die:#F2738A; --das:#4CC48C; --pl:#B392EE;
   --lv-new:#38424F; --lv-learn:#F4B400; --lv-firm:#5AA9E6; --lv-known:#3DBB82; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0F131A; --surface:#181E27; --sunk:#222A35; --ink:#E7EBF1; --muted:#9AA5B4; --line:#2A3340;
   --accent:#F4B400; --accent-ink:#1C1500; --focus:#7FA8F2;
   --ok:#3DBB82; --ok-bg:#16332A; --bad:#F26B5E; --bad-bg:#3A1E1E; --warn:#F0B84A; --warn-bg:#3A2E14;
-  --der:#76A6F5; --sepc:#F59E4B; --die:#F2738A; --das:#4CC48C; --pl:#B392EE;
+  --der:#76A6F5; --sepc:#F59E4B; --icon:#AEB8C6; --die:#F2738A; --das:#4CC48C; --pl:#B392EE;
   --lv-new:#38424F; --lv-learn:#F4B400; --lv-firm:#5AA9E6; --lv-known:#3DBB82; color-scheme:dark}
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -161,7 +161,9 @@ h2{font-size:21px}
 .result{text-align:center;display:flex;flex-direction:column;gap:14px;align-items:stretch}
 .result .score{font-family:var(--display);font-size:56px;font-weight:700;line-height:1}
 .wlist{display:flex;flex-direction:column}
-.witem{display:grid;grid-template-columns:10px 1fr auto;gap:10px;align-items:center;padding:10px 2px;border-bottom:1px solid var(--line);background:none;border-left:0;border-right:0;border-top:0;text-align:left;width:100%}
+.witem{display:grid;grid-template-columns:10px 26px 1fr auto;gap:10px;align-items:center;padding:10px 2px;border-bottom:1px solid var(--line);background:none;border-left:0;border-right:0;border-top:0;text-align:left;width:100%}
+.witem .wi{width:26px;height:26px;display:grid;place-items:center}
+.wic{flex:none;display:block}
 .witem .dot{width:10px;height:10px;border-radius:50%;background:var(--c)}
 .witem .d{min-width:0}
 .witem .d b{display:block;font-weight:600;overflow-wrap:anywhere}
@@ -182,7 +184,8 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 
 <script>
 const WORDS = /*WORDS*/[];
-const APP_VERSION = "1.0.8";
+const ICONS = /*ICONS*/{};
+const APP_VERSION = "1.0.9";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -203,12 +206,22 @@ const BYID = Object.fromEntries(WORDS.map(w=>[w.id,w]));
 const ALIASES = {};
 /* Синонимы из списка Goethe, которые тоже засчитываются */
 const ALT = {"der Samstag":["der Sonnabend"],"der Frühling":["das Frühjahr"]};
+/* Иконка слова (Phosphor duotone, MIT). neutral=true — без цвета рода, чтобы не подсказывать артикль */
+const GC={m:"var(--der)",f:"var(--die)",n:"var(--das)",p:"var(--pl)"};
+function icHTML(w,size,neutral){
+  if(!state.settings.icons||!w.ic)return "";
+  const [n,hex]=w.ic.split(":");
+  if(n==="circle"&&hex)return `<svg class="wic" width="${size}" height="${size}" viewBox="0 0 256 256" aria-hidden="true"><circle cx="128" cy="128" r="92" fill="${hex}" stroke="var(--line)" stroke-width="10"/></svg>`;
+  const body=ICONS[n];if(!body)return "";
+  const c=(!neutral&&w.g)?GC[w.g]:"var(--icon)";
+  return `<svg class="wic" width="${size}" height="${size}" viewBox="0 0 256 256" fill="currentColor" style="color:${c}" aria-hidden="true">${body}</svg>`;
+}
 const altLine=w=>ALT[w.id]?`<div class="hint">также: ${ALT[w.id].map(a=>esc(a)).join(", ")}</div>`:"";
 
 /* ---------- Storage (IndexedDB + localStorage mirror, schema versioned) ---------- */
 const SCHEMA = 1;
 const LS_KEY = "a1trainer.state";
-const DEFAULT_SETTINGS = {sessionLen:20,newPerSession:8,goal:30,autoAudio:true,order:"smart",cardFront:"de"};
+const DEFAULT_SETTINGS = {sessionLen:20,newPerSession:8,goal:30,autoAudio:true,order:"smart",cardFront:"de",icons:true};
 function freshState(){return {v:SCHEMA,cards:{},log:{},settings:{...DEFAULT_SETTINGS},scope:"all",savedAt:0}}
 const MIGRATIONS = { /* 2: s => { ...; return s } */ };
 function migrate(s){
@@ -460,7 +473,7 @@ function renderList(){
   <div class="legend">${Object.keys(LV_RU).map(k=>`<span style="--c:${LV_C[k]}">${LV_RU[k]}</span>`).join("")}</div>
   <div class="wlist">${list.map(w=>{const c=state.cards[w.id],lv=level(w.id);
     const meta=c&&c.reps?(c.due<=Date.now()?"повторить сейчас":"через "+fmtIn(c.due-Date.now())):"";
-    return `<button class="witem" data-say="${esc(w.id)}"><span class="dot" style="--c:${LV_C[lv]}"></span><span class="d"><b>${deHTML(w)}${w.pl?` <span class="g-p" style="font-weight:400">· die ${esc(w.pl)}</span>`:""}</b><span>${esc(w.ru)}</span></span><span class="m">${meta}</span></button>`}).join("")}</div>`;
+    return `<button class="witem" data-say="${esc(w.id)}"><span class="dot" style="--c:${LV_C[lv]}"></span><span class="wi">${icHTML(w,26)}</span><span class="d"><b>${deHTML(w)}${w.pl?` <span class="g-p" style="font-weight:400">· die ${esc(w.pl)}</span>`:""}</b><span>${esc(w.ru)}</span></span><span class="m">${meta}</span></button>`}).join("")}</div>`;
   $app.querySelector("#bBack").onclick=renderHome;
   $app.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>sayWord(BYID[b.dataset.say]));
   window.scrollTo(0,0);
@@ -539,7 +552,7 @@ function feedback(res,w,extra=""){
   const cls=res.g===3?"ok":res.g===2?"mid":"bad";
   const v=res.g===3?"Верно":res.g===2?"Почти":"Неверно";
   return `<div class="fb ${cls}" role="status"><div class="v">${v}${res.msg&&res.msg!==v?" · "+esc(res.msg):""}</div>
-  <div style="display:flex;align-items:center;gap:10px;justify-content:space-between"><div style="min-width:0"><div class="ans">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div>${esc(w.ru)}</div></div>
+  <div style="display:flex;align-items:center;gap:12px;justify-content:space-between">${icHTML(w,52)}<div style="min-width:0;flex:1"><div class="ans">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div>${esc(w.ru)}</div></div>
   <button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>
   ${exBlock(w)}${extra}</div>
   <button class="btn main wide" id="bNext">Дальше</button>`;
@@ -556,8 +569,8 @@ const INP_ATTR='autocomplete="off" autocorrect="off" autocapitalize="off" spellc
 /* Flashcard (Quizlet-like) */
 function exFlash(w){
   const cf=state.settings.cardFront; const reverse = cf==="ru" || (cf==="mix" && Math.random()<0.5);
-  const front = reverse?`<div class="prompt ru">${esc(w.ru)}</div>`:`<div class="prompt">${deHTML(w)}</div>${w.pl?`<div class="hint">die ${esc(w.pl)}</div>`:""}`;
-  const back = `<div class="prompt" style="font-size:34px">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div style="font-size:19px;font-weight:600">${esc(w.ru)}</div>${exBlock(w)}<button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button>`;
+  const front = reverse?`${icHTML(w,64,true)}<div class="prompt ru">${esc(w.ru)}</div>`:`${icHTML(w,72)}<div class="prompt">${deHTML(w)}</div>${w.pl?`<div class="hint">die ${esc(w.pl)}</div>`:""}`;
+  const back = `${icHTML(w,56)}<div class="prompt" style="font-size:34px">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div style="font-size:19px;font-weight:600">${esc(w.ru)}</div>${exBlock(w)}<button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button>`;
   const gc=w.g?`var(--${{m:"der",f:"die",n:"das",p:"pl"}[w.g]})`:"var(--line)";
   shell(`<div class="card" id="card" tabindex="0" aria-label="Карточка, нажмите чтобы перевернуть"><div class="inner">
     <div class="face"><div class="stripe" style="--c:${reverse?"var(--line)":gc}"></div>${front}<div class="tapnote">Нажми, чтобы перевернуть · свайп ← не знаю, → знаю</div></div>
@@ -590,7 +603,7 @@ function exFlash(w){
 /* New word intro → потом проверка выбором */
 function exIntro(w){
   shell(`<div class="panel" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
-    <div style="display:flex;justify-content:space-between;width:100%;gap:10px;align-items:center"><div class="prompt">${deHTML(w)}</div><button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>${altLine(w)}
+    ${icHTML(w,72)}<div style="display:flex;justify-content:space-between;width:100%;gap:10px;align-items:center"><div class="prompt">${deHTML(w)}</div><button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>${altLine(w)}
     ${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}
     <div style="font-size:20px;font-weight:600">${esc(w.ru)}</div>${exBlock(w)}
     ${w.g&&w.g!=="p"?`<div class="note">Запоминай слово вместе с артиклем и цветом: <span class="g-m art">der</span> · <span class="g-f art">die</span> · <span class="g-n art">das</span></div>`:""}
@@ -651,7 +664,7 @@ function diffHTML(a,b){
   while(j<n){out+='<i class="miss">'+esc(B[j])+'</i>';j++}
   return out;
 }
-function exRu2De(w){typeEx(`<div class="prompt ru">${esc(w.ru)}</div>${w.g?`<div class="hint">Существительное: напиши с артиклем</div>`:""}`,w,v=>checkDE(w,v))}
+function exRu2De(w){typeEx(`${icHTML(w,64,true)}<div class="prompt ru">${esc(w.ru)}</div>${w.g?`<div class="hint">Существительное: напиши с артиклем</div>`:""}`,w,v=>checkDE(w,v))}
 function exDe2Ru(w){typeEx(`<div style="display:flex;align-items:center;gap:10px;justify-content:space-between"><div class="prompt">${deHTML(w)}</div><button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>`,w,v=>checkRU(w,v),{showUml:false,lang:"ru"});
   $app.querySelectorAll("[data-speak]").forEach(x=>x.onclick=()=>sayWord(w));if(state.settings.autoAudio)sayWord(w)}
 function exCloze(w){
@@ -714,7 +727,7 @@ function renderResult(){
   $app.innerHTML=`<div class="result">
     <div class="label" style="margin-top:12px">Раунд завершён · ${esc(scopeName(state.scope))}</div>
     <div class="score num">${answered}</div><div class="sub">ответов за ${mins} мин · без ошибок ${S.right}</div>
-    ${wrong.length?`<div class="panel" style="text-align:left"><div class="label" style="margin-bottom:6px">Ошибки — вернутся скоро</div><div class="wlist">${wrong.map(w=>`<button class="witem" data-say="${esc(w.id)}"><span class="dot" style="--c:var(--bad)"></span><span class="d"><b>${deHTML(w)}</b><span>${esc(w.ru)}</span></span><span class="m"></span></button>`).join("")}</div></div>`:`<div class="panel">Ни одной ошибки. Отлично!</div>`}
+    ${wrong.length?`<div class="panel" style="text-align:left"><div class="label" style="margin-bottom:6px">Ошибки — вернутся скоро</div><div class="wlist">${wrong.map(w=>`<button class="witem" data-say="${esc(w.id)}"><span class="dot" style="--c:var(--bad)"></span><span class="wi">${icHTML(w,26)}</span><span class="d"><b>${deHTML(w)}</b><span>${esc(w.ru)}</span></span><span class="m"></span></button>`).join("")}</div></div>`:`<div class="panel">Ни одной ошибки. Отлично!</div>`}
     <div class="row"><button class="btn" id="bHome">На главную</button><button class="btn main" id="bAgain">Ещё раунд</button></div></div>`;
   const mode=S.mode;
   $app.querySelector("#bHome").onclick=renderHome;
@@ -733,6 +746,7 @@ function renderSettings(){
     <div class="setrow"><label for="sNew">Новых слов в «Учить»</label>${sel("sNew",[3,5,8,10,15,20],st.newPerSession)}</div>
     <div class="setrow"><label for="sGoal">Цель ответов в день</label>${sel("sGoal",[20,30,50,80,120],st.goal)}</div>
     <div class="setrow"><label for="sFront">Лицевая сторона карточки</label><select id="sFront">${[["de","Немецкий"],["ru","Русский"],["mix","Вперемешку"]].map(([v,t])=>`<option value="${v}" ${st.cardFront===v?"selected":""}>${t}</option>`).join("")}</select></div>
+    <div class="setrow"><label for="sIcons">Картинки к словам</label><input type="checkbox" id="sIcons" ${st.icons?"checked":""} style="width:22px;height:22px"></div>
     <div class="setrow"><label for="sAudio">Автоматически озвучивать</label><input type="checkbox" id="sAudio" ${st.autoAudio?"checked":""} style="width:22px;height:22px"></div>
     <div class="setrow"><span>Немецкий голос</span><button class="btn" id="bTest">${deVoice?esc(deVoice.name.slice(0,22)):"Проверить"}</button></div>
     ${deVoice?"":`<div class="note">Если звука нет: Настройки телефона → Система → Языки → Синтез речи → Google → скачать «Deutsch». Работает без интернета.</div>`}
@@ -748,13 +762,14 @@ function renderSettings(){
     <button class="btn" id="bReset">Стереть весь прогресс</button>
     <div id="resetConfirm" hidden class="warnbox">Это удалит историю всех слов. <div class="row" style="margin-top:8px"><button class="btn" id="bNo">Отмена</button><button class="btn main" id="bYes">Да, стереть</button></div></div>
   </section>
-  <p class="note">Версия ${APP_VERSION} · слов в базе: ${WORDS.length} · алгоритм интервальных повторений FSRS-5</p>`;
+  <p class="note">Версия ${APP_VERSION} · слов в базе: ${WORDS.length} · алгоритм интервальных повторений FSRS-5 · иконки Phosphor Icons (MIT)</p>`;
   const q=s=>$app.querySelector(s);
   q("#bBack").onclick=renderHome;
   q("#sLen").onchange=e=>{st.sessionLen=+e.target.value;save()};
   q("#sNew").onchange=e=>{st.newPerSession=+e.target.value;save()};
   q("#sGoal").onchange=e=>{st.goal=+e.target.value;save()};
   q("#sFront").onchange=e=>{st.cardFront=e.target.value;save()};
+  q("#sIcons").onchange=e=>{st.icons=e.target.checked;save()};
   q("#sAudio").onchange=e=>{st.autoAudio=e.target.checked;save()};
   q("#bTest").onclick=()=>{pickVoice();speak("Guten Tag! Ich lerne Deutsch.");if(!deVoice)toast("Немецкий голос не найден, используется голос по умолчанию")};
   const dump=()=>JSON.stringify({app:"a1trainer",exported:new Date().toISOString(),state},null,0);

@@ -22,10 +22,31 @@ for r in rows:
     if r['ex']:
         assert r['id'] in exr, 'нет перевода примера: '+r['id']
         r['exr']=exr[r['id']]
+# иконки: data/icons.txt «id|имя» → svg из vendor/phosphor (MIT)
+import os
+icmap={}
+for l in open('data/icons.txt',encoding='utf-8'):
+    l=l.rstrip('\n')
+    if l and not l.startswith('#'):
+        k,v=l.split('|'); icmap[k]=v
+icons={}
+def rnd(m):
+    return ('%.1f'%float(m.group(0))).rstrip('0').rstrip('.')
+for r in rows:
+    v=icmap.get(r['id'])
+    if not v: continue
+    r['ic']=v
+    n=v.split(':')[0]
+    if n=='circle' and ':' in v: continue
+    if n not in icons:
+        svg=open(f'vendor/phosphor/{n}.svg',encoding='utf-8').read()
+        inner=re.sub(r'^<svg[^>]*>|</svg>\s*$','',svg.strip())
+        inner=re.sub(r'-?\d+\.\d{2,}',rnd,inner)
+        icons[n]=inner
 dup=[k for k,v in collections.Counter(r['id'] for r in rows).items() if v>1]
 assert not dup, dup
 words=json.dumps(rows,ensure_ascii=False,separators=(',',':'))
-src=open('src/app.html',encoding='utf-8').read().replace('/*WORDS*/[]',words)
+src=open('src/app.html',encoding='utf-8').read().replace('/*WORDS*/[]',words).replace('/*ICONS*/{}',json.dumps(icons,ensure_ascii=False,separators=(',',':')))
 ver=hashlib.sha1(src.encode()).hexdigest()[:8]
 head='''<!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -67,4 +88,4 @@ self.addEventListener("fetch",e=>{{
 }});
 ''')
 
-print(len(rows),'words, cache',ver)
+print(len(rows),'words,',len(icons),'icons,',len(src)//1024,'KB, cache',ver)
