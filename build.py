@@ -39,7 +39,8 @@ for r in rows:
     n=v.split(':')[0]
     if n=='circle' and ':' in v: continue
     if n not in icons:
-        svg=open(f'vendor/phosphor/{n}.svg',encoding='utf-8').read()
+        path=f'vendor/custom/{n[3:]}.svg' if n.startswith('my-') else f'vendor/phosphor/{n}.svg'
+        svg=open(path,encoding='utf-8').read()
         inner=re.sub(r'^<svg[^>]*>|</svg>\s*$','',svg.strip())
         inner=re.sub(r'-?\d+\.\d{2,}',rnd,inner)
         icons[n]=inner
