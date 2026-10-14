@@ -11,6 +11,17 @@ for f in ['data/data_a_k.txt','data/data_l_z.txt','data/data_groups.txt']:
             g={'der':'m','die':'f','das':'n'}[art]
             if art=='die' and '(мн.ч.)' in ru: g='p'
         rows.append(dict(id=de,de=de,g=g,pl=pl,ru=ru,s=s,ex=ex))
+# переводы примеров: data/ex_ru_*.txt, строки «id|перевод»
+import glob
+exr={}
+for f in sorted(glob.glob('data/ex_ru_*.txt')):
+    for l in open(f,encoding='utf-8'):
+        if l.strip():
+            k,v=l.rstrip('\n').split('|',1); exr[k]=v
+for r in rows:
+    if r['ex']:
+        assert r['id'] in exr, 'нет перевода примера: '+r['id']
+        r['exr']=exr[r['id']]
 dup=[k for k,v in collections.Counter(r['id'] for r in rows).items() if v>1]
 assert not dup, dup
 words=json.dumps(rows,ensure_ascii=False,separators=(',',':'))

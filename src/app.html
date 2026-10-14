@@ -138,7 +138,9 @@ h2{font-size:21px}
 .fb .v{font-weight:700}
 .fb.ok .v{color:var(--ok)} .fb.bad .v{color:var(--bad)} .fb.mid .v{color:var(--warn)}
 .ans{font-family:var(--display);font-size:28px;font-weight:600;line-height:1.1}
+.exwrap{display:flex;flex-direction:column;gap:3px}
 .exs{font-size:15px;color:var(--muted)}
+.exr{font-size:14px;color:var(--muted);font-style:italic;opacity:.9}
 .exs mark{background:transparent;color:var(--ink);font-weight:700;border-bottom:2px solid var(--accent)}
 .cloze{font-size:21px;line-height:1.5}
 .gap{display:inline-block;min-width:4ch;border-bottom:2px solid var(--accent);color:var(--muted)}
@@ -175,7 +177,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 
 <script>
 const WORDS = /*WORDS*/[];
-const APP_VERSION = "1.0.5";
+const APP_VERSION = "1.0.6";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -273,6 +275,7 @@ const ARTS={m:"der",f:"die",n:"das",p:"die"};
 function nounPart(w){return w.g?w.de.slice(w.de.indexOf(" ")+1):w.de}
 function deHTML(w){if(!w.g)return esc(w.de);return `<span class="art g-${w.g}">${ARTS[w.g]}</span> ${esc(nounPart(w))}`}
 function exHTML(w){return esc(w.ex||"").replace(/\[(.+?)\]/g,"<mark>$1</mark>")}
+function exBlock(w){return w.ex?`<div class="exwrap"><div class="exs">${exHTML(w)}</div>${w.exr?`<div class="exr">${esc(w.exr)}</div>`:""}</div>`:""}
 function translit(s){return s.replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss")}
 function norm(s){return translit(String(s).toLowerCase().replace(/[.,!?;:„“"'’‘()–—]/g," ").replace(/-$/,"").replace(/\s+/g," ").trim())}
 function lev(a,b){if(a===b)return 0;const m=a.length,n=b.length;if(!m||!n)return m||n;let p=Array.from({length:n+1},(_,i)=>i);
@@ -515,7 +518,7 @@ function feedback(res,w,extra=""){
   return `<div class="fb ${cls}" role="status"><div class="v">${v}${res.msg&&res.msg!==v?" · "+esc(res.msg):""}</div>
   <div style="display:flex;align-items:center;gap:10px;justify-content:space-between"><div style="min-width:0"><div class="ans">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div>${esc(w.ru)}</div></div>
   <button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>
-  ${w.ex?`<div class="exs">${exHTML(w)}</div>`:""}${extra}</div>
+  ${exBlock(w)}${extra}</div>
   <button class="btn main wide" id="bNext">Дальше</button>`;
 }
 function bindFeedback(w){
@@ -531,7 +534,7 @@ const INP_ATTR='autocomplete="off" autocorrect="off" autocapitalize="off" spellc
 function exFlash(w){
   const cf=state.settings.cardFront; const reverse = cf==="ru" || (cf==="mix" && Math.random()<0.5);
   const front = reverse?`<div class="prompt ru">${esc(w.ru)}</div>`:`<div class="prompt">${deHTML(w)}</div>${w.pl?`<div class="hint">die ${esc(w.pl)}</div>`:""}`;
-  const back = `<div class="prompt" style="font-size:34px">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div style="font-size:19px;font-weight:600">${esc(w.ru)}</div>${w.ex?`<div class="exs">${exHTML(w)}</div>`:""}<button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button>`;
+  const back = `<div class="prompt" style="font-size:34px">${deHTML(w)}</div>${altLine(w)}${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}<div style="font-size:19px;font-weight:600">${esc(w.ru)}</div>${exBlock(w)}<button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button>`;
   const gc=w.g?`var(--${{m:"der",f:"die",n:"das",p:"pl"}[w.g]})`:"var(--line)";
   shell(`<div class="card" id="card" tabindex="0" aria-label="Карточка, нажмите чтобы перевернуть"><div class="inner">
     <div class="face"><div class="stripe" style="--c:${reverse?"var(--line)":gc}"></div>${front}<div class="tapnote">Нажми, чтобы перевернуть · свайп ← не знаю, → знаю</div></div>
@@ -566,7 +569,7 @@ function exIntro(w){
   shell(`<div class="panel" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
     <div style="display:flex;justify-content:space-between;width:100%;gap:10px;align-items:center"><div class="prompt">${deHTML(w)}</div><button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>${altLine(w)}
     ${w.pl?`<div class="hint">мн. ч.: <span class="g-p">die ${esc(w.pl)}</span></div>`:""}
-    <div style="font-size:20px;font-weight:600">${esc(w.ru)}</div>${w.ex?`<div class="exs">${exHTML(w)}</div>`:""}
+    <div style="font-size:20px;font-weight:600">${esc(w.ru)}</div>${exBlock(w)}
     ${w.g&&w.g!=="p"?`<div class="note">Запоминай слово вместе с артиклем и цветом: <span class="g-m art">der</span> · <span class="g-f art">die</span> · <span class="g-n art">das</span></div>`:""}
     </div><button class="btn main wide" id="bNext">Запомнил, проверь меня</button>`);
   $app.querySelectorAll("[data-speak]").forEach(x=>x.onclick=()=>sayWord(w));
