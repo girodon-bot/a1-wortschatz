@@ -53,6 +53,10 @@ h2{font-size:21px}
 .ring .trk{stroke:var(--sunk)} .ring .val{stroke:var(--accent);stroke-linecap:round;transition:stroke-dashoffset .5s}
 .ringwrap{position:relative;width:84px;height:84px}
 .ringtxt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:700;font-size:22px;line-height:1}
+.ringcol{display:flex;flex-direction:column;align-items:center;gap:6px}
+.ringcap{font-size:11px;color:var(--muted);text-align:center;line-height:1.2;max-width:84px}
+.ringwrap.done .ring .val{stroke:var(--ok)}
+.ringwrap.done .ringtxt small{color:var(--ok);font-weight:700}
 .ringtxt small{display:block;font-family:var(--body);font-weight:400;font-size:11px;color:var(--muted)}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .kpi b{display:block;font-family:var(--display);font-size:26px;line-height:1.05}
@@ -177,7 +181,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 
 <script>
 const WORDS = /*WORDS*/[];
-const APP_VERSION = "1.0.6";
+const APP_VERSION = "1.0.7";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -387,15 +391,16 @@ function renderHome(){
     <button class="iconbtn" id="bSet" aria-label="Настройки и резервная копия">${ICON.gear}</button>
   </header>
   <section class="panel today">
-    <div class="ringwrap"><svg class="ring" viewBox="0 0 84 84" aria-hidden="true"><circle class="trk" cx="42" cy="42" r="36"/><circle class="val" cx="42" cy="42" r="36" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-frac)}" transform="rotate(-90 42 42)"/></svg>
-      <div class="ringtxt num">${today}<small>из ${goal}</small></div></div>
+    <div class="ringcol"><div class="ringwrap${today>=goal?" done":""}" role="img" aria-label="Сегодня ответов: ${today}, цель ${goal}"><svg class="ring" viewBox="0 0 84 84" aria-hidden="true"><circle class="trk" cx="42" cy="42" r="36"/><circle class="val" cx="42" cy="42" r="36" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-frac)}" transform="rotate(-90 42 42)"/></svg>
+      <div class="ringtxt num">${today}<small>${today>=goal?"цель ✓":"из "+goal}</small></div></div>
+      <div class="ringcap">ответов сегодня</div></div>
     <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
       <div class="kpis">
         <div class="kpi"><b class="num">${all.known}</b><span>выучено</span></div>
         <div class="kpi"><b class="num">${all.due}</b><span>повторить</span></div>
         <div class="kpi"><b class="num">${streak()}</b><span>дней подряд</span></div>
       </div>
-      <div>${barHTML(all,total)}<div class="legend"><span style="--c:var(--lv-known)">выучено ${all.known}</span><span style="--c:var(--lv-firm)">закрепляю ${all.firm}</span><span style="--c:var(--lv-learn)">учу ${all.learn}</span><span style="--c:var(--lv-new)">новые ${all.new}</span></div></div>
+      <div>${barHTML(all,total)}<div class="legend"><span style="--c:var(--lv-known)">выучено ${all.known}</span><span style="--c:var(--lv-firm)">закрепляю ${all.firm}</span><span style="--c:var(--lv-learn)">учу ${all.learn}</span><span style="--c:var(--lv-new)">новые ${all.new}</span></div>${all.known===0&&(all.learn+all.firm)>0?`<div class="note" style="margin-top:6px">«Выучено» — когда слово верно вспомнено с интервалом от 3 недель. Первые появятся после нескольких повторений в разные дни.</div>`:""}</div>
     </div>
   </section>
 
