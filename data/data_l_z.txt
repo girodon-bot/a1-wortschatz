@@ -64,7 +64,7 @@ per|die Mutter|Mütter|мать|Frau Berghäuser ist die [Mutter] von Michaela.
 gram|nach||после; в (страну, город); домой|Ich fliege [nach] München.
 adj|nächst-||следующий, ближайший|Sehen wir uns [nächste] Woche?
 per|der Name|Namen|имя, фамилия|Mein [Name] ist Thomas Schmidt.
-verb|nehmen||брать|Ich [nehme] den Bus.
+verb|nehmen||брать; принимать (лекарство)|Ich [nehme] den Bus.
 comm|nein||нет|[Nein], ich habe keine Zeit.
 adj|neu||новый|Wir haben eine [neue] Wohnung.
 gram|nicht||не|Das stimmt [nicht].

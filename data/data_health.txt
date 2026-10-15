@@ -1,0 +1,42 @@
+health|gesund||здоровый|Obst und Gemüse sind [gesund].
+health|schwach||слабый|Ich fühle mich heute sehr [schwach].
+health|der Husten||кашель|Ich habe seit drei Tagen [Husten].
+health|der Schnupfen||насморк|Mein Sohn hat [Schnupfen] und bleibt zu Hause.
+health|die Erkältung|Erkältungen|простуда|Ich habe eine [Erkältung] und kann nicht arbeiten.
+health|die Schmerzen||боли (мн.ч.)|Haben Sie [Schmerzen]?
+health|die Kopfschmerzen||головная боль (мн.ч.)|Ich habe [Kopfschmerzen] und nehme eine Tablette.
+health|die Halsschmerzen||боль в горле (мн.ч.)|Bei [Halsschmerzen] trinke ich Tee mit Honig.
+health|die Bauchschmerzen||боль в животе (мн.ч.)|Das Kind hat [Bauchschmerzen].
+health|die Zahnschmerzen||зубная боль (мн.ч.)|Ich habe [Zahnschmerzen] und kann nicht essen.
+health|die Rückenschmerzen||боль в спине (мн.ч.)|Nach der Arbeit habe ich oft [Rückenschmerzen].
+health|die Arztpraxis|Arztpraxen|кабинет врача, врачебная практика|Die [Arztpraxis] ist im ersten Stock.
+health|das Krankenhaus|Krankenhäuser|больница|Meine Oma liegt im [Krankenhaus].
+health|die Apotheke|Apotheken|аптека|Die [Apotheke] ist am Sonntag geschlossen.
+health|das Wartezimmer|Wartezimmer|зал ожидания (у врача)|Bitte warten Sie im [Wartezimmer].
+health|der Patient|Patienten|пациент|Der [Patient] wartet schon eine Stunde.
+health|das Rezept|Rezepte|рецепт (от врача)|Für dieses Medikament brauchen Sie ein [Rezept].
+health|das Medikament|Medikamente|лекарство|Nehmen Sie das [Medikament] dreimal am Tag.
+health|die Tablette|Tabletten|таблетка|Ich nehme eine [Tablette] gegen Kopfschmerzen.
+health|die Salbe|Salben|мазь|Die [Salbe] hilft gut.
+health|der Hustensaft|Hustensäfte|сироп от кашля|Haben Sie einen [Hustensaft] für Kinder?
+health|die Versicherungskarte|Versicherungskarten|карточка медицинской страховки|Haben Sie Ihre [Versicherungskarte] dabei?
+health|die Krankmeldung|Krankmeldungen|больничный (справка)|Ich brauche eine [Krankmeldung] für meinen Chef.
+health|husten||кашлять|Das Kind [hustet] die ganze Nacht.
+health|sich fühlen||чувствовать себя|Wie [fühlen] Sie sich heute?
+health|absagen||отменять|Ich muss den Kurs leider [absagen].
+health|sich ausruhen||отдыхать (восстанавливать силы)|Sie müssen sich ein paar Tage [ausruhen].
+health|einen Termin machen||записаться на приём|Ich möchte gern [einen Termin machen].
+health|einen Termin absagen||отменить запись (на приём)|Ich muss morgen [einen Termin absagen].
+health|zu Hause bleiben||остаться дома|Bei Fieber müssen Sie [zu Hause bleiben].
+health|Mir geht es nicht gut.||Я плохо себя чувствую.|
+health|Ich bin seit Montag krank.||Я болею с понедельника.|
+health|Ich habe Fieber.||У меня температура.|
+health|Mein Hals tut weh.||У меня болит горло.|
+health|Ich muss zum Arzt.||Мне нужно к врачу.|
+health|Ich brauche einen Termin.||Мне нужна запись на приём.|
+health|Haben Sie einen Termin frei?||У вас есть свободное время для приёма?|
+health|Ich kann heute nicht kommen.||Я не могу сегодня прийти.|
+health|Seit gestern.||Со вчерашнего дня.|
+health|Ich möchte den Termin absagen.||Я хочу отменить запись.|
+health|Wie oft soll ich das nehmen?||Как часто мне это принимать?|
+health|Gute Besserung!||Поправляйся! / Выздоравливай!|

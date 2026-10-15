@@ -1,7 +1,7 @@
 """Сборка: python3 build.py  → index.html, sw.js, manifest.json в корне (GitHub Pages)."""
 import json,re,hashlib,collections
 rows=[]
-for f in ['data/data_a_k.txt','data/data_l_z.txt','data/data_groups.txt']:
+for f in ['data/data_a_k.txt','data/data_l_z.txt','data/data_groups.txt','data/data_health.txt']:
     for l in open(f,encoding='utf-8'):
         l=l.rstrip('\n')
         if not l.strip(): continue

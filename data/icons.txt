@@ -282,7 +282,7 @@ der Koffer|suitcase
 der Kollege|user-list
 das Konto|piggy-bank
 kosten|currency-eur
-krank|pill
+krank|my-sick
 kriegen|hand-arrow-down
 die Küche|chef-hat
 der Kuchen|cake
@@ -358,7 +358,7 @@ der Platz|seat
 die Polizei|police-car
 die Post|mailbox
 die Postleitzahl|map-pin-simple-area
-die Praxis|hospital
+die Praxis|my-clinic
 der Preis|tag
 das Problem|warning-diamond
 der Prospekt|article
@@ -614,3 +614,45 @@ die Halbpension|my-half-board
 der Raum|my-room
 die Hilfe|lifebuoy
 die Ordnung|check-square-offset
+gesund|my-healthy
+schwach|battery-low
+der Husten|my-cough
+der Schnupfen|my-tissue
+die Erkältung|virus
+die Schmerzen|my-pain
+die Kopfschmerzen|my-pain-head
+die Halsschmerzen|my-pain-throat
+die Bauchschmerzen|my-pain-belly
+die Zahnschmerzen|my-pain-tooth
+die Rückenschmerzen|my-pain-back
+die Arztpraxis|my-clinic
+das Krankenhaus|hospital
+die Apotheke|my-pharmacy
+das Wartezimmer|my-waiting
+der Patient|my-patient
+das Rezept|prescription
+das Medikament|pill
+die Tablette|my-tablets
+die Salbe|my-ointment
+der Hustensaft|my-syrup
+die Versicherungskarte|my-ins-card
+die Krankmeldung|my-sick-note
+husten|my-cough
+sich fühlen|smiley-meh
+absagen|x-circle
+sich ausruhen|my-rest
+einen Termin machen|calendar-plus
+einen Termin absagen|calendar-x
+zu Hause bleiben|my-stay-home
+Mir geht es nicht gut.|my-sick
+Ich bin seit Montag krank.|my-week-mon
+Ich habe Fieber.|thermometer-hot
+Mein Hals tut weh.|my-pain-throat
+Ich muss zum Arzt.|stethoscope
+Ich brauche einen Termin.|calendar-plus
+Haben Sie einen Termin frei?|calendar-check
+Ich kann heute nicht kommen.|x-circle
+Seit gestern.|clock-counter-clockwise
+Ich möchte den Termin absagen.|calendar-x
+Wie oft soll ich das nehmen?|my-tablets
+Gute Besserung!|hand-heart

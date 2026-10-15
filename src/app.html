@@ -99,6 +99,7 @@ h2{font-size:21px}
 .kind{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
 .prompt{font-family:var(--display);font-size:clamp(30px,9vw,42px);font-weight:600;line-height:1.1;text-wrap:balance;overflow-wrap:anywhere}
 .prompt.ru{font-family:var(--body);font-weight:600;font-size:clamp(24px,7vw,32px)}
+.phr{font-size:.78em;line-height:1.15;display:inline-block}
 .hint{color:var(--muted);font-size:14px}
 .sep{color:var(--sepc);font-weight:700}
 .g-m{color:var(--der)} .g-f{color:var(--die)} .g-n{color:var(--das)} .g-p{color:var(--pl)}
@@ -213,7 +214,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 <script>
 const WORDS = /*WORDS*/[];
 const ICONS = /*ICONS*/{};
-const APP_VERSION = "1.2.0";
+const APP_VERSION = "1.3.0";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -223,17 +224,21 @@ const SECTIONS = [
   ["per","Человек и семья","Person"],["home","Дом и жильё","Wohnen"],["food","Еда и напитки","Essen / Trinken"],
   ["shop","Покупки и деньги","Einkaufen"],["trav","Путешествия и транспорт","Reisen / Verkehr"],
   ["serv","Почта, банк, документы","Dienstleistungen"],["learn","Учёба и экзамен","Lernen / Prüfung"],
-  ["work","Работа","Arbeit / Beruf"],["free","Досуг и хобби","Freizeit"],["body","Тело и здоровье","Körper / Gesundheit"],
+  ["work","Работа","Arbeit / Beruf"],["free","Досуг и хобби","Freizeit"],["body","Тело и здоровье","Körper / Gesundheit"],["health","Здоровье · у врача","Gesundheit / Arzt"],
   ["env","Природа и погода","Umwelt / Wetter"],["comm","Общение и фразы","Kommunikation"],
   ["time","Время и календарь","Zeit / Datum"],["num","Числа","Zahlen"],["meas","Меры, цвета, страны","Maße · Farben · Länder"],
   ["verb","Частые глаголы","Verben"],["adj","Прилагательные и наречия","Adjektive / Adverbien"],["gram","Служебные слова","Funktionswörter"]
 ].map(([id,ru,de])=>({id,ru,de}));
+/* Слова, которые живут в другом разделе, но входят и в этот (id не меняется — прогресс общий) */
+const ALSO = {health:["krank","das Fieber","müde","der Arzt","die Praxis","der Termin","weh tun","helfen","nehmen","brauchen","anrufen","schlafen","warten","bleiben","trinken"]};
+const ALSO_SET = Object.fromEntries(Object.entries(ALSO).map(([k,v])=>[k,new Set(v)]));
+const inSec=(w,s)=>w.s===s||(ALSO_SET[s]&&ALSO_SET[s].has(w.id));
 const SEC = Object.fromEntries(SECTIONS.map(s=>[s.id,s]));
 const BYID = Object.fromEntries(WORDS.map(w=>[w.id,w]));
 /* Если в будущей версии слово переименуют — старый id сюда, прогресс переедет */
 const ALIASES = {};
 /* Синонимы из списка Goethe, которые тоже засчитываются */
-const ALT = {"der Samstag":["der Sonnabend"],"der Frühling":["das Frühjahr"]};
+const ALT = {"der Samstag":["der Sonnabend"],"der Frühling":["das Frühjahr"],"der Arzt":["die Ärztin"],"der Patient":["die Patientin"]};
 /* Иконка слова (Phosphor duotone, MIT). neutral=true — без цвета рода, чтобы не подсказывать артикль */
 const GC={m:"var(--der)",f:"var(--die)",n:"var(--das)",p:"var(--pl)"};
 function icHTML(w,size,neutral){
@@ -320,30 +325,33 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 const ARTS={m:"der",f:"die",n:"das",p:"die"};
 function nounPart(w){return w.g?w.de.slice(w.de.indexOf(" ")+1):w.de}
 /* Отделяемые приставки: глагол → приставка */
-const SEP={"abfahren":"ab","abgeben":"ab","abholen":"ab","abfliegen":"ab","anbieten":"an","anfangen":"an","anklicken":"an","ankommen":"an","ankreuzen":"an","anmachen":"an","(sich) anmelden":"an","anrufen":"an","(sich) anziehen":"an","aufhören":"auf","aufstehen":"auf","ausfüllen":"aus","ausmachen":"aus","aussehen":"aus","aussteigen":"aus","(sich) ausziehen":"aus","einkaufen":"ein","einladen":"ein","einsteigen":"ein","fernsehen":"fern","kennenlernen":"kennen","mitbringen":"mit","mitkommen":"mit","mitmachen":"mit","mitnehmen":"mit","umziehen":"um","(sich) vorstellen":"vor","weh tun":"weh"};
+const SEP={"abfahren":"ab","abgeben":"ab","abholen":"ab","abfliegen":"ab","anbieten":"an","anfangen":"an","anklicken":"an","ankommen":"an","ankreuzen":"an","anmachen":"an","(sich) anmelden":"an","anrufen":"an","(sich) anziehen":"an","aufhören":"auf","aufstehen":"auf","ausfüllen":"aus","ausmachen":"aus","aussehen":"aus","aussteigen":"aus","(sich) ausziehen":"aus","einkaufen":"ein","einladen":"ein","einsteigen":"ein","fernsehen":"fern","kennenlernen":"kennen","mitbringen":"mit","mitkommen":"mit","mitmachen":"mit","mitnehmen":"mit","umziehen":"um","(sich) vorstellen":"vor","weh tun":"weh","absagen":"ab","einen Termin absagen":"ab","sich ausruhen":"aus"};
 const sepSpan=t=>`<span class="sep">${t}</span>`;
 function sepWord(w){const p=SEP[w.id];if(!p)return null;
-  const m=w.de.match(/^(\(sich\) )?(.*)$/);const v=m[2];
-  if(v.startsWith(p+" "))return esc(m[1]||"")+sepSpan(esc(p))+esc(v.slice(p.length));
-  return esc(m[1]||"")+sepSpan(esc(p))+esc(v.slice(p.length));}
+  const m=w.de.match(/^(\(sich\) |sich )?(.*)$/);const v=m[2];
+  const k=v.startsWith(p)?0:v.lastIndexOf(" "+p)+1;
+  return esc(m[1]||"")+esc(v.slice(0,k))+sepSpan(esc(p))+esc(v.slice(k+p.length));}
 /* В примере: приставка внутри выделенного слова (abholen) или отдельным словом после глагола (macht … mit) */
 function sepSentence(w,html){const p=SEP[w.id];if(!p)return html;
   const i=html.indexOf("</mark>");if(i<0)return html;
   let head=html.slice(0,i),tail=html.slice(i);
   const mk=head.lastIndexOf("<mark>");const inner=head.slice(mk+6);
   if(inner.toLowerCase().startsWith(p)&&inner.length>p.length+2){head=head.slice(0,mk+6)+sepSpan(inner.slice(0,p.length))+inner.slice(p.length);return head+tail}
+  const k=inner.lastIndexOf(" "+p);if(k>=0&&inner.length>k+p.length+3){head=head.slice(0,mk+6)+inner.slice(0,k+1)+sepSpan(inner.slice(k+1,k+1+p.length))+inner.slice(k+1+p.length);return head+tail}
   const re=new RegExp("(^|[\\s(])("+p+")(?=[\\s.,!?;:)]|$)","gi");let last=null,mm;
   while((mm=re.exec(tail))){last=mm}
   if(last){const at=last.index+last[1].length;tail=tail.slice(0,at)+sepSpan(last[2])+tail.slice(at+last[2].length)}
   return head+tail;}
-function deHTML(w){if(!w.g){const s=sepWord(w);return s||esc(w.de)}return `<span class="art g-${w.g}">${ARTS[w.g]}</span> ${esc(nounPart(w))}`}
+function deHTML(w){if(!w.g){if(isPhrase(w))return `<span class="phr">${esc(w.de)}</span>`;const s=sepWord(w);return s||esc(w.de)}return `<span class="art g-${w.g}">${ARTS[w.g]}</span> ${esc(nounPart(w))}`}
 function exHTML(w){return sepSentence(w,esc(w.ex||"").replace(/\[(.+?)\]/g,"<mark>$1</mark>"))}
 function exBlock(w){return w.ex?`<div class="exwrap"><div class="exs">${exHTML(w)}</div>${w.exr?`<div class="exr">${esc(w.exr)}</div>`:""}</div>`:""}
 function translit(s){return s.replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss")}
 function norm(s){return translit(String(s).toLowerCase().replace(/[.,!?;:„“"'’‘()–—]/g," ").replace(/-$/,"").replace(/\s+/g," ").trim())}
 function lev(a,b){if(a===b)return 0;const m=a.length,n=b.length;if(!m||!n)return m||n;let p=Array.from({length:n+1},(_,i)=>i);
   for(let i=1;i<=m;i++){const q=[i];for(let j=1;j<=n;j++)q[j]=Math.min(p[j]+1,q[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=q}return p[n]}
-const tol=s=>s.length>=9?2:s.length>=4?1:0;
+const isPhrase=w=>/[.!?]$/.test(w.de);
+/* допуск опечаток: у длинных фраз — примерно одна на 7 букв */
+const tol=s=>s.length>=20&&s.includes(" ")?Math.floor(s.length/7):s.length>=9?2:s.length>=4?1:0;
 /* Варианты правильного ответа на немецком */
 function deTargets(w){
   let base=w.de.replace(/^\(sich\)\s*/,"");
@@ -390,7 +398,10 @@ function checkRU(w,input){
   const n=input.trim().toLowerCase().replace(/ё/g,"е").replace(/[!?.«»]/g,"").replace(/\s+/g," ");
   if(!n)return{g:1,msg:"Пустой ответ"};
   const full=w.ru.toLowerCase().replace(/ё/g,"е");
-  for(const o of ruOptions(w)){const d=lev(n,o);if(d===0)return{g:3,msg:"Верно"};if(d<=tol(o))return{g:2,msg:"Почти"};}
+  const bag=x=>x.replace(/[,—–-]/g," ").split(/\s+/).filter(Boolean).sort().join(" ");
+  for(const o of ruOptions(w)){const d=lev(n,o);if(d===0)return{g:3,msg:"Верно"};
+    if(o.includes(" ")&&bag(n)===bag(o))return{g:3,msg:"Верно"};
+    if(d<=tol(o))return{g:2,msg:"Почти"};}
   if(n.length>=4&&full.includes(n))return{g:3,msg:"Верно"};
   return{g:1,msg:"Не совпало с вариантами"};
 }
@@ -419,7 +430,7 @@ const ICON={
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2200)}
 const LV_C={new:"var(--lv-new)",learn:"var(--lv-learn)",firm:"var(--lv-firm)",known:"var(--lv-known)"};
 const LV_RU={new:"новое",learn:"учу",firm:"закрепляю",known:"выучено"};
-function wordsIn(scope){if(scope==="all")return WORDS;if(scope==="hard")return WORDS.filter(w=>isHard(w.id));return WORDS.filter(w=>w.s===scope)}
+function wordsIn(scope){if(scope==="all")return WORDS;if(scope==="hard")return WORDS.filter(w=>isHard(w.id));return WORDS.filter(w=>inSec(w,scope))}
 function counts(list){const c={new:0,learn:0,firm:0,known:0,due:0};const now=Date.now();for(const w of list){c[level(w.id)]++;if(isDue(w.id,now))c.due++}return c}
 function barHTML(c,total){if(!total)return'<div class="bar"></div>';const p=k=>(c[k]/total*100).toFixed(2)+"%";
   return `<div class="bar" role="img" aria-label="Выучено ${c.known} из ${total}"><i style="width:${p("known")};background:var(--lv-known)"></i><i style="width:${p("firm")};background:var(--lv-firm)"></i><i style="width:${p("learn")};background:var(--lv-learn)"></i></div>`}
@@ -480,7 +491,7 @@ function renderHome(){
     <div class="secs">
       ${secRow("all","Весь A1","Alle Wörter",WORDS)}
       ${hardN?secRow("hard","Трудные слова","Fehler-Training",WORDS.filter(w=>isHard(w.id))):""}
-      ${SECTIONS.map(s=>secRow(s.id,s.ru,s.de,WORDS.filter(w=>w.s===s.id))).join("")}
+      ${SECTIONS.map(s=>secRow(s.id,s.ru,s.de,WORDS.filter(w=>inSec(w,s.id)))).join("")}
     </div>
   </section>
   <p class="note">Прогресс хранится на этом телефоне и не стирается при обновлениях приложения. Делайте резервную копию в настройках раз в неделю.</p>`;
