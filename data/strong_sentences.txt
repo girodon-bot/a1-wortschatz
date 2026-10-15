@@ -71,3 +71,51 @@ laufen|er|Mein Sohn [läuft] sehr schnell.|Мой сын бегает очень
 laufen|wir|Wir [laufen] zum Bahnhof.|Мы идём пешком на вокзал.
 laufen|ihr|[Lauft] ihr oder fahrt ihr mit dem Bus?|Вы пойдёте пешком или поедете на автобусе?
 laufen|sie|Die Kinder [laufen] im Garten.|Дети бегают в саду.
+schlafen|ich|Ich [schlafe] meistens acht Stunden.|Обычно я сплю восемь часов.
+schlafen|du|[Schläfst] du schon?|Ты уже спишь?
+schlafen|er|Das Baby [schläft].|Малыш спит.
+schlafen|wir|Am Sonntag [schlafen] wir lange.|В воскресенье мы долго спим.
+schlafen|ihr|[Schlaft] ihr im Hotel?|Вы ночуете в отеле?
+schlafen|sie|Die Kinder [schlafen] schon.|Дети уже спят.
+treffen|ich|Ich [treffe] heute einen Kollegen.|Сегодня я встречаюсь с коллегой.
+treffen|du|[Triffst] du heute Anna?|Ты сегодня встречаешься с Анной?
+treffen|er|Er [trifft] seine Freunde im Café.|Он встречается с друзьями в кафе.
+treffen|wir|Wir [treffen] uns am Bahnhof.|Мы встречаемся на вокзале.
+treffen|ihr|Wann [trefft] ihr euch?|Когда вы встречаетесь?
+treffen|sie|Sie [treffen] sich jeden Freitag.|Они встречаются каждую пятницу.
+halten|ich|Ich [halte] die Tür.|Я держу дверь.
+halten|du|[Hältst] du mal meine Tasche?|Подержишь мою сумку?
+halten|er|Der Zug [hält] nicht in Rüdesheim.|Поезд не останавливается в Рюдесхайме.
+halten|wir|Wir [halten] an der nächsten Ecke.|Мы остановимся на следующем углу.
+halten|ihr|[Haltet] ihr hier?|Вы здесь остановитесь?
+halten|sie|Die Busse [halten] vor dem Bahnhof.|Автобусы останавливаются у вокзала.
+gefallen|ich|[Gefalle] ich dir?|Я тебе нравлюсь?
+gefallen|du|Du [gefällst] mir sehr.|Ты мне очень нравишься.
+gefallen|er|Das Zimmer [gefällt] mir.|Мне нравится этот номер.
+gefallen|wir|[Gefallen] wir dir auf dem Foto?|Мы тебе нравимся на фото?
+gefallen|ihr|Ihr [gefallt] meiner Mutter.|Вы нравитесь моей маме.
+gefallen|sie|Die Blumen [gefallen] mir.|Мне нравятся цветы.
+anfangen|ich|Ich [fange] morgen mit dem Kurs an.|Завтра я начинаю курс.
+anfangen|du|Wann [fängst] du mit der Arbeit an?|Когда ты начинаешь работу?
+anfangen|er|Der Film [fängt] um acht Uhr an.|Фильм начинается в восемь часов.
+anfangen|wir|Wir [fangen] jetzt an.|Мы сейчас начинаем.
+anfangen|ihr|[Fangt] ihr schon an?|Вы уже начинаете?
+anfangen|sie|Die Kurse [fangen] im Oktober an.|Курсы начинаются в октябре.
+einladen|ich|Ich [lade] dich zum Kaffee ein.|Я приглашаю тебя на кофе.
+einladen|du|[Lädst] du Maria zur Party ein?|Ты пригласишь Марию на вечеринку?
+einladen|er|Er [lädt] uns zum Essen ein.|Он приглашает нас на ужин.
+einladen|wir|Wir [laden] alle Freunde ein.|Мы приглашаем всех друзей.
+einladen|ihr|[Ladet] ihr auch eure Eltern ein?|Вы пригласите и своих родителей?
+einladen|sie|Sie [laden] uns zur Hochzeit ein.|Они приглашают нас на свадьбу.
+werden|ich|Ich [werde] Lehrerin.|Я стану учительницей.
+werden|du|Du [wirst] bald dreißig.|Тебе скоро будет тридцать.
+werden|er|Mein Sohn [wird] Arzt.|Мой сын станет врачом.
+werden|wir|Wir [werden] Freunde.|Мы становимся друзьями.
+werden|ihr|[Werdet] ihr müde?|Вы устаёте?
+werden|sie|Die Kinder [werden] groß.|Дети растут.
+wissen|ich|Ich [weiß] es nicht.|Я этого не знаю.
+wissen|du|[Weißt] du, wie er heißt?|Ты знаешь, как его зовут?
+wissen|er|Er [weiß] die Antwort.|Он знает ответ.
+wissen|wir|Wir [wissen] das schon.|Мы это уже знаем.
+wissen|ihr|[Wisst] ihr, wo die Post ist?|Вы знаете, где почта?
+wissen|sie|Sie [wissen] es nicht.|Они этого не знают.

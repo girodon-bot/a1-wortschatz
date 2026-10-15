@@ -58,7 +58,7 @@ for l in open('data/strong_sentences.txt',encoding='utf-8'):
     if not l or l.startswith('#'): continue
     vv,pp,de,ru=l.split('|'); v=svby[vv]
     m=re.search(r'\[(.+?)\]',de); assert m,l
-    assert m.group(1).lower()==re.sub(r'[\[\]]','',v['f'][pp]).lower(),('форма в примере не совпадает',l)
+    assert m.group(1).lower()==re.sub(r'[\[\]]','',v['f'][pp]).split(' ')[0].lower(),('форма в примере не совпадает',l)
     v['s'][pp]=[de,ru]
 for v in strong: assert set(v['s'])==set(PERS),('не на все лица есть пример',v['v'])
 dup=[k for k,v in collections.Counter(r['id'] for r in rows).items() if v>1]

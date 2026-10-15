@@ -13,3 +13,11 @@ empfehlen|рекомендовать|e → ie|empfehle|empf[ie]hlst|empf[ie]hlt|
 fahren|ехать|a → ä|fahre|f[ä]hrst|f[ä]hrt|fahren|fahrt|fahren
 waschen|мыть; стирать|a → ä|wasche|w[ä]schst|w[ä]scht|waschen|wascht|waschen
 laufen|бегать; идти пешком|au → äu|laufe|l[äu]fst|l[äu]ft|laufen|lauft|laufen
+schlafen|спать|a → ä|schlafe|schl[ä]fst|schl[ä]ft|schlafen|schlaft|schlafen
+treffen|встречать(ся)|e → i|treffe|tr[i]ffst|tr[i]fft|treffen|trefft|treffen
+halten|держать; останавливаться|a → ä|halte|h[ä]ltst|h[ä]lt|halten|haltet|halten
+gefallen|нравиться|a → ä|gefalle|gef[ä]llst|gef[ä]llt|gefallen|gefallt|gefallen
+anfangen|начинать(ся)|a → ä|fange an|f[ä]ngst an|f[ä]ngt an|fangen an|fangt an|fangen an
+einladen|приглашать|a → ä|lade ein|l[ä]dst ein|l[ä]dt ein|laden ein|ladet ein|laden ein
+werden|становиться|e → i, особый|werde|w[i]rst|w[ir]d|werden|werdet|werden
+wissen|знать (факт)|особый: ei|[weiß]|[weiß]t|[weiß]|wissen|wisst|wissen

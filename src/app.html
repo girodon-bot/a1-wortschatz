@@ -213,7 +213,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 <script>
 const WORDS = /*WORDS*/[];
 const ICONS = /*ICONS*/{};
-const APP_VERSION = "1.1.0";
+const APP_VERSION = "1.2.0";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -472,7 +472,7 @@ function renderHome(){
     </div>
     <button class="primary" id="bLearn" ${list.length?"":"disabled"}><div><b>Учить</b><span>${learnSub}</span></div>${ICON.play}</button>
     <div class="modes">${MODES.map(m=>`<button class="mode" data-mode="${m.id}"><b>${m.t}</b><span>${m.d}</span></button>`).join("")}</div>
-    ${(()=>{const sv=svStats(STRONG);return `<button class="svcard" id="bStrong"><div style="min-width:0"><b>Сильные глаголы · Präsens</b><span>${STRONG.length} глаголов · du nimmst, er fährt, sie sieht</span>${barHTML(sv,STRONG.length)}</div><div class="svcard-r"><b class="num">${sv.firm+sv.known}/${STRONG.length}</b>${sv.due?`<span class="due">${sv.due} повт.</span>`:""}</div></button>`})()}
+    ${(()=>{const sv=svStats(STRONG);return `<button class="svcard" id="bStrong"><div style="min-width:0"><b>Сильные глаголы · Präsens</b><span>${STRONG.length} глаголов · du nimmst, er fährt, ich weiß</span>${barHTML(sv,STRONG.length)}</div><div class="svcard-r"><b class="num">${sv.firm+sv.known}/${STRONG.length}</b>${sv.due?`<span class="due">${sv.due} повт.</span>`:""}</div></button>`})()}
   </section>
 
   <section style="display:flex;flex-direction:column;gap:8px">

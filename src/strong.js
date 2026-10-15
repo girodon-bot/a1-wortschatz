@@ -3,30 +3,40 @@ const STRONG = /*STRONG*/[];
 const PERS=["ich","du","er","wir","ihr","sie"];
 const PLBL={ich:"ich",du:"du",er:"er / sie / es",wir:"wir",ihr:"ihr",sie:"sie / Sie"};
 const PRU={ich:"я",du:"ты",er:"он / она / оно",wir:"мы",ihr:"вы",sie:"они / Вы"};
-const CORE=new Set(["du","er"]);
+/* лица, где меняется основа (обычно du и er; у wissen ещё ich); отделяемая приставка */
+for(const v of STRONG){v.core=PERS.filter(p=>v.f[p].includes("["));const m=v.f.ich.match(/ (\S+)$/);v.sep=m?m[1]:""}
+const isCore=(v,p)=>v.core.includes(p);
+const coreLbl=v=>{const l=v.core.map(p=>PLBL[p].replace(/ /g,""));return l.length>1?l.slice(0,-1).join(", ")+" и "+l[l.length-1]:l[0]};
 const SVBY=Object.fromEntries(STRONG.map(v=>[v.v,v]));
 const plainF=f=>f.replace(/[\[\]]/g,"");
+const mainF=f=>plainF(f).split(" ")[0];
 const hlF=f=>esc(f).replace(/\[(.+?)\]/g,'<span class="svch">$1</span>');
 const svId=(v,p)=>`sv|${v.v}|${p}`;
 const spkP=p=>p==="er"?"er":p==="sie"?"sie":p;
 const SVW={};
 function svWord(v,p){const id=svId(v,p);return SVW[id]||(SVW[id]={id,de:`${spkP(p)} ${plainF(v.f[p])}`,ru:`${PRU[p]} · ${v.ru}`,sv:true})}
 const getW=id=>BYID[id]||SVW[id]||(id.startsWith("sv|")?(()=>{const[,vv,pp]=id.split("|");return SVBY[vv]?svWord(SVBY[vv],pp):null})():null);
-const sibStem=v=>/(s|ss|ß)en$/.test(v.v);
+const sibStem=v=>/(s|ss|ß)en$/.test(v.v)&&v.v!=="wissen";
 /* форма «как у слабого глагола» — типичная ошибка */
 function svRegular(v,p){
-  const stem=v.v.replace(/e?n$/,"");
-  const sib=/(s|ss|ß|z|x)$/.test(stem);
-  return stem+{ich:"e",du:sib?"t":"st",er:"t",wir:"en",ihr:"t",sie:"en"}[p];
+  const base=v.sep?v.v.slice(v.sep.length):v.v;
+  const stem=base.replace(/e?n$/,"");
+  const sib=/(s|ss|ß|z|x)$/.test(stem), ep=/[td]$/.test(stem);
+  const f=stem+{ich:"e",du:sib?"t":ep?"est":"st",er:ep?"et":"t",wir:"en",ihr:ep?"et":"t",sie:"en"}[p];
+  return v.sep?f+" "+v.sep:f;
 }
 function svNorm(s){return norm(s).replace(/^(ich|du|er|sie|es|wir|ihr|man)\s+/,"")}
-function svCheck(v,p,input){
-  const n=svNorm(input);const want=norm(plainF(v.f[p]));
+/* part=true — сравниваем только спрягаемую часть (в предложении приставка уже стоит) */
+function svCheck(v,p,input,{part=false}={}){
+  const F=f=>norm(part?mainF(f):plainF(f));
+  const n=svNorm(input);const want=F(v.f[p]);
   if(!n)return{g:1,msg:"Пустой ответ"};
   if(n===want)return{g:3,msg:""};
-  if(CORE.has(p)&&n===norm(svRegular(v,p)))return{g:1,msg:`Сильный глагол: в du и er/sie/es ${v.ch}`};
-  if(!CORE.has(p)&&(n===norm(plainF(v.f.du))||n===norm(plainF(v.f.er))))return{g:1,msg:`${v.ch} — только в du и er/sie/es`};
-  for(const q of PERS)if(q!==p&&n===norm(plainF(v.f[q])))return{g:1,msg:`Это форма для «${PLBL[q]}». Окончания: du -st, er/sie/es -t, ihr -t`};
+  if(!part&&v.sep&&n===norm(mainF(v.f[p])))return{g:2,msg:`Не забудь приставку: ${plainF(v.f[p])}`};
+  const reg=part?norm(svRegular(v,p).split(" ")[0]):norm(svRegular(v,p));
+  if(isCore(v,p)&&n===reg)return{g:1,msg:`Сильный глагол: в ${coreLbl(v)} основа меняется (${v.ch})`};
+  if(!isCore(v,p)&&v.core.some(q=>n===F(v.f[q])))return{g:1,msg:`Изменение основы — только в ${coreLbl(v)}`};
+  for(const q of PERS)if(q!==p&&n===F(v.f[q]))return{g:1,msg:`Это форма для «${PLBL[q]}». Окончания: du -st, er/sie/es -t, ihr -t`};
   return{g:1,msg:""};
 }
 function svLevel(v){ /* общий уровень глагола = худший из du и er */
@@ -39,7 +49,7 @@ function svStats(verbs){
   return c;
 }
 function svTable(v,cur){
-  return `<table class="svt"><tbody>${PERS.map(p=>`<tr class="${CORE.has(p)?"core":""}${p===cur?" cur":""}" data-svsay="${esc(spkP(p)+" "+plainF(v.f[p]))}"><td class="svpn">${PLBL[p]}</td><td class="svf">${hlF(v.f[p])}</td></tr>`).join("")}</tbody></table>`;
+  return `<table class="svt"><tbody>${PERS.map(p=>`<tr class="${isCore(v,p)?"core":""}${p===cur?" cur":""}" data-svsay="${esc(spkP(p)+" "+plainF(v.f[p]))}"><td class="svpn">${PLBL[p]}</td><td class="svf">${hlF(v.f[p])}</td></tr>`).join("")}</tbody></table>`;
 }
 function bindSvSay(){$app.querySelectorAll("[data-svsay]").forEach(r=>r.onclick=()=>speak(r.dataset.svsay))}
 function svSent(v,p,{gap=false}={}){
@@ -47,7 +57,7 @@ function svSent(v,p,{gap=false}={}){
   const de=gap?esc(s[0]).replace(/\[(.+?)\]/,()=>`<span class="gap">______</span>`):esc(s[0]).replace(/\[(.+?)\]/,"<mark>$1</mark>");
   return gap?`<div class="cloze">${de}</div>`:`<div class="exwrap"><div class="exs">${de}</div><div class="exr">${esc(s[1])}</div></div>`;
 }
-const SV_RULES=[["e → i","geben","g[i]bt"],["e → ie","sehen","s[ie]ht"],["a → ä","fahren","f[ä]hrt"],["au → äu","laufen","l[äu]ft"]];
+const SV_RULES=[["e → i","geben","g[i]bt"],["e → ie","sehen","s[ie]ht"],["a → ä","fahren","f[ä]hrt"],["au → äu","laufen","l[äu]ft"],["особые","werden","w[ir]d · wissen → ich [weiß]"],["с приставкой","anfangen","du f[ä]ngst an"]];
 
 /* ---------- экраны ---------- */
 function renderStrong(){
@@ -56,7 +66,7 @@ function renderStrong(){
   const sub=(st.due?`${st.due} к повторению · `:"")+(newV?`${Math.min(3,newV)} новых глагола`:"всё изучено — повторяем");
   $app.innerHTML=`<header class="top"><button class="iconbtn" id="bBack" aria-label="Назад">${ICON.back}</button><div style="flex:1;min-width:0"><div class="label">Тренажёр</div><h2>Сильные глаголы · Präsens</h2></div></header>
   <section class="panel" style="display:flex;flex-direction:column;gap:10px">
-    <div>В <b>du</b> и <b>er/sie/es</b> меняется гласная основы. Остальные формы — как у обычных глаголов.</div>
+    <div>В <b>du</b> и <b>er/sie/es</b> меняется гласная основы. Остальные формы — как у обычных глаголов. Исключение — wissen: меняется и ich.</div>
     <div class="svrules">${SV_RULES.map(([r,inf,f])=>`<div class="svrule"><b>${r}</b><span>${inf} → ${hlF(f)}</span></div>`).join("")}</div>
   </section>
   <section class="panel" style="display:flex;flex-direction:column;gap:8px">
@@ -121,7 +131,7 @@ function startStrong(verbs){
     if(room>0){
       const inQ=new Set(mid.map(i=>i.w.id));
       const rest=all.filter(([v,p])=>seen(v)&&!inQ.has(svId(v,p))&&!newV.includes(v))
-        .map(([v,p])=>({v,p,r:retrNow(svId(v,p))-(CORE.has(p)?.25:0)})).sort((a,b)=>a.r-b.r);
+        .map(([v,p])=>({v,p,r:retrNow(svId(v,p))-(isCore(v,p)?.25:0)})).sort((a,b)=>a.r-b.r);
       mid.push(...rest.slice(0,room).map(({v,p})=>svItem(v,p)));
     }
     const tab=verbs.filter(v=>seen(v)&&!newV.includes(v)&&(state.cards[svId(v,"du")].s||0)>=2);
@@ -142,7 +152,7 @@ function svPrompt(v,p){
 }
 function svFeedback(res,v,p){
   const cls=res.g===3?"ok":res.g===2?"mid":"bad";
-  const vv=res.g===3?"Верно":"Неверно";
+  const vv=res.g===3?"Верно":res.g===2?"Почти":"Неверно";
   return `<div class="fb ${cls}" role="status"><div class="v">${vv}${res.msg?" · "+esc(res.msg):""}</div>
   <div style="display:flex;align-items:center;gap:10px;justify-content:space-between"><div class="ans"><span class="svpn2">${PLBL[p]}</span> ${hlF(v.f[p])}</div><button class="speak" data-speak aria-label="Произнести">${ICON.sound}</button></div>
   ${svSent(v,p)}${svTable(v,p)}</div><button class="btn main wide" id="bNext">Дальше</button>`;
@@ -158,16 +168,16 @@ function svIntro(it){
   shell(`<div class="panel" style="display:flex;flex-direction:column;gap:12px">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div><div class="prompt">${esc(v.v)}</div><div style="font-size:19px;font-weight:600">${esc(v.ru)}</div></div><span class="svchip big">${esc(v.ch)}</span></div>
     ${svTable(v)}
-    <div class="note">Гласная меняется только в <b>du</b> и <b>er/sie/es</b> (выделены). ich, wir, ihr, sie — как у обычных глаголов.${sibStem(v)?" Основа на -s: du и er совпадают.":""} Нажмите на строку, чтобы услышать.</div>
+    <div class="note">Основа меняется только в <b>${coreLbl(v)}</b> (выделены), остальные формы — как у обычных глаголов.${sibStem(v)?" Основа на -s: du и er совпадают.":""}${v.v==="werden"?" Запомните: du wirst, er wird — без -t в конце.":""}${v.v==="halten"?" er hält — без окончания -t (основа уже на t); ihr haltet.":""}${v.sep?` Отделяемая приставка «${v.sep}» уходит в конец: du ${plainF(v.f.du)}.`:""} Нажмите на строку, чтобы услышать.</div>
   </div><button class="btn main wide" id="bNext">Понятно, тренировать</button>`);
   bindSvSay();
-  if(state.settings.autoAudio)speak(`du ${plainF(v.f.du)}. er ${plainF(v.f.er)}`);
+  if(state.settings.autoAudio)speak(v.core.map(p=>`${spkP(p)} ${plainF(v.f[p])}`).join(". "));
   const b=$app.querySelector("#bNext");b.focus();b.onclick=()=>{S.done++;next()};
 }
 function svChoice(it){
   const {v,p}=it;const want=plainF(v.f[p]);
   const c=new Set([want]);
-  const cand=[svRegular(v,p),...(CORE.has(p)?[plainF(v.f[p==="du"?"er":"du"]),plainF(v.f.ihr)]:[plainF(v.f.du),plainF(v.f.er)]),...shuffle(PERS.map(q=>plainF(v.f[q])))];
+  const cand=[svRegular(v,p),...(isCore(v,p)?[plainF(v.f[p==="du"?"er":"du"]),plainF(v.f.ihr)]:v.core.map(q=>plainF(v.f[q]))),...shuffle(PERS.map(q=>plainF(v.f[q])))];
   for(const x of cand){if(c.size>=4)break;c.add(x)}
   const opts=shuffle([...c]);
   shell(`${svPrompt(v,p)}<div class="choices">${opts.map((o,i)=>`<button class="choice svopt" data-i="${i}">${esc(o)}</button>`).join("")}</div><div id="fb"></div>`);
@@ -176,23 +186,23 @@ function svChoice(it){
     btns.forEach(x=>{x.disabled=true;if(opts[+x.dataset.i]===want)x.classList.add("ok")});if(res.g<3)b.classList.add("bad");
     grade(res.g);$app.querySelector("#fb").innerHTML=svFeedback(res,v,p);bindSvFeedback(v,p)});
 }
-function svInputEx(it,promptHTML){
+function svInputEx(it,promptHTML,opt={}){
   const {v,p}=it;
   shell(`${promptHTML}<form class="field" id="f"><input class="inp" id="inp" ${INP_ATTR} lang="de" placeholder="Форма глагола" aria-label="Ответ">${umlautBar()}
   <div class="row"><button class="btn" type="button" id="bSkip">Не знаю</button><button class="btn main" type="submit">Проверить</button></div></form><div id="fb"></div>`);
   const inp=$app.querySelector("#inp"),f=$app.querySelector("#f");inp.focus();bindUmlauts(inp);
   const finish=res=>{const typed=inp.value.trim();f.remove();grade(res.g);
-    $app.querySelector("#fb").innerHTML=`<div class="mine ${res.g===3?"ok":"bad"}"><span class="label">Твой ответ</span><span class="mytxt">${typed?(res.g<3?diffHTML(typed.replace(/^(ich|du|er|sie|es|wir|ihr|man)\s+/i,""),plainF(v.f[p])):esc(typed)):"—"}</span></div>`+svFeedback(res,v,p);
+    $app.querySelector("#fb").innerHTML=`<div class="mine ${res.g===3?"ok":res.g===2?"mid":"bad"}"><span class="label">Твой ответ</span><span class="mytxt">${typed?(res.g<3?diffHTML(typed.replace(/^(ich|du|er|sie|es|wir|ihr|man)\s+/i,""),opt.part?mainF(v.f[p]):plainF(v.f[p])):esc(typed)):"—"}</span></div>`+svFeedback(res,v,p);
     bindSvFeedback(v,p)};
-  f.onsubmit=e=>{e.preventDefault();if(!inp.value.trim())return inp.focus();finish(svCheck(v,p,inp.value))};
+  f.onsubmit=e=>{e.preventDefault();if(!inp.value.trim())return inp.focus();finish(svCheck(v,p,inp.value,opt))};
   $app.querySelector("#bSkip").onclick=()=>finish({g:1,msg:"Ничего, повторим"});
 }
 function svType(it){svInputEx(it,svPrompt(it.v,it.p))}
-function svCloze(it){const {v,p}=it;svInputEx(it,`${svSent(v,p,{gap:true})}<div class="hint">${esc(v.v)} · ${esc(v.ru)} · лицо: ${PLBL[p]}</div>`)}
+function svCloze(it){const {v,p}=it;svInputEx(it,`${svSent(v,p,{gap:true})}<div class="hint">${esc(v.v)} · ${esc(v.ru)} · лицо: ${PLBL[p]}</div>`,{part:true})}
 function svTableEx(it){
   const v=it.v;
   shell(`<div class="svq"><span class="svinf">${esc(v.v)}</span></div><div class="hint">${esc(v.ru)} · заполни все формы Präsens</div>
-  <form id="f" class="field"><table class="svt"><tbody>${PERS.map(p=>`<tr class="${CORE.has(p)?"core":""}"><td class="svpn">${PLBL[p]}</td><td><input class="inp svin" data-p="${p}" ${INP_ATTR} lang="de" aria-label="${PLBL[p]}"></td></tr>`).join("")}</tbody></table>${umlautBar()}
+  <form id="f" class="field"><table class="svt"><tbody>${PERS.map(p=>`<tr class="${isCore(v,p)?"core":""}"><td class="svpn">${PLBL[p]}</td><td><input class="inp svin" data-p="${p}" ${INP_ATTR} lang="de" aria-label="${PLBL[p]}"></td></tr>`).join("")}</tbody></table>${umlautBar()}
   <button class="btn main wide" type="submit">Проверить</button></form><div id="fb"></div>`);
   const ins=[...$app.querySelectorAll(".svin")];ins[0].focus();
   let last=ins[0];ins.forEach(i=>i.onfocus=()=>last=i);
