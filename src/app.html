@@ -158,6 +158,34 @@ h2{font-size:21px}
 .tile.de{font-weight:700}
 .tile.sel{border-color:var(--focus)} .tile.bad{border-color:var(--bad);background:var(--bad-bg)}
 .tile.done{visibility:hidden}
+.svch{color:var(--sepc);font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.svchip{display:inline-block;font-family:var(--body);font-size:12px;font-weight:700;color:var(--sepc);border:1.5px solid var(--sepc);border-radius:999px;padding:0 7px;vertical-align:2px;white-space:nowrap}
+.svchip.big{font-size:16px;padding:2px 10px}
+.svt{width:100%;border-collapse:separate;border-spacing:0 4px}
+.svt td{padding:9px 12px;font-size:19px;background:var(--sunk);cursor:pointer}
+.svt td:first-child{border-radius:10px 0 0 10px;color:var(--muted);font-size:15px;width:42%}
+.svt td:last-child{border-radius:0 10px 10px 0;font-weight:600}
+.svt tr.core td{background:var(--warn-bg)}
+.svt tr.cur td{box-shadow:inset 0 2px 0 var(--focus),inset 0 -2px 0 var(--focus)}
+.svt tr.cur td:first-child{box-shadow:inset 2px 2px 0 var(--focus),inset 0 -2px 0 var(--focus)}
+.svt tr.cur td:last-child{box-shadow:inset -2px 2px 0 var(--focus),inset 0 -2px 0 var(--focus)}
+.svt .inp.svin{padding:8px 10px;font-size:19px}
+.svt td:has(.svin){padding:4px 6px}
+.inp.svok{border-color:var(--ok);background:var(--ok-bg)} .inp.svbad{border-color:var(--bad);background:var(--bad-bg)}
+.svq{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.svpn2{font-family:var(--display);font-weight:600;font-size:clamp(26px,8vw,36px);color:var(--muted)}
+.svinf{font-family:var(--display);font-weight:700;font-size:clamp(30px,9vw,42px)}
+.ans .svpn2{font-size:22px}
+.choice.svopt{font-size:20px;font-weight:600}
+.svrules{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.svrule{background:var(--sunk);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column}
+.svrule b{color:var(--sepc)} .svrule span{font-size:14px;color:var(--muted)}
+.svcard{border:1.5px solid var(--sepc);background:var(--surface);border-radius:var(--r);padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;text-align:left;width:100%}
+.svcard b{font-family:var(--display);font-size:21px;display:block}
+.svcard span{font-size:13px;color:var(--muted);display:block;margin-bottom:8px}
+.svcard .bar{height:6px}
+.svcard-r{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.svcard-r b{font-size:20px}
 .result{text-align:center;display:flex;flex-direction:column;gap:14px;align-items:stretch}
 .result .score{font-family:var(--display);font-size:56px;font-weight:700;line-height:1}
 .wlist{display:flex;flex-direction:column}
@@ -185,7 +213,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 <script>
 const WORDS = /*WORDS*/[];
 const ICONS = /*ICONS*/{};
-const APP_VERSION = "1.0.11";
+const APP_VERSION = "1.1.0";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -444,6 +472,7 @@ function renderHome(){
     </div>
     <button class="primary" id="bLearn" ${list.length?"":"disabled"}><div><b>Учить</b><span>${learnSub}</span></div>${ICON.play}</button>
     <div class="modes">${MODES.map(m=>`<button class="mode" data-mode="${m.id}"><b>${m.t}</b><span>${m.d}</span></button>`).join("")}</div>
+    ${(()=>{const sv=svStats(STRONG);return `<button class="svcard" id="bStrong"><div style="min-width:0"><b>Сильные глаголы · Präsens</b><span>${STRONG.length} глаголов · du nimmst, er fährt, sie sieht</span>${barHTML(sv,STRONG.length)}</div><div class="svcard-r"><b class="num">${sv.firm+sv.known}/${STRONG.length}</b>${sv.due?`<span class="due">${sv.due} повт.</span>`:""}</div></button>`})()}
   </section>
 
   <section style="display:flex;flex-direction:column;gap:8px">
@@ -458,6 +487,7 @@ function renderHome(){
   $app.querySelector("#bSet").onclick=renderSettings;
   $app.querySelector("#bList").onclick=renderList;
   $app.querySelector("#bLearn").onclick=()=>startSession("learn");
+  $app.querySelector("#bStrong").onclick=renderStrong;
   $app.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>startSession(b.dataset.mode));
   $app.querySelectorAll("[data-order]").forEach(b=>b.onclick=()=>{state.settings.order=b.dataset.order;save();renderHome()});
   $app.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{state.scope=b.dataset.sec;save();renderHome();window.scrollTo({top:0,behavior:"smooth"})});
@@ -529,10 +559,11 @@ function startSession(mode){
 function next(){
   if(!S.queue.length)return renderResult();
   S.cur=S.queue.shift();
+  if(S.cur.t.startsWith("sv"))return SVR[S.cur.t](S.cur);
   const R={flash:exFlash,intro:exIntro,choice:exChoice,ru2de:exRu2De,de2ru:exDe2Ru,article:exArticle,plural:exPlural,cloze:exCloze,dict:exDict}[S.cur.t];
   R(S.cur.w);
 }
-const KIND={flash:"Карточка",intro:"Новое слово",choice:"Выбери перевод",ru2de:"Напиши по-немецки",de2ru:"Напиши по-русски",article:"Какой артикль?",plural:"Множественное число",cloze:"Вставь слово",dict:"Диктант"};
+const KIND={flash:"Карточка",intro:"Новое слово",choice:"Выбери перевод",ru2de:"Напиши по-немецки",de2ru:"Напиши по-русски",article:"Какой артикль?",plural:"Множественное число",cloze:"Вставь слово",dict:"Диктант",svIntro:"Сильный глагол",svChoice:"Выбери форму глагола",svType:"Напиши форму глагола",svCloze:"Вставь глагол",svTable:"Заполни таблицу"};
 function shell(inner){
   const pct=S.total?Math.min(100,S.done/S.total*100):0;
   $app.innerHTML=`<div class="ex"><div class="exhead"><button class="iconbtn" id="bQuit" aria-label="Закончить">${ICON.close}</button><div class="prog"><i style="width:${pct}%"></i></div><span class="sub num">${S.done}/${S.total}</span></div>
@@ -545,7 +576,7 @@ function grade(g,{count=true}={}){
   if(count&&!it.retry){review(it.w.id,g)}
   else if(count&&it.retry&&g===1){review(it.w.id,1)}
   if(g>=2&&!it.retry)S.right++;
-  if(g===1){S.wrongIds.add(it.w.id);if(!it.retry){const pos=Math.min(S.queue.length,3+(Math.random()*3|0));S.queue.splice(pos,0,{w:it.w,t:it.t==="flash"?"flash":(it.t==="choice"?"choice":it.t),retry:true});S.total++}}
+  if(g===1){S.wrongIds.add(it.w.id);if(!it.retry){const pos=Math.min(S.queue.length,3+(Math.random()*3|0));S.queue.splice(pos,0,{...it,retry:true});S.total++}}
   S.done++;
 }
 function feedback(res,w,extra=""){
@@ -719,20 +750,23 @@ function renderMatch(){
   });
 }
 
+/*STRONG_JS*/
+
 /* ---------- Result ---------- */
 function renderResult(){
   clearInterval(S&&S.timer); save(true);
-  const answered=S.done, wrong=[...S.wrongIds].map(id=>BYID[id]);
+  const answered=S.done, wrong=[...S.wrongIds].map(getW).filter(Boolean);
+  const isSv=S.mode==="strong"||S.mode==="strongTables";
   const mins=Math.max(1,Math.round((Date.now()-S.started)/60e3));
   $app.innerHTML=`<div class="result">
-    <div class="label" style="margin-top:12px">Раунд завершён · ${esc(scopeName(state.scope))}</div>
+    <div class="label" style="margin-top:12px">Раунд завершён · ${isSv?"Сильные глаголы":esc(scopeName(state.scope))}</div>
     <div class="score num">${answered}</div><div class="sub">ответов за ${mins} мин · без ошибок ${S.right}</div>
     ${wrong.length?`<div class="panel" style="text-align:left"><div class="label" style="margin-bottom:6px">Ошибки — вернутся скоро</div><div class="wlist">${wrong.map(w=>`<button class="witem" data-say="${esc(w.id)}"><span class="dot" style="--c:var(--bad)"></span><span class="wi">${icHTML(w,26)}</span><span class="d"><b>${deHTML(w)}</b><span>${esc(w.ru)}</span></span><span class="m"></span></button>`).join("")}</div></div>`:`<div class="panel">Ни одной ошибки. Отлично!</div>`}
     <div class="row"><button class="btn" id="bHome">На главную</button><button class="btn main" id="bAgain">Ещё раунд</button></div></div>`;
-  const mode=S.mode;
-  $app.querySelector("#bHome").onclick=renderHome;
-  $app.querySelector("#bAgain").onclick=()=>startSession(mode);
-  $app.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>sayWord(BYID[b.dataset.say]));
+  const mode=S.mode, svVerbs=(S.svVerbs||[]).map(x=>SVBY[x]);
+  $app.querySelector("#bHome").onclick=isSv?renderStrong:renderHome;
+  $app.querySelector("#bAgain").onclick=()=>mode==="strong"?startStrong(svVerbs.length===1?svVerbs:undefined):mode==="strongTables"?startStrongTables():startSession(mode);
+  $app.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>sayWord(getW(b.dataset.say)));
   window.scrollTo(0,0);
 }
 

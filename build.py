@@ -44,10 +44,27 @@ for r in rows:
         inner=re.sub(r'^<svg[^>]*>|</svg>\s*$','',svg.strip())
         inner=re.sub(r'-?\d+\.\d{2,}',rnd,inner)
         icons[n]=inner
+# сильные глаголы: data/strong_verbs.txt + data/strong_sentences.txt
+PERS=['ich','du','er','wir','ihr','sie']
+strong=[];svby={}
+for l in open('data/strong_verbs.txt',encoding='utf-8'):
+    l=l.rstrip('\n')
+    if not l or l.startswith('#'): continue
+    p_=l.split('|'); assert len(p_)==9,l
+    v={'v':p_[0],'ru':p_[1],'ch':p_[2],'f':dict(zip(PERS,p_[3:])),'s':{}}
+    strong.append(v); svby[v['v']]=v
+for l in open('data/strong_sentences.txt',encoding='utf-8'):
+    l=l.rstrip('\n')
+    if not l or l.startswith('#'): continue
+    vv,pp,de,ru=l.split('|'); v=svby[vv]
+    m=re.search(r'\[(.+?)\]',de); assert m,l
+    assert m.group(1).lower()==re.sub(r'[\[\]]','',v['f'][pp]).lower(),('форма в примере не совпадает',l)
+    v['s'][pp]=[de,ru]
+for v in strong: assert set(v['s'])==set(PERS),('не на все лица есть пример',v['v'])
 dup=[k for k,v in collections.Counter(r['id'] for r in rows).items() if v>1]
 assert not dup, dup
 words=json.dumps(rows,ensure_ascii=False,separators=(',',':'))
-src=open('src/app.html',encoding='utf-8').read().replace('/*WORDS*/[]',words).replace('/*ICONS*/{}',json.dumps(icons,ensure_ascii=False,separators=(',',':')))
+src=open('src/app.html',encoding='utf-8').read().replace('/*STRONG_JS*/',open('src/strong.js',encoding='utf-8').read()).replace('/*WORDS*/[]',words).replace('/*ICONS*/{}',json.dumps(icons,ensure_ascii=False,separators=(',',':'))).replace('/*STRONG*/[]',json.dumps(strong,ensure_ascii=False,separators=(',',':')))
 ver=hashlib.sha1(src.encode()).hexdigest()[:8]
 head='''<!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -90,3 +107,4 @@ self.addEventListener("fetch",e=>{{
 ''')
 
 print(len(rows),'words,',len(icons),'icons,',len(src)//1024,'KB, cache',ver)
+open('_artifact.html','w',encoding='utf-8').write(src)

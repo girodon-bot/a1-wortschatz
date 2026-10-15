@@ -1,0 +1,15 @@
+# Сильные глаголы, Präsens. Формат:
+# инфинитив|перевод|чередование|ich|du|er/sie/es|wir|ihr|sie/Sie
+# [скобки] — изменившаяся часть основы (подсвечивается). Порядок строк = порядок изучения.
+geben|давать|e → i|gebe|g[i]bst|g[i]bt|geben|gebt|geben
+nehmen|брать|e → i|nehme|n[imm]st|n[imm]t|nehmen|nehmt|nehmen
+sprechen|говорить|e → i|spreche|spr[i]chst|spr[i]cht|sprechen|sprecht|sprechen
+helfen|помогать|e → i|helfe|h[i]lfst|h[i]lft|helfen|helft|helfen
+essen|есть, кушать|e → i|esse|[i]sst|[i]sst|essen|esst|essen
+vergessen|забывать|e → i|vergesse|verg[i]sst|verg[i]sst|vergessen|vergesst|vergessen
+sehen|видеть|e → ie|sehe|s[ie]hst|s[ie]ht|sehen|seht|sehen
+lesen|читать|e → ie|lese|l[ie]st|l[ie]st|lesen|lest|lesen
+empfehlen|рекомендовать|e → ie|empfehle|empf[ie]hlst|empf[ie]hlt|empfehlen|empfehlt|empfehlen
+fahren|ехать|a → ä|fahre|f[ä]hrst|f[ä]hrt|fahren|fahrt|fahren
+waschen|мыть; стирать|a → ä|wasche|w[ä]schst|w[ä]scht|waschen|wascht|waschen
+laufen|бегать; идти пешком|au → äu|laufe|l[äu]fst|l[äu]ft|laufen|lauft|laufen

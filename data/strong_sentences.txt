@@ -1,0 +1,73 @@
+# инфинитив|лицо (ich, du, er, wir, ihr, sie)|предложение с [формой]|перевод
+geben|ich|Ich [gebe] dir das Buch.|Я даю тебе книгу.
+geben|du|[Gibst] du mir bitte den Schlüssel?|Дашь мне, пожалуйста, ключ?
+geben|er|Der Lehrer [gibt] uns eine Aufgabe.|Учитель даёт нам задание.
+geben|wir|Wir [geben] am Samstag eine Party.|В субботу мы устраиваем вечеринку.
+geben|ihr|[Gebt] ihr mir eure Adresse?|Дадите мне ваш адрес?
+geben|sie|Die Kinder [geben] mir ein Bild.|Дети дают мне рисунок.
+nehmen|ich|Ich [nehme] den Bus.|Я поеду на автобусе.
+nehmen|du|Was [nimmst] du? – Einen Kaffee.|Что ты возьмёшь? — Кофе.
+nehmen|er|Er [nimmt] ein Taxi.|Он берёт такси.
+nehmen|wir|Wir [nehmen] das Zimmer.|Мы берём этот номер.
+nehmen|ihr|[Nehmt] ihr auch Milch?|Вы тоже возьмёте молоко?
+nehmen|sie|Sie [nehmen] immer die S-Bahn.|Они всегда ездят на электричке.
+sprechen|ich|Ich [spreche] ein bisschen Deutsch.|Я немного говорю по-немецки.
+sprechen|du|[Sprichst] du Englisch?|Ты говоришь по-английски?
+sprechen|er|Frau Müller [spricht] sehr schnell.|Госпожа Мюллер говорит очень быстро.
+sprechen|wir|Wir [sprechen] über das Wetter.|Мы говорим о погоде.
+sprechen|ihr|[Sprecht] ihr Russisch?|Вы говорите по-русски?
+sprechen|sie|Die Kinder [sprechen] zu laut.|Дети говорят слишком громко.
+helfen|ich|Ich [helfe] meiner Mutter.|Я помогаю маме.
+helfen|du|[Hilfst] du mir bitte?|Поможешь мне, пожалуйста?
+helfen|er|Anna [hilft] ihrem Bruder bei den Hausaufgaben.|Анна помогает брату с домашним заданием.
+helfen|wir|Wir [helfen] gern.|Мы охотно помогаем.
+helfen|ihr|[Helft] ihr mir beim Umzug?|Вы поможете мне с переездом?
+helfen|sie|Die Nachbarn [helfen] uns oft.|Соседи часто нам помогают.
+essen|ich|Ich [esse] gern Fisch.|Я люблю рыбу.
+essen|du|[Isst] du Fleisch?|Ты ешь мясо?
+essen|er|Das Kind [isst] einen Apfel.|Ребёнок ест яблоко.
+essen|wir|Wir [essen] um sieben Uhr.|Мы едим в семь часов.
+essen|ihr|Was [esst] ihr zum Frühstück?|Что вы едите на завтрак?
+essen|sie|Sie [essen] heute im Restaurant.|Сегодня они едят в ресторане.
+vergessen|ich|Ich [vergesse] oft meinen Schlüssel.|Я часто забываю ключ.
+vergessen|du|Du [vergisst] immer alles!|Ты всегда всё забываешь!
+vergessen|er|Er [vergisst] nie meinen Geburtstag.|Он никогда не забывает мой день рождения.
+vergessen|wir|Wir [vergessen] das Wort nicht.|Мы не забудем это слово.
+vergessen|ihr|[Vergesst] ihr oft eure Hausaufgaben?|Вы часто забываете домашнее задание?
+vergessen|sie|Die Kinder [vergessen] oft ihre Jacken.|Дети часто забывают куртки.
+sehen|ich|Ich [sehe] dich nicht.|Я тебя не вижу.
+sehen|du|[Siehst] du das Schild?|Ты видишь табличку?
+sehen|er|Er [sieht] den Bus nicht.|Он не видит автобус.
+sehen|wir|Wir [sehen] uns morgen.|Увидимся завтра.
+sehen|ihr|[Seht] ihr den See?|Вы видите озеро?
+sehen|sie|Sie [sehen] heute einen Film.|Сегодня они смотрят фильм.
+lesen|ich|Ich [lese] gern Zeitung.|Я люблю читать газету.
+lesen|du|Was [liest] du gerade?|Что ты сейчас читаешь?
+lesen|er|Mein Opa [liest] jeden Tag ein Buch.|Мой дедушка каждый день читает книгу.
+lesen|wir|Wir [lesen] den Text zusammen.|Мы читаем текст вместе.
+lesen|ihr|[Lest] ihr die E-Mail?|Вы читаете письмо?
+lesen|sie|Sie [lesen] die Speisekarte.|Они читают меню.
+empfehlen|ich|Ich [empfehle] Ihnen den Fisch.|Я рекомендую вам рыбу.
+empfehlen|du|Was [empfiehlst] du mir?|Что ты мне посоветуешь?
+empfehlen|er|Der Arzt [empfiehlt] viel Sport.|Врач советует больше заниматься спортом.
+empfehlen|wir|Wir [empfehlen] dieses Hotel.|Мы рекомендуем этот отель.
+empfehlen|ihr|Welches Restaurant [empfehlt] ihr?|Какой ресторан вы посоветуете?
+empfehlen|sie|Die Lehrer [empfehlen] einen Deutschkurs.|Учителя советуют курс немецкого.
+fahren|ich|Ich [fahre] mit dem Zug nach Berlin.|Я еду на поезде в Берлин.
+fahren|du|[Fährst] du mit dem Auto?|Ты едешь на машине?
+fahren|er|Der Bus [fährt] um acht Uhr.|Автобус отправляется в восемь часов.
+fahren|wir|Wir [fahren] ans Meer.|Мы едем на море.
+fahren|ihr|Wann [fahrt] ihr in den Urlaub?|Когда вы едете в отпуск?
+fahren|sie|Sie [fahren] mit dem Fahrrad.|Они едут на велосипеде.
+waschen|ich|Ich [wasche] mir die Hände.|Я мою руки.
+waschen|du|[Wäschst] du dir die Hände?|Ты моешь руки?
+waschen|er|Mein Vater [wäscht] am Samstag das Auto.|Мой папа по субботам моет машину.
+waschen|wir|Wir [waschen] die Gläser.|Мы моем стаканы.
+waschen|ihr|[Wascht] ihr euch die Hände?|Вы моете руки?
+waschen|sie|Die Kinder [waschen] sich.|Дети умываются.
+laufen|ich|Ich [laufe] jeden Morgen im Park.|Я бегаю каждое утро в парке.
+laufen|du|[Läufst] du heute zur Arbeit?|Ты сегодня пойдёшь на работу пешком?
+laufen|er|Mein Sohn [läuft] sehr schnell.|Мой сын бегает очень быстро.
+laufen|wir|Wir [laufen] zum Bahnhof.|Мы идём пешком на вокзал.
+laufen|ihr|[Lauft] ihr oder fahrt ihr mit dem Bus?|Вы пойдёте пешком или поедете на автобусе?
+laufen|sie|Die Kinder [laufen] im Garten.|Дети бегают в саду.
