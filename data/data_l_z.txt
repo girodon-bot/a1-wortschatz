@@ -47,9 +47,9 @@ home|die Miete|Mieten|арендная плата|Die [Miete] für diese Wohnung
 food|die Milch||молоко|Die [Milch] steht im Kühlschrank.
 gram|mit||с|Trinken Sie den Kaffee [mit] Milch?
 verb|mitbringen||приносить с собой|Soll ich dir was [mitbringen]?
-verb|mitkommen||идти вместе|Ich gehe ins Kino. [Kommst] du mit?
-verb|mitmachen||участвовать|Warum [macht] ihr nicht mit?
-verb|mitnehmen||брать с собой|[Nehmen] wir meine Schwester ins Kino mit?
+verb|mitkommen||идти вместе|Ich gehe ins Kino. [Kommst] du {mit}?
+verb|mitmachen||участвовать|Warum [macht] ihr nicht {mit}?
+verb|mitnehmen||брать с собой|[Nehmen] wir meine Schwester ins Kino {mit}?
 gram|die Mitte||середина|Der Lehrer steht in der [Mitte] des Klassenzimmers.
 home|die Möbel|Möbel|мебель (мн.ч.)|Sind die [Möbel] neu?
 verb|möchten||хотеть (вежливо)|Was [möchten] Sie trinken?
@@ -159,8 +159,8 @@ verb|sehen||видеть, смотреть|Ich kann dich nicht [sehen].
 trav|die Sehenswürdigkeit|Sehenswürdigkeiten|достопримечательность|Welche [Sehenswürdigkeiten] gibt es in Frankfurt?
 gram|sehr||очень|Das ist [sehr] schwer.
 verb|sein||быть|Ich [bin] dreiundzwanzig.
-home|weg sein||уйти, отсутствовать|Herr Meier ist schon [weg].
-home|zu sein||быть закрытым|Die Tür ist [zu].
+home|weg sein||уйти, отсутствовать|Herr Meier {ist} schon [weg].
+home|zu sein||быть закрытым|Die Tür {ist} [zu].
 time|seit||с (какого-то времени), уже|Ich wohne [seit] drei Jahren in Köln.
 work|selbstständig||самостоятельный; самозанятый|Er ist [selbstständig].
 gram|sich||себя, -ся|Sie müssen [sich] erst anmelden.
@@ -210,7 +210,7 @@ per|die Tochter|Töchter|дочь|Das ist meine [Tochter] Katharina.
 home|die Toilette|Toiletten|туалет|Wo ist die [Toilette], bitte?
 food|die Tomate|Tomaten|помидор|Die [Tomate] ist noch grün.
 per|tot||мёртвый|Sein Vater ist schon lange [tot].
-free|(sich) treffen||встречать(ся)|Wir [treffen] uns immer freitags.
+free|(sich) treffen||встречать(ся)|Wir [treffen] {uns} immer freitags.
 home|die Treppe|Treppen|лестница|Die [Treppe] hoch und dann links.
 food|trinken||пить|Möchtest du etwas [trinken]?
 comm|tschüss||пока|Junge Leute sagen meistens „[tschüss]!“
@@ -220,7 +220,7 @@ trav|übernachten||ночевать|Du kannst bei mir [übernachten].
 serv|überweisen||переводить (деньги)|Sie können das Geld auch [überweisen].
 time|die Uhr|Uhren|час (время); часы|Es ist vier [Uhr].
 gram|um||в (о времени); вокруг|Er kommt [um] sieben Uhr.
-home|umziehen||переезжать|Nächsten Monat [ziehen] wir um.
+home|umziehen||переезжать|Nächsten Monat [ziehen] wir {um}.
 gram|und||и|Peter [und] Helmut sind meine Söhne.
 gram|unser-||наш|Das ist [unsere] Lehrerin.
 gram|unten||внизу|Er wohnt ganz [unten] im Haus.
@@ -246,7 +246,7 @@ gram|von||от, из, (принадлежность)|Das Auto [von] Felix ist ka
 gram|vor||перед; назад (о времени)|Das Auto steht [vor] der Tür.
 per|der Vorname|Vornamen|имя|Ich heiße Müller, mein [Vorname] ist Eva.
 comm|die Vorsicht||осторожность; осторожно!|[Vorsicht]! Da kommt ein Auto.
-per|(sich) vorstellen||представлять(ся)|Können Sie sich bitte [vorstellen]?
+per|(sich) vorstellen||представлять(ся)|Können Sie {sich} bitte [vorstellen]?
 serv|die Vorwahl|Vorwahlen|телефонный код|Wie ist die [Vorwahl] von München?
 free|wandern||ходить в походы|Wir [wandern] um den Chiemsee.
 gram|wann||когда|[Wann] bist du fertig?
@@ -254,9 +254,9 @@ verb|warten||ждать|Können Sie ein paar Minuten [warten]?
 gram|warum||почему|[Warum] kommt er nicht?
 gram|was||что|[Was] ist das?
 gram|was für ein||какой (что за)|[Was für eine] Farbe möchten Sie?
-home|(sich) waschen||мыть(ся), стирать|Wo kann ich mir die Hände [waschen]?
+home|(sich) waschen||мыть(ся), стирать|Wo kann ich {mir} die Hände [waschen]?
 food|das Wasser||вода|Ein Glas [Wasser], bitte.
-body|weh tun||болеть (о части тела)|Mein Bein [tut] weh.
+body|weh tun||болеть (о части тела)|Mein Bein [tut] {weh}.
 per|weiblich||женский|Kreuzen Sie bitte an: „[weiblich]“ oder „männlich“.
 food|der Wein|Weine|вино|Nein danke, ich möchte keinen [Wein].
 adj|weit||далеко; широкий|Zum Bahnhof ist es nicht [weit].

@@ -1,6 +1,6 @@
 gram|ab||с (какого-то момента), от|[Ab] morgen muss ich arbeiten.
 gram|aber||но, однако|Ich bin oft im Büro, [aber] nur für wenige Stunden.
-trav|abfahren||отправляться, уезжать|Wir [fahren] um zwölf Uhr ab.
+trav|abfahren||отправляться, уезжать|Wir [fahren] um zwölf Uhr {ab}.
 trav|die Abfahrt|Abfahrten|отправление, отъезд|Vor der [Abfahrt] rufe ich an.
 verb|abgeben||сдавать, отдавать|Ich muss meine Schlüssel [abgeben].
 verb|abholen||забирать (кого-то/что-то)|Wir müssen noch meinen Bruder [abholen].
@@ -16,14 +16,14 @@ gram|an||у, на, к (вертикально)|Wir treffen uns [am] Bahnhof.
 shop|anbieten||предлагать|Was darf ich dir [anbieten]?
 shop|das Angebot|Angebote|предложение, скидка|Heute sind Sportschuhe im [Angebot].
 gram|ander-||другой|Nein, ich möchte die [andere].
-verb|anfangen||начинать(ся)|Der Unterricht [fängt] gleich an.
+verb|anfangen||начинать(ся)|Der Unterricht [fängt] gleich {an}.
 time|der Anfang|Anfänge|начало|Sie wohnt am [Anfang] der Straße.
 free|anklicken||кликать, нажимать (мышью)|Da musst du dieses Wort [anklicken].
-trav|ankommen||прибывать|Wann [kommt] dieser Zug in Hamburg an?
+trav|ankommen||прибывать|Wann [kommt] dieser Zug in Hamburg {an}?
 trav|die Ankunft|Ankünfte|прибытие|Auf diesem Plan steht nur die [Ankunft] der Züge.
 learn|ankreuzen||отмечать крестиком|Auf dem Formular müssen Sie etwas [ankreuzen].
-home|anmachen||включать|[Mach] bitte das Licht an!
-serv|(sich) anmelden||регистрироваться, записываться|Wo kann ich mich [anmelden]?
+home|anmachen||включать|[Mach] bitte das Licht {an}!
+serv|(sich) anmelden||регистрироваться, записываться|Wo kann ich {mich} [anmelden]?
 serv|die Anmeldung|Anmeldungen|регистрация, запись|Eine [Anmeldung] für diesen Kurs ist nicht mehr möglich.
 learn|die Anrede|Anreden|обращение (в письме)|Schreiben Sie auch eine [Anrede] und einen Gruß.
 serv|anrufen||звонить (по телефону)|Kann man Sie [anrufen]?
@@ -31,11 +31,11 @@ serv|der Anruf|Anrufe|звонок|Sie bekommt viele [Anrufe] auf ihrem Handy.
 serv|der Anrufbeantworter|Anrufbeantworter|автоответчик|Sprechen Sie bitte auf den [Anrufbeantworter].
 trav|die Ansage|Ansagen|объявление (устное)|Hören Sie die [Ansagen].
 trav|der Anschluss|Anschlüsse|пересадка; подключение|In Mannheim haben Sie [Anschluss] nach Saarbrücken.
-home|an sein||быть включённым|Heute Nacht war das Licht [an].
+home|an sein||быть включённым|Heute Nacht {war} das Licht [an].
 comm|antworten||отвечать|Er [antwortet] nicht.
 comm|die Antwort|Antworten|ответ|Er gibt leider keine [Antwort].
 free|die Anzeige|Anzeigen|объявление (в газете)|Ich habe Ihre [Anzeige] in der Zeitung gelesen.
-shop|(sich) anziehen||одеваться, надевать|Ich muss mich noch [anziehen].
+shop|(sich) anziehen||одеваться, надевать|Ich muss {mich} noch [anziehen].
 home|das Apartment|Apartments|апартаменты, квартира|Wir haben ein [Apartment] gemietet.
 food|der Apfel|Äpfel|яблоко|Ein Pfund [Äpfel] bitte.
 food|der Appetit||аппетит|Guten [Appetit]!
@@ -48,26 +48,26 @@ body|der Arzt|Ärzte|врач|Morgen habe ich einen Termin bei meiner [Ärztin].
 gram|auch||тоже, также|Ich bin [auch] Spanier.
 gram|auf||на (поверхности); по-|Die Kinder spielen [auf] der Straße.
 learn|die Aufgabe|Aufgaben|задание, задача|Das ist eine schwere [Aufgabe].
-verb|aufhören||заканчивать(ся), прекращать|Der Kurs [hört] in einer Woche auf.
-home|auf sein||быть открытым|Die Wohnung ist [auf].
+verb|aufhören||заканчивать(ся), прекращать|Der Kurs [hört] in einer Woche {auf}.
+home|auf sein||быть открытым|Die Wohnung {ist} [auf].
 verb|aufstehen||вставать|Ich muss immer um vier Uhr [aufstehen].
 home|der Aufzug|Aufzüge|лифт|In diesem Haus gibt es keinen [Aufzug].
 body|das Auge|Augen|глаз|Er hat blaue [Augen].
 gram|aus||из|Er kommt [aus] Brasilien.
 free|der Ausflug|Ausflüge|экскурсия, поездка|Morgen machen wir einen [Ausflug] nach Heidelberg.
-serv|ausfüllen||заполнять (анкету)|[Füllen] Sie bitte dieses Formular aus.
+serv|ausfüllen||заполнять (анкету)|[Füllen] Sie bitte dieses Formular {aus}.
 trav|der Ausgang|Ausgänge|выход|Wo ist der [Ausgang]?
 serv|die Auskunft|Auskünfte|справка, информация|Können Sie mir eine [Auskunft] geben?
 trav|das Ausland||заграница|Fahren Sie ins [Ausland]?
 per|der Ausländer|Ausländer|иностранец|Sind Sie [Ausländerin]?
 per|ausländisch||иностранный|Leider habe ich nur [ausländisches] Geld.
-home|ausmachen||выключать|[Mach] bitte das Licht aus!
+home|ausmachen||выключать|[Mach] bitte das Licht {aus}!
 learn|die Aussage|Aussagen|высказывание, утверждение|Ist die [Aussage] richtig oder falsch?
-per|aussehen||выглядеть|Das [sieht] schön aus.
-home|aus sein||быть выключенным; закончиться|Das Licht ist [aus].
+per|aussehen||выглядеть|Das [sieht] schön {aus}.
+home|aus sein||быть выключенным; закончиться|Das Licht {ist} [aus].
 trav|aussteigen||выходить (из транспорта)|Wo muss ich [aussteigen]?
 serv|der Ausweis|Ausweise|удостоверение личности|Hier ist mein [Ausweis].
-shop|(sich) ausziehen||раздеваться, снимать|[Zieh] die Schuhe aus, bitte!
+shop|(sich) ausziehen||раздеваться, снимать|[Zieh] die Schuhe {aus}, bitte!
 trav|das Auto|Autos|машина, автомобиль|Er kommt mit dem [Auto].
 trav|die Autobahn|Autobahnen|автобан, шоссе|Wo geht's hier bitte zur [Autobahn]?
 trav|der Automat|Automaten|автомат|Die Fahrkarten gibt es nur am [Automaten].
@@ -183,7 +183,7 @@ shop|einkaufen||делать покупки|Ich muss noch für morgen [einkaufen
 free|einladen||приглашать|Darf ich Sie zu einem Kaffee [einladen]?
 free|die Einladung|Einladungen|приглашение|Danke für die [Einladung]!
 time|einmal||один раз; однажды|Diese Prüfung mache ich nicht noch [einmal].
-trav|einsteigen||садиться (в транспорт)|Schnell, [steig] ein, der Zug fährt gleich.
+trav|einsteigen||садиться (в транспорт)|Schnell, [steig] {ein}, der Zug fährt gleich.
 free|der Eintritt|Eintritte|вход; плата за вход|Der Preis für den [Eintritt] ist 5 Euro.
 trav|das Einzelzimmer|Einzelzimmer|одноместный номер|Haben Sie noch ein [Einzelzimmer]?
 per|die Eltern|Eltern|родители (мн.ч.)|Meine [Eltern] leben in Spanien.
@@ -230,7 +230,7 @@ food|der Fisch|Fische|рыба|Ich esse gern [Fisch].
 food|die Flasche|Flaschen|бутылка|Eine [Flasche] Bier, bitte.
 food|das Fleisch||мясо|[Fleisch] mag ich nicht.
 trav|fliegen||летать|Ich [fliege] nicht gern.
-trav|abfliegen||вылетать|Wann [fliegst] du ab?
+trav|abfliegen||вылетать|Wann [fliegst] du {ab}?
 trav|der Abflug|Abflüge|вылет|Der [Abflug] ist um 11.20 Uhr.
 trav|der Flughafen|Flughäfen|аэропорт|Kannst du mich zum [Flughafen] bringen?
 trav|das Flugzeug|Flugzeuge|самолёт|Das [Flugzeug] aus Berlin kommt heute später an.
@@ -242,7 +242,7 @@ per|die Frau|Frauen|женщина; жена; госпожа|Das ist [Frau] Beck
 adj|frei||свободный|Ist der Platz noch [frei]?
 free|die Freizeit||свободное время|In meiner [Freizeit] spiele ich oft Fußball.
 adj|fremd||чужой, незнакомый|Ich bin [fremd] hier.
-comm|(sich) freuen||радоваться|Ich [freue] mich auf den Urlaub.
+comm|(sich) freuen||радоваться|Ich [freue] {mich} auf den Urlaub.
 per|der Freund|Freunde|друг|Das ist ein [Freund] von mir.
 time|früher||раньше|[Früher] waren wir oft zusammen im Kino.
 food|frühstücken||завтракать|Am Sonntag [frühstücke] ich gern im Bett.
@@ -379,7 +379,7 @@ food|der Kuchen|Kuchen|пирог, торт|Ich nehme ein Stück [Kuchen].
 learn|der Kugelschreiber|Kugelschreiber|шариковая ручка|Hast du einen [Kugelschreiber] für mich?
 home|der Kühlschrank|Kühlschränke|холодильник|Haben wir noch Milch? – Ja, im [Kühlschrank].
 free|kulturell||культурный|Ich bin [kulturell] interessiert.
-per|sich kümmern||заботиться|Jede Mutter [kümmert] sich um ihre Kinder.
+per|sich kümmern||заботиться|Jede Mutter [kümmert] {sich} um ihre Kinder.
 shop|der Kunde|Kunden|клиент, покупатель|Ich habe eine [Kundin].
 learn|der Kurs|Kurse|курс|Der Deutsch[kurs] geht bis zum Sommer.
 adj|kurz||короткий|Ricardo hat [kurzes] Haar.

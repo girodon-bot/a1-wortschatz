@@ -22,9 +22,9 @@ health|der Hustensaft|Hustensäfte|сироп от кашля|Haben Sie einen [H
 health|die Versicherungskarte|Versicherungskarten|карточка медицинской страховки|Haben Sie Ihre [Versicherungskarte] dabei?
 health|die Krankmeldung|Krankmeldungen|больничный (справка)|Ich brauche eine [Krankmeldung] für meinen Chef.
 health|husten||кашлять|Das Kind [hustet] die ganze Nacht.
-health|sich fühlen||чувствовать себя|Wie [fühlen] Sie sich heute?
+health|sich fühlen||чувствовать себя|Wie [fühlen] Sie {sich} heute?
 health|absagen||отменять|Ich muss den Kurs leider [absagen].
-health|sich ausruhen||отдыхать (восстанавливать силы)|Sie müssen sich ein paar Tage [ausruhen].
+health|sich ausruhen||отдыхать (восстанавливать силы)|Sie müssen {sich} ein paar Tage [ausruhen].
 health|einen Termin machen||записаться на приём|Ich möchte gern [einen Termin machen].
 health|einen Termin absagen||отменить запись (на приём)|Ich muss morgen [einen Termin absagen].
 health|zu Hause bleiben||остаться дома|Bei Fieber müssen Sie [zu Hause bleiben].

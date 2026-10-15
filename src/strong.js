@@ -54,7 +54,8 @@ function svTable(v,cur){
 function bindSvSay(){$app.querySelectorAll("[data-svsay]").forEach(r=>r.onclick=()=>speak(r.dataset.svsay))}
 function svSent(v,p,{gap=false}={}){
   const s=v.s[p];if(!s)return"";
-  const de=gap?esc(s[0]).replace(/\[(.+?)\]/,()=>`<span class="gap">______</span>`):esc(s[0]).replace(/\[(.+?)\]/,"<mark>$1</mark>");
+  const de0=gap?esc(s[0]).replace(/\[(.+?)\]/,()=>`<span class="gap">______</span>`):esc(s[0]).replace(/\[(.+?)\]/,"<mark>$1</mark>");
+  const de=de0.replace(/\{(.+?)\}/g,'<mark><span class="sep">$1</span></mark>');
   return gap?`<div class="cloze">${de}</div>`:`<div class="exwrap"><div class="exs">${de}</div><div class="exr">${esc(s[1])}</div></div>`;
 }
 const SV_RULES=[["e → i","geben","g[i]bt"],["e → ie","sehen","s[ie]ht"],["a → ä","fahren","f[ä]hrt"],["au → äu","laufen","l[äu]ft"],["особые","werden","w[ir]d · wissen → ich [weiß]"],["с приставкой","anfangen","du f[ä]ngst an"]];

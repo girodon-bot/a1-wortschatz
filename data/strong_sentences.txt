@@ -95,18 +95,18 @@ gefallen|er|Das Zimmer [gefällt] mir.|Мне нравится этот номе
 gefallen|wir|[Gefallen] wir dir auf dem Foto?|Мы тебе нравимся на фото?
 gefallen|ihr|Ihr [gefallt] meiner Mutter.|Вы нравитесь моей маме.
 gefallen|sie|Die Blumen [gefallen] mir.|Мне нравятся цветы.
-anfangen|ich|Ich [fange] morgen mit dem Kurs an.|Завтра я начинаю курс.
-anfangen|du|Wann [fängst] du mit der Arbeit an?|Когда ты начинаешь работу?
-anfangen|er|Der Film [fängt] um acht Uhr an.|Фильм начинается в восемь часов.
-anfangen|wir|Wir [fangen] jetzt an.|Мы сейчас начинаем.
-anfangen|ihr|[Fangt] ihr schon an?|Вы уже начинаете?
-anfangen|sie|Die Kurse [fangen] im Oktober an.|Курсы начинаются в октябре.
-einladen|ich|Ich [lade] dich zum Kaffee ein.|Я приглашаю тебя на кофе.
-einladen|du|[Lädst] du Maria zur Party ein?|Ты пригласишь Марию на вечеринку?
-einladen|er|Er [lädt] uns zum Essen ein.|Он приглашает нас на ужин.
-einladen|wir|Wir [laden] alle Freunde ein.|Мы приглашаем всех друзей.
-einladen|ihr|[Ladet] ihr auch eure Eltern ein?|Вы пригласите и своих родителей?
-einladen|sie|Sie [laden] uns zur Hochzeit ein.|Они приглашают нас на свадьбу.
+anfangen|ich|Ich [fange] morgen mit dem Kurs {an}.|Завтра я начинаю курс.
+anfangen|du|Wann [fängst] du mit der Arbeit {an}?|Когда ты начинаешь работу?
+anfangen|er|Der Film [fängt] um acht Uhr {an}.|Фильм начинается в восемь часов.
+anfangen|wir|Wir [fangen] jetzt {an}.|Мы сейчас начинаем.
+anfangen|ihr|[Fangt] ihr schon {an}?|Вы уже начинаете?
+anfangen|sie|Die Kurse [fangen] im Oktober {an}.|Курсы начинаются в октябре.
+einladen|ich|Ich [lade] dich zum Kaffee {ein}.|Я приглашаю тебя на кофе.
+einladen|du|[Lädst] du Maria zur Party {ein}?|Ты пригласишь Марию на вечеринку?
+einladen|er|Er [lädt] uns zum Essen {ein}.|Он приглашает нас на ужин.
+einladen|wir|Wir [laden] alle Freunde {ein}.|Мы приглашаем всех друзей.
+einladen|ihr|[Ladet] ihr auch eure Eltern {ein}?|Вы пригласите и своих родителей?
+einladen|sie|Sie [laden] uns zur Hochzeit {ein}.|Они приглашают нас на свадьбу.
 werden|ich|Ich [werde] Lehrerin.|Я стану учительницей.
 werden|du|Du [wirst] bald dreißig.|Тебе скоро будет тридцать.
 werden|er|Mein Sohn [wird] Arzt.|Мой сын станет врачом.

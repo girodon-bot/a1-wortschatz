@@ -147,7 +147,7 @@ h2{font-size:21px}
 .exwrap{display:flex;flex-direction:column;gap:3px}
 .exs{font-size:15px;color:var(--muted)}
 .exr{font-size:14px;color:var(--muted);font-style:italic;opacity:.9}
-.exs mark{background:transparent;color:var(--ink);font-weight:700;border-bottom:2px solid var(--accent)}
+.exs mark,.cloze mark{background:transparent;color:var(--ink);font-weight:700;border-bottom:2px solid var(--accent)}
 .cloze{font-size:21px;line-height:1.5}
 .gap{display:inline-block;min-width:4ch;border-bottom:2px solid var(--accent);color:var(--muted)}
 .speak{border:1px solid var(--line);background:var(--sunk);border-radius:999px;width:44px;height:44px;display:inline-grid;place-items:center;flex:none}
@@ -214,7 +214,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 <script>
 const WORDS = /*WORDS*/[];
 const ICONS = /*ICONS*/{};
-const APP_VERSION = "1.3.0";
+const APP_VERSION = "1.3.1";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -338,12 +338,14 @@ function sepSentence(w,html){const p=SEP[w.id];if(!p)return html;
   const mk=head.lastIndexOf("<mark>");const inner=head.slice(mk+6);
   if(inner.toLowerCase().startsWith(p)&&inner.length>p.length+2){head=head.slice(0,mk+6)+sepSpan(inner.slice(0,p.length))+inner.slice(p.length);return head+tail}
   const k=inner.lastIndexOf(" "+p);if(k>=0&&inner.length>k+p.length+3){head=head.slice(0,mk+6)+inner.slice(0,k+1)+sepSpan(inner.slice(k+1,k+1+p.length))+inner.slice(k+1+p.length);return head+tail}
-  const re=new RegExp("(^|[\\s(])("+p+")(?=[\\s.,!?;:)]|$)","gi");let last=null,mm;
+  const re=new RegExp("(^|[\\s({])("+p+")(?=[\\s.,!?;:)}]|$)","gi");let last=null,mm;
   while((mm=re.exec(tail))){last=mm}
   if(last){const at=last.index+last[1].length;tail=tail.slice(0,at)+sepSpan(last[2])+tail.slice(at+last[2].length)}
   return head+tail;}
 function deHTML(w){if(!w.g){if(isPhrase(w))return `<span class="phr">${esc(w.de)}</span>`;const s=sepWord(w);return s||esc(w.de)}return `<span class="art g-${w.g}">${ARTS[w.g]}</span> ${esc(nounPart(w))}`}
-function exHTML(w){return sepSentence(w,esc(w.ex||"").replace(/\[(.+?)\]/g,"<mark>$1</mark>"))}
+/* В примере [главное слово] и {остальные части сочетания}: себя, отделившаяся приставка, ist… — выделяются все */
+const mark2=h=>h.replace(/\{(.+?)\}/g,"<mark>$1</mark>");
+function exHTML(w){return mark2(sepSentence(w,esc(w.ex||"").replace(/\[(.+?)\]/g,"<mark>$1</mark>")))}
 function exBlock(w){return w.ex?`<div class="exwrap"><div class="exs">${exHTML(w)}</div>${w.exr?`<div class="exr">${esc(w.exr)}</div>`:""}</div>`:""}
 function translit(s){return s.replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss")}
 function norm(s){return translit(String(s).toLowerCase().replace(/[.,!?;:„“"'’‘()–—]/g," ").replace(/-$/,"").replace(/\s+/g," ").trim())}
@@ -711,7 +713,7 @@ function exDe2Ru(w){typeEx(`<div style="display:flex;align-items:center;gap:10px
   $app.querySelectorAll("[data-speak]").forEach(x=>x.onclick=()=>sayWord(w));if(state.settings.autoAudio)sayWord(w)}
 function exCloze(w){
   const t=clozeTarget(w);
-  const sent=sepSentence(w,esc(w.ex).replace(/\[(.+?)\]/,()=>`<mark class="gapm"><span class="gap">${"_".repeat(Math.max(3,Math.min(10,t.length)))}</span></mark>`)).replace(/<mark class="gapm">(.*?)<\/mark>/,"$1");
+  const sent=mark2(sepSentence(w,esc(w.ex).replace(/\[(.+?)\]/,()=>`<mark class="gapm"><span class="gap">${"_".repeat(Math.max(3,Math.min(10,t.length)))}</span></mark>`)).replace(/<mark class="gapm">(.*?)<\/mark>/,"$1"));
   typeEx(`<div class="cloze">${sent}</div><div class="hint">Подсказка: ${esc(w.ru)} · начинается на «${esc(t[0])}»</div>`,w,v=>checkDE(w,v,{noArticle:true,targets:[t]}),{target:t});
 }
 function exDict(w){
