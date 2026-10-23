@@ -85,7 +85,13 @@ h2{font-size:21px}
 .sec{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:11px 12px;display:grid;grid-template-columns:1fr auto;gap:6px 12px;text-align:left;width:100%}
 .sec[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent)}
 .sec .t{min-width:0}
-.sec .t b{font-weight:700;display:block}
+.sec .t b{font-weight:700;display:flex;align-items:center;gap:10px}
+.sec .ck{flex:none;width:20px;height:20px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center}
+.sec .ck.rd{border-radius:50%}
+.sec[aria-pressed="true"] .ck{background:var(--accent);border-color:var(--accent)}
+.sec[aria-pressed="true"] .ck::after{content:"";width:5px;height:10px;border:solid #1a1a1a;border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+.sec .t small{margin-left:30px}
+.scopelist{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.35}
 .sec .t small{font-size:12px;color:var(--muted);font-style:italic}
 .sec .r{text-align:right;font-size:13px;color:var(--muted)}
 .sec .r b{color:var(--ink);font-variant-numeric:tabular-nums}
@@ -214,7 +220,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 <script>
 const WORDS = /*WORDS*/[];
 const ICONS = /*ICONS*/{};
-const APP_VERSION = "1.3.1";
+const APP_VERSION = "1.4.0";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -262,7 +268,8 @@ function migrate(s){
   s.v = s.v||1;
   while(s.v<SCHEMA){ const f=MIGRATIONS[s.v+1]; if(f) s=f(s); s.v++; }
   s.cards=s.cards||{}; s.log=s.log||{}; s.settings={...DEFAULT_SETTINGS,...(s.settings||{})};
-  if(!s.scope||(s.scope!=="all"&&s.scope!=="hard"&&!SEC[s.scope])) s.scope="all";
+  if(Array.isArray(s.scope)){s.scope=[...new Set(s.scope)].filter(id=>SEC[id]);if(s.scope.length===1)s.scope=s.scope[0];else if(!s.scope.length)s.scope="all"}
+  else if(!s.scope||(s.scope!=="all"&&s.scope!=="hard"&&!SEC[s.scope])) s.scope="all";
   for(const [o,n] of Object.entries(ALIASES)){ if(s.cards[o]&&!s.cards[n]){s.cards[n]=s.cards[o];} delete s.cards[o]; }
   return s;
 }
@@ -432,11 +439,24 @@ const ICON={
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2200)}
 const LV_C={new:"var(--lv-new)",learn:"var(--lv-learn)",firm:"var(--lv-firm)",known:"var(--lv-known)"};
 const LV_RU={new:"новое",learn:"учу",firm:"закрепляю",known:"выучено"};
-function wordsIn(scope){if(scope==="all")return WORDS;if(scope==="hard")return WORDS.filter(w=>isHard(w.id));return WORDS.filter(w=>inSec(w,scope))}
+/* scope: "all" | "hard" | id раздела | [id, id, …] — несколько тем сразу */
+function wordsIn(scope){if(scope==="all")return WORDS;if(scope==="hard")return WORDS.filter(w=>isHard(w.id));
+  if(Array.isArray(scope))return WORDS.filter(w=>scope.some(id=>inSec(w,id)));return WORDS.filter(w=>inSec(w,scope))}
+const scopeIds=s=>Array.isArray(s)?s:(s==="all"||s==="hard")?[]:[s];
+const isSel=id=>(id==="all"||id==="hard")?state.scope===id:scopeIds(state.scope).includes(id);
+const ruPl=(n,a,b,c)=>{const m=n%10,h=n%100;return n+" "+(m===1&&h!==11?a:m>=2&&m<=4&&(h<12||h>14)?b:c)};
+/* Нажатие на тему добавляет/убирает её; «Весь A1» и «Трудные» выбираются отдельно */
+function toggleScope(id){
+  if(id==="all"||id==="hard"){state.scope=id;return}
+  let ids=scopeIds(state.scope);
+  ids=ids.includes(id)?ids.filter(x=>x!==id):[...ids,id];
+  state.scope=!ids.length?"all":ids.length===1?ids[0]:SECTIONS.map(x=>x.id).filter(x=>ids.includes(x));
+}
 function counts(list){const c={new:0,learn:0,firm:0,known:0,due:0};const now=Date.now();for(const w of list){c[level(w.id)]++;if(isDue(w.id,now))c.due++}return c}
 function barHTML(c,total){if(!total)return'<div class="bar"></div>';const p=k=>(c[k]/total*100).toFixed(2)+"%";
   return `<div class="bar" role="img" aria-label="Выучено ${c.known} из ${total}"><i style="width:${p("known")};background:var(--lv-known)"></i><i style="width:${p("firm")};background:var(--lv-firm)"></i><i style="width:${p("learn")};background:var(--lv-learn)"></i></div>`}
-const scopeName=s=>s==="all"?"Весь A1":s==="hard"?"Трудные слова":SEC[s].ru;
+const scopeName=s=>s==="all"?"Весь A1":s==="hard"?"Трудные слова":Array.isArray(s)?ruPl(s.length,"тема","темы","тем"):SEC[s].ru;
+const scopeList=s=>Array.isArray(s)?s.map(id=>SEC[id].ru).join(", "):"";
 
 /* ---------- Home ---------- */
 const MODES=[
@@ -477,7 +497,7 @@ function renderHome(){
   </section>
 
   <section style="display:flex;flex-direction:column;gap:10px">
-    <div class="scope"><div style="min-width:0"><div class="label">Тренируем</div><h2>${esc(scopeName(sc))} <span class="sub num">· ${list.length} слов</span></h2></div>
+    <div class="scope"><div style="min-width:0"><div class="label">Тренируем</div><h2>${esc(scopeName(sc))} <span class="sub num">· ${ruPl(list.length,"слово","слова","слов")}</span></h2>${Array.isArray(sc)?`<div class="scopelist">${esc(scopeList(sc))}</div>`:""}</div>
       <button class="iconbtn" id="bList" aria-label="Список слов раздела">${ICON.list}</button></div>
     <div class="chips" role="group" aria-label="Порядок слов">
       <button class="chip" data-order="smart" aria-pressed="${state.settings.order==="smart"}">Умный порядок</button>
@@ -489,7 +509,7 @@ function renderHome(){
   </section>
 
   <section style="display:flex;flex-direction:column;gap:8px">
-    <div class="label">Разделы</div>
+    <div class="label">Разделы · можно выбрать несколько</div>
     <div class="secs">
       ${secRow("all","Весь A1","Alle Wörter",WORDS)}
       ${hardN?secRow("hard","Трудные слова","Fehler-Training",WORDS.filter(w=>isHard(w.id))):""}
@@ -503,10 +523,12 @@ function renderHome(){
   $app.querySelector("#bStrong").onclick=renderStrong;
   $app.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>startSession(b.dataset.mode));
   $app.querySelectorAll("[data-order]").forEach(b=>b.onclick=()=>{state.settings.order=b.dataset.order;save();renderHome()});
-  $app.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{state.scope=b.dataset.sec;save();renderHome();window.scrollTo({top:0,behavior:"smooth"})});
+  $app.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{const id=b.dataset.sec;toggleScope(id);save();renderHome();
+    if(id==="all"||id==="hard")window.scrollTo({top:0,behavior:"smooth"});
+    else toast(`${Array.isArray(state.scope)?"Выбрано "+scopeName(state.scope):scopeName(state.scope)} · ${ruPl(wordsIn(state.scope).length,"слово","слова","слов")}`)});
 }
 function secRow(id,ru,de,list){const c=counts(list);
-  return `<button class="sec" data-sec="${id}" aria-pressed="${state.scope===id}"><div class="t"><b>${esc(ru)}</b><small>${esc(de)}</small></div>
+  return `<button class="sec" data-sec="${id}" aria-pressed="${isSel(id)}"><div class="t"><b><span class="ck${id==="all"||id==="hard"?" rd":""}" aria-hidden="true"></span>${esc(ru)}</b><small>${esc(de)}</small></div>
   <div class="r"><b>${c.known}</b>/${list.length}${c.due?`<br><span class="due">${c.due} повт.</span>`:""}</div>${barHTML(c,list.length)}</button>`}
 
 /* ---------- Word list ---------- */
