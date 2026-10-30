@@ -1,0 +1,100 @@
+# id|вопрос с [словом]|ответ|перевод вопроса|перевод ответа
+wer|[Wer] ist das?|Das ist mein Bruder.|Кто это?|Это мой брат.
+wer|[Wer] kommt heute zur Party?|Anna und Tom.|Кто сегодня придёт на вечеринку?|Анна и Том.
+wer|[Wer] ist am Telefon?|Hier ist Frau Müller.|Кто у телефона?|Это госпожа Мюллер.
+wer|[Wer] hat am Samstag Zeit?|Ich habe Zeit.|У кого есть время в субботу?|У меня есть время.
+wer|[Wer] wohnt in dieser Wohnung?|Familie Schmidt.|Кто живёт в этой квартире?|Семья Шмидт.
+was|[Was] ist das?|Das ist ein Kuli.|Что это?|Это ручка.
+was|[Was] machst du am Wochenende?|Ich besuche meine Eltern.|Что ты делаешь на выходных?|Я навещаю родителей.
+was|[Was] möchten Sie trinken?|Einen Kaffee, bitte.|Что вы будете пить?|Кофе, пожалуйста.
+was|[Was] sind Sie von Beruf?|Ich bin Lehrerin.|Кем вы работаете?|Я учительница.
+was|[Was] isst du gern?|Pizza und Salat.|Что ты любишь есть?|Пиццу и салат.
+wo|[Wo] wohnen Sie?|In Hamburg.|Где вы живёте?|В Гамбурге.
+wo|[Wo] ist der Bahnhof?|Hier links.|Где вокзал?|Здесь налево.
+wo|[Wo] arbeitest du?|Bei einer Bank.|Где ты работаешь?|В банке.
+wo|[Wo] ist mein Schlüssel?|Auf dem Tisch.|Где мой ключ?|На столе.
+wo|[Wo] treffen wir uns?|Im Café am Markt.|Где мы встречаемся?|В кафе у рынка.
+woher|[Woher] kommen Sie?|Aus Russland.|Откуда вы?|Из России.
+woher|[Woher] kommst du gerade?|Vom Supermarkt.|Откуда ты сейчас идёшь?|Из супермаркета.
+woher|[Woher] kennst du Anna?|Aus dem Deutschkurs.|Откуда ты знаешь Анну?|С курса немецкого.
+woher|[Woher] kommt der Zug?|Aus München.|Откуда идёт поезд?|Из Мюнхена.
+woher|[Woher] hast du das Buch?|Von meiner Schwester.|Откуда у тебя эта книга?|От сестры.
+wohin|[Wohin] fährst du am Wochenende?|Nach Hamburg.|Куда ты едешь на выходных?|В Гамбург.
+wohin|[Wohin] gehst du?|In die Stadt.|Куда ты идёшь?|В город.
+wohin|[Wohin] fährt dieser Bus?|Zum Bahnhof.|Куда идёт этот автобус?|До вокзала.
+wohin|[Wohin] fliegen Sie im Urlaub?|Nach Spanien.|Куда вы летите в отпуск?|В Испанию.
+wohin|[Wohin] gehen wir heute Abend?|Ins Kino.|Куда мы пойдём сегодня вечером?|В кино.
+wie|[Wie] heißen Sie?|Ich heiße Maria Weber.|Как вас зовут?|Меня зовут Мария Вебер.
+wie|[Wie] geht es dir?|Gut, danke.|Как дела?|Хорошо, спасибо.
+wie|[Wie] fährst du zur Arbeit?|Mit dem Fahrrad.|На чём ты ездишь на работу?|На велосипеде.
+wie|[Wie] ist das Wetter heute?|Sonnig und warm.|Какая сегодня погода?|Солнечно и тепло.
+wie|[Wie] schreibt man das?|M-Ü-L-L-E-R.|Как это пишется?|М-Ю-Л-Л-Е-Р.
+wie alt|[Wie alt] bist du?|Ich bin 25.|Сколько тебе лет?|Мне 25.
+wie alt|[Wie alt] sind Ihre Kinder?|Drei und sieben Jahre.|Сколько лет вашим детям?|Три и семь лет.
+wie alt|[Wie alt] ist das Haus?|Über hundert Jahre alt.|Сколько лет этому дому?|Больше ста лет.
+wie alt|[Wie alt] ist deine Oma?|Sie ist 80.|Сколько лет твоей бабушке?|Ей 80.
+wie alt|[Wie alt] ist dein Sohn?|Er ist zwölf.|Сколько лет твоему сыну?|Ему двенадцать.
+wann|[Wann] hast du Geburtstag?|Am 3. Mai.|Когда у тебя день рождения?|3 мая.
+wann|[Wann] fährst du in den Urlaub?|Im August.|Когда ты едешь в отпуск?|В августе.
+wann|[Wann] kommst du nach Hause?|Heute Abend.|Когда ты придёшь домой?|Сегодня вечером.
+wann|[Wann] beginnt die Schule?|Im September.|Когда начинается школа?|В сентябре.
+wann|[Wann] machen wir Pause?|Gleich, in fünf Minuten.|Когда у нас перерыв?|Сейчас, через пять минут.
+um wie viel Uhr|[Um wie viel Uhr] beginnt der Kurs?|Um neun Uhr.|Во сколько начинается курс?|В девять часов.
+um wie viel Uhr|[Um wie viel Uhr] fährt der Zug?|Um 14.30 Uhr.|Во сколько отправляется поезд?|В 14:30.
+um wie viel Uhr|[Um wie viel Uhr] stehst du auf?|Um sieben.|Во сколько ты встаёшь?|В семь.
+um wie viel Uhr|[Um wie viel Uhr] treffen wir uns?|Um acht vor dem Kino.|Во сколько мы встречаемся?|В восемь у кинотеатра.
+um wie viel Uhr|[Um wie viel Uhr] macht der Supermarkt zu?|Um 22 Uhr.|Во сколько закрывается супермаркет?|В 22 часа.
+wie viel|[Wie viel] kostet das?|Zwölf Euro.|Сколько это стоит?|Двенадцать евро.
+wie viel|[Wie viel] Geld hast du dabei?|Nur zwanzig Euro.|Сколько у тебя с собой денег?|Только двадцать евро.
+wie viel|[Wie viel] Milch brauchen wir?|Zwei Liter.|Сколько молока нам нужно?|Два литра.
+wie viel|[Wie viel] macht das zusammen?|8,50 Euro.|Сколько всего с меня?|8,50 евро.
+wie viel|[Wie viel] Zucker nimmst du?|Einen Löffel.|Сколько сахара ты кладёшь?|Одну ложку.
+wie viele|[Wie viele] Kinder haben Sie?|Ich habe zwei Kinder.|Сколько у вас детей?|У меня двое детей.
+wie viele|[Wie viele] Personen sind Sie?|Wir sind vier Personen.|Сколько вас человек?|Нас четверо.
+wie viele|[Wie viele] Zimmer hat die Wohnung?|Drei Zimmer.|Сколько комнат в квартире?|Три комнаты.
+wie viele|[Wie viele] Geschwister hast du?|Einen Bruder und eine Schwester.|Сколько у тебя братьев и сестёр?|Брат и сестра.
+wie viele|[Wie viele] Äpfel möchten Sie?|Sechs Stück, bitte.|Сколько яблок вы хотите?|Шесть штук, пожалуйста.
+warum|[Warum] kommst du nicht?|Weil ich krank bin.|Почему ты не придёшь?|Потому что я болею.
+warum|[Warum] lernst du Deutsch?|Weil ich in Deutschland arbeiten möchte.|Почему ты учишь немецкий?|Потому что хочу работать в Германии.
+warum|[Warum] bist du so müde?|Ich habe schlecht geschlafen.|Почему ты такой уставший?|Я плохо спал.
+warum|[Warum] ist der Laden zu?|Heute ist Feiertag.|Почему магазин закрыт?|Сегодня праздник.
+warum|[Warum] lachst du?|Der Film ist so lustig!|Почему ты смеёшься?|Фильм такой смешной!
+wen|[Wen] besuchst du am Sonntag?|Meine Oma.|Кого ты навещаешь в воскресенье?|Бабушку.
+wen|[Wen] fragst du?|Den Lehrer.|Кого ты спрашиваешь?|Учителя.
+wen|[Wen] lädst du zur Party ein?|Alle meine Freunde.|Кого ты приглашаешь на вечеринку?|Всех своих друзей.
+wen|Für [wen] ist das Geschenk?|Für meine Mutter.|Для кого этот подарок?|Для моей мамы.
+wen|[Wen] suchen Sie?|Herrn Becker.|Кого вы ищете?|Господина Беккера.
+wem|[Wem] gehört die Tasche?|Der Lehrerin.|Чья это сумка?|Учительницы.
+wem|[Wem] hilfst du?|Meinem Nachbarn.|Кому ты помогаешь?|Своему соседу.
+wem|Mit [wem] sprichst du?|Mit meinem Chef.|С кем ты разговариваешь?|С начальником.
+wem|[Wem] schenkst du die Blumen?|Meiner Freundin.|Кому ты даришь цветы?|Своей девушке.
+wem|Bei [wem] wohnst du?|Bei meiner Tante.|У кого ты живёшь?|У тёти.
+wie lange|[Wie lange] dauert der Film?|Zwei Stunden.|Сколько длится фильм?|Два часа.
+wie lange|[Wie lange] bleibst du in Berlin?|Eine Woche.|Как долго ты пробудешь в Берлине?|Неделю.
+wie lange|[Wie lange] dauert die Fahrt?|Ungefähr 30 Minuten.|Сколько длится поездка?|Примерно 30 минут.
+wie lange|[Wie lange] musst du heute arbeiten?|Acht Stunden.|Сколько часов тебе сегодня работать?|Восемь часов.
+wie lange|[Wie lange] ist die Bibliothek heute offen?|Bis 20 Uhr.|До скольки сегодня открыта библиотека?|До 20 часов.
+wie oft|[Wie oft] machst du Sport?|Zweimal pro Woche.|Как часто ты занимаешься спортом?|Два раза в неделю.
+wie oft|[Wie oft] fährt der Bus?|Alle zehn Minuten.|Как часто ходит автобус?|Каждые десять минут.
+wie oft|[Wie oft] soll ich die Tabletten nehmen?|Dreimal am Tag.|Как часто мне принимать таблетки?|Три раза в день.
+wie oft|[Wie oft] gehst du ins Kino?|Ein- oder zweimal im Monat.|Как часто ты ходишь в кино?|Раз или два в месяц.
+wie oft|[Wie oft] rufst du deine Mutter an?|Jeden Tag.|Как часто ты звонишь маме?|Каждый день.
+seit wann|[Seit wann] lernst du Deutsch?|Seit einem Jahr.|Как давно ты учишь немецкий?|Уже год.
+seit wann|[Seit wann] wohnen Sie hier?|Seit März.|С какого времени вы здесь живёте?|С марта.
+seit wann|[Seit wann] bist du krank?|Seit gestern.|С какого дня ты болеешь?|Со вчерашнего дня.
+seit wann|[Seit wann] arbeitest du bei der Firma?|Seit 2020.|С какого года ты работаешь в фирме?|С 2020 года.
+seit wann|[Seit wann] kennt ihr euch?|Seit der Schule.|Как давно вы знакомы?|Со школы.
+welch|[Welcher] Bus fährt zum Bahnhof?|Die Linie 5.|Какой автобус идёт до вокзала?|Пятый маршрут.
+welch|[Welche] Farbe magst du?|Blau.|Какой цвет тебе нравится?|Синий.
+welch|[Welches] Zimmer möchten Sie?|Das Zimmer mit Balkon.|Какой номер вы хотите?|Номер с балконом.
+welch|[Welchen] Film sehen wir heute?|Den Krimi um acht.|Какой фильм мы смотрим сегодня?|Детектив в восемь.
+welch|In [welchem] Stock wohnen Sie?|Im dritten Stock.|На каком этаже вы живёте?|На третьем этаже (по-нашему — на четвёртом).
+was für|[Was für ein] Auto hast du?|Ein kleines Auto.|Какая у тебя машина?|Маленькая.
+was für|[Was für eine] Wohnung suchen Sie?|Eine Wohnung mit drei Zimmern.|Какую квартиру вы ищете?|Квартиру с тремя комнатами.
+was für|[Was für einen] Hund habt ihr?|Einen kleinen Hund.|Какая у вас собака?|Маленькая.
+was für|[Was für] Musik hörst du gern?|Jazz und Pop.|Какую музыку ты любишь слушать?|Джаз и поп.
+was für|[Was für ein] Mensch ist dein Chef?|Sehr nett und ruhig.|Что за человек твой начальник?|Очень приятный и спокойный.
+wie spät|[Wie spät] ist es?|Es ist halb drei.|Который час?|Половина третьего.
+wie spät|[Wie spät] ist es jetzt?|Kurz nach zehn.|Сколько сейчас времени?|Начало одиннадцатого.
+wie spät|[Wie spät] ist es in New York?|Dort ist es sechs Uhr morgens.|Который час в Нью-Йорке?|Там шесть утра.
+wie spät|[Wie spät] ist es, bitte?|Genau zwölf Uhr.|Скажите, пожалуйста, который час?|Ровно двенадцать.

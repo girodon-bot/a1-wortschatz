@@ -15,7 +15,7 @@ const svId=(v,p)=>`sv|${v.v}|${p}`;
 const spkP=p=>p==="er"?"er":p==="sie"?"sie":p;
 const SVW={};
 function svWord(v,p){const id=svId(v,p);return SVW[id]||(SVW[id]={id,de:`${spkP(p)} ${plainF(v.f[p])}`,ru:`${PRU[p]} · ${v.ru}`,sv:true})}
-const getW=id=>BYID[id]||SVW[id]||(id.startsWith("sv|")?(()=>{const[,vv,pp]=id.split("|");return SVBY[vv]?svWord(SVBY[vv],pp):null})():null);
+const getW=id=>BYID[id]||SVW[id]||(id.startsWith("wf|")?wfWord(id.slice(3)):null)||(id.startsWith("sv|")?(()=>{const[,vv,pp]=id.split("|");return SVBY[vv]?svWord(SVBY[vv],pp):null})():null);
 const sibStem=v=>/(s|ss|ß)en$/.test(v.v)&&v.v!=="wissen";
 /* форма «как у слабого глагола» — типичная ошибка */
 function svRegular(v,p){

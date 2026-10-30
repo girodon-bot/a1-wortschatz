@@ -61,10 +61,28 @@ for l in open('data/strong_sentences.txt',encoding='utf-8'):
     assert m.group(1).lower()==re.sub(r'[\[\]]','',v['f'][pp]).split(' ')[0].lower(),('форма в примере не совпадает',l)
     v['s'][pp]=[de,ru]
 for v in strong: assert set(v['s'])==set(PERS),('не на все лица есть пример',v['v'])
+# вопросительные слова: data/wfragen.txt + data/wfragen_q.txt
+wf=[];wfby={}
+for l in open('data/wfragen.txt',encoding='utf-8'):
+    l=l.rstrip('\n')
+    if not l or l.startswith('#'): continue
+    p_=l.split('|'); assert len(p_)==6,l
+    w={'id':p_[0],'d':p_[1],'ru':p_[2],'g':p_[3],'rule':p_[4],'forms':[x for x in p_[5].split(',') if x],'q':[]}
+    assert w['g'] in ('who','place','time','num','how'),l
+    wf.append(w); wfby[w['id']]=w
+for l in open('data/wfragen_q.txt',encoding='utf-8'):
+    l=l.rstrip('\n')
+    if not l or l.startswith('#'): continue
+    p_=l.split('|'); assert len(p_)==5,l
+    w=wfby[p_[0]]; ms=re.findall(r'\[(.+?)\]',p_[1]); assert len(ms)==1,l
+    t=ms[0].lower()
+    assert t==w['id'].lower() or t in w['forms'],('форма не совпадает',l)
+    w['q'].append(p_[1:])
+for w in wf: assert len(w['q'])>=3,('мало вопросов',w['id'])
 dup=[k for k,v in collections.Counter(r['id'] for r in rows).items() if v>1]
 assert not dup, dup
 words=json.dumps(rows,ensure_ascii=False,separators=(',',':'))
-src=open('src/app.html',encoding='utf-8').read().replace('/*STRONG_JS*/',open('src/strong.js',encoding='utf-8').read()).replace('/*WORDS*/[]',words).replace('/*ICONS*/{}',json.dumps(icons,ensure_ascii=False,separators=(',',':'))).replace('/*STRONG*/[]',json.dumps(strong,ensure_ascii=False,separators=(',',':')))
+src=open('src/app.html',encoding='utf-8').read().replace('/*STRONG_JS*/',open('src/strong.js',encoding='utf-8').read()).replace('/*WORDS*/[]',words).replace('/*ICONS*/{}',json.dumps(icons,ensure_ascii=False,separators=(',',':'))).replace('/*STRONG*/[]',json.dumps(strong,ensure_ascii=False,separators=(',',':'))).replace('/*WF_JS*/',open('src/wf.js',encoding='utf-8').read()).replace('/*WF*/[]',json.dumps(wf,ensure_ascii=False,separators=(',',':')))
 ver=hashlib.sha1(src.encode()).hexdigest()[:8]
 head='''<!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">

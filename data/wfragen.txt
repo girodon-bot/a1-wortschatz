@@ -1,0 +1,22 @@
+# Вопросительные слова. Порядок = порядок изучения.
+# id|как показывать|перевод|группа|правило|формы (если слово изменяется)
+wer|wer|кто?|who|Кто делает действие (Nominativ). Ответ — человек: «Mein Bruder.»|
+was|was|что?|who|Вопрос о вещи или действии: «Was machst du?»|
+wo|wo|где?|place|Место. Ответ: in / an / bei + Dativ — «In Berlin», «Im Park», «Bei der Bank».|
+woher|woher|откуда?|place|Откуда. Ответ: aus / von — «Aus Russland», «Vom Bahnhof».|
+wohin|wohin|куда?|place|Направление. Ответ: nach / zu / in + Akkusativ — «Nach Hamburg», «Zum Arzt», «In die Stadt».|
+wie|wie|как?|how|Как, каким образом, какой (о погоде, адресе, имени): «Wie heißt du?», «Wie ist das Wetter?»|
+wie alt|wie alt|сколько лет?|num|Возраст: «Wie alt bist du? — Ich bin 25.»|
+wann|wann|когда?|time|Время события: «Am Montag», «Im Mai», «Heute Abend».|
+um wie viel Uhr|um wie viel Uhr|во сколько?|time|Точное время по часам. Ответ: um + время — «Um neun Uhr».|
+wie viel|wie viel|сколько? (цена, без мн. ч.)|num|Цена и неисчисляемое: «Wie viel kostet das?», «Wie viel Milch?»|
+wie viele|wie viele|сколько? (штук, + мн. ч.)|num|То, что можно посчитать, + множественное число: «Wie viele Kinder?»|
+warum|warum|почему?|how|Причина. Ответ часто с weil: «Weil ich krank bin.»|
+wen|wen|кого?|who|Akkusativ: кого вижу, спрашиваю, навещаю, приглашаю. После für: «Für wen?»|
+wem|wem|кому?|who|Dativ: кому помогаю, дарю, кому принадлежит. После mit, bei, von: «Mit wem?»|
+wie lange|wie lange|как долго?|time|Длительность: «Zwei Stunden», «Eine Woche».|
+wie oft|wie oft|как часто?|time|Частота: «Jeden Tag», «Zweimal pro Woche».|
+seit wann|seit wann|с каких пор? как давно?|time|Началось в прошлом и длится до сих пор. Ответ: seit + Dativ — «Seit gestern», «Seit einem Jahr».|
+welch|welcher / welche / welches|какой? (из нескольких)|how|Выбор из известных вариантов. Окончание как у артикля: der → welcher, die → welche, das → welches, den → welchen, dem → welchem.|welcher,welche,welches,welchen,welchem
+was für|was für ein / eine|что за? какой? (тип)|how|Какого рода, какой по качеству. Ответ с неопределённым артиклем: «Ein kleines Auto.»|was für ein,was für eine,was für einen,was für
+wie spät|wie spät|который час?|time|Только «Wie spät ist es?» — ответ: «Es ist halb drei.»|
