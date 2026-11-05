@@ -1,0 +1,10 @@
+# Модальные глаголы, Präsens. Формат:
+# инфинитив|перевод|изменение|когда употреблять|ich|du|er/sie/es|wir|ihr|sie/Sie
+# [скобки] — изменившаяся гласная. В ich и er/sie/es у модальных нет окончания: ich kann, er kann.
+können|мочь, уметь|ö → a|умею или могу: способность, возможность|k[a]nn|k[a]nnst|k[a]nn|können|könnt|können
+müssen|быть должным, надо|ü → u|надо, нужно, должен: необходимость|m[u]ss|m[u]sst|m[u]ss|müssen|müsst|müssen
+wollen|хотеть|o → i|хочу: желание, план|w[i]ll|w[i]llst|w[i]ll|wollen|wollt|wollen
+möchten|хотел бы|er möchte|хотел бы: вежливое желание, просьба в кафе и магазине|möchte|möchtest|möchte|möchten|möchtet|möchten
+dürfen|можно, разрешено|ü → a|можно / нельзя (nicht dürfen): разрешение и запрет|d[a]rf|d[a]rfst|d[a]rf|dürfen|dürft|dürfen
+sollen|следует, велели|ich/er soll|следует, велели, сказали: совет или чужое указание|soll|sollst|soll|sollen|sollt|sollen
+mögen|любить, нравиться|ö → a|люблю, нравится — обычно без второго глагола: Ich mag Pizza.|m[a]g|m[a]gst|m[a]g|mögen|mögt|mögen

@@ -82,6 +82,17 @@ h2{font-size:21px}
 .mode:active,.chip:active,.primary:active{transform:scale(.98)}
 /* sections */
 .secs{display:flex;flex-direction:column;gap:6px}
+.secw{display:grid;grid-template-columns:1fr 44px;gap:6px}
+.secopen{border:1px solid var(--line);background:var(--surface);border-radius:12px;color:var(--muted);display:grid;place-items:center;padding:0}
+.secopen svg{width:22px;height:22px}
+.secopen:active{background:var(--line)}
+.browsebar{display:flex;gap:8px;align-items:center}
+.browsebar .search{flex:1;min-width:0;font-size:17px;padding:10px 12px}
+.browsebar .btn{flex:none;white-space:nowrap;padding:10px 12px;font-size:14px}
+.wrow .wx{padding:4px 2px 12px 46px;border-bottom:1px solid var(--line)}
+.wrow .wx .exwrap{margin:0}
+.wrow:has(.wx:not([hidden])) .witem{border-bottom:0}
+.hide-ru .wrow:not(.ru-shown) .ru{visibility:hidden}
 .sec{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:11px 12px;display:grid;grid-template-columns:1fr auto;gap:6px 12px;text-align:left;width:100%}
 .sec[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent)}
 .sec .t{min-width:0}
@@ -90,7 +101,7 @@ h2{font-size:21px}
 .sec .ck.rd{border-radius:50%}
 .sec[aria-pressed="true"] .ck{background:var(--accent);border-color:var(--accent)}
 .sec[aria-pressed="true"] .ck::after{content:"";width:5px;height:10px;border:solid #1a1a1a;border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
-.sec .t small{margin-left:30px}
+.sec .t b:has(.ck)+small{margin-left:30px}
 .scopelist{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.35}
 .sec .t small{font-size:12px;color:var(--muted);font-style:italic}
 .sec .r{text-align:right;font-size:13px;color:var(--muted)}
@@ -194,6 +205,16 @@ h2{font-size:21px}
 .svcard-r{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
 .svcard-r b{font-size:20px}
 .wfcard{border-color:var(--accent)}
+.mdcard{border-color:var(--pl)}
+mark.mdinf{background:transparent;color:var(--sepc);font-weight:700;border-bottom:2px solid var(--sepc)}
+.mdline{min-height:64px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;border:2px dashed var(--line);border-radius:12px}
+.mdline.ok{border-style:solid;border-color:var(--ok)}
+.mdline.bad{border-style:solid;border-color:var(--bad)}
+.mdtoks{display:flex;flex-wrap:wrap;gap:8px}
+.mdtok{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;font-size:19px;font-weight:600;color:var(--ink)}
+.mdtok:disabled{opacity:.25}
+.mdtok.on{background:var(--accent-bg,var(--surface));border-color:var(--accent)}
+.mdp{font-size:19px;font-weight:600}
 .witem.wfrow{grid-template-columns:10px 1fr auto}
 .witem.wfrow .d b{font-size:18px}
 .witem.wfrow:last-child{border-bottom:0}
@@ -233,7 +254,7 @@ textarea.inp{font-size:13px;min-height:120px;font-family:ui-monospace,monospace}
 <script>
 const WORDS = /*WORDS*/[];
 const ICONS = /*ICONS*/{};
-const APP_VERSION = "1.5.0";
+const APP_VERSION = "1.6.0";
 const IS_PWA = !!document.querySelector('link[rel="manifest"]');
 </script>
 <script>
@@ -447,6 +468,7 @@ const ICON={
   back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>',
   play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
   sound:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>',
+  fwd:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>',
   list:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>'
 };
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2200)}
@@ -520,6 +542,7 @@ function renderHome(){
     <div class="modes">${MODES.map(m=>`<button class="mode" data-mode="${m.id}"><b>${m.t}</b><span>${m.d}</span></button>`).join("")}</div>
     ${(()=>{const sv=svStats(STRONG);return `<button class="svcard" id="bStrong"><div style="min-width:0"><b>Сильные глаголы · Präsens</b><span>${STRONG.length} глаголов · du nimmst, er fährt, ich weiß</span>${barHTML(sv,STRONG.length)}</div><div class="svcard-r"><b class="num">${sv.firm+sv.known}/${STRONG.length}</b>${sv.due?`<span class="due">${sv.due} повт.</span>`:""}</div></button>`})()}
     ${(()=>{const st=wfStats(WF);return `<button class="svcard wfcard" id="bWf"><div style="min-width:0"><b>Вопросительные слова · W‑Fragen</b><span>${WF.length} слов · wo, wohin, woher, wann, wie viel…</span>${barHTML(st,WF.length)}</div><div class="svcard-r"><b class="num">${st.firm+st.known}/${WF.length}</b>${st.due?`<span class="due">${st.due} повт.</span>`:""}</div></button>`})()}
+    ${(()=>{const st=mdStats(MODAL);return `<button class="svcard mdcard" id="bMd"><div style="min-width:0"><b>Модальные глаголы</b><span>${MODAL.length} глаголов · kann, muss, will, möchte, darf, soll, mag</span>${barHTML(st,MODAL.length)}</div><div class="svcard-r"><b class="num">${st.firm+st.known}/${MODAL.length}</b>${st.due?`<span class="due">${st.due} повт.</span>`:""}</div></button>`})()}
   </section>
 
   <section style="display:flex;flex-direction:column;gap:8px">
@@ -532,10 +555,12 @@ function renderHome(){
   </section>
   <p class="note">Прогресс хранится на этом телефоне и не стирается при обновлениях приложения. Делайте резервную копию в настройках раз в неделю.</p>`;
   $app.querySelector("#bSet").onclick=renderSettings;
-  $app.querySelector("#bList").onclick=renderList;
+  $app.querySelector("#bList").onclick=()=>renderList(state.scope);
+  $app.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>renderList(b.dataset.open));
   $app.querySelector("#bLearn").onclick=()=>startSession("learn");
   $app.querySelector("#bStrong").onclick=renderStrong;
   $app.querySelector("#bWf").onclick=renderWf;
+  $app.querySelector("#bMd").onclick=renderModal;
   $app.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>startSession(b.dataset.mode));
   $app.querySelectorAll("[data-order]").forEach(b=>b.onclick=()=>{state.settings.order=b.dataset.order;save();renderHome()});
   $app.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{const id=b.dataset.sec;toggleScope(id);save();renderHome();
@@ -543,19 +568,36 @@ function renderHome(){
     else toast(`${Array.isArray(state.scope)?"Выбрано "+scopeName(state.scope):scopeName(state.scope)} · ${ruPl(wordsIn(state.scope).length,"слово","слова","слов")}`)});
 }
 function secRow(id,ru,de,list){const c=counts(list);
-  return `<button class="sec" data-sec="${id}" aria-pressed="${isSel(id)}"><div class="t"><b><span class="ck${id==="all"||id==="hard"?" rd":""}" aria-hidden="true"></span>${esc(ru)}</b><small>${esc(de)}</small></div>
-  <div class="r"><b>${c.known}</b>/${list.length}${c.due?`<br><span class="due">${c.due} повт.</span>`:""}</div>${barHTML(c,list.length)}</button>`}
+  return `<div class="secw"><button class="sec" data-sec="${id}" aria-pressed="${isSel(id)}"><div class="t"><b><span class="ck${id==="all"||id==="hard"?" rd":""}" aria-hidden="true"></span>${esc(ru)}</b><small>${esc(de)}</small></div>
+  <div class="r"><b>${c.known}</b>/${list.length}${c.due?`<br><span class="due">${c.due} повт.</span>`:""}</div>${barHTML(c,list.length)}</button><button class="secopen" data-open="${id}" aria-label="Посмотреть слова: ${esc(ru)}">${ICON.fwd}</button></div>`}
 
 /* ---------- Word list ---------- */
-function renderList(){
-  const list=wordsIn(state.scope);
-  $app.innerHTML=`<header class="top"><button class="iconbtn" id="bBack" aria-label="Назад">${ICON.back}</button><div style="flex:1;min-width:0"><div class="label">Слова</div><h2>${esc(scopeName(state.scope))}</h2></div></header>
+/* Просмотр слов: без заучивания — слово, перевод, по нажатию пример и озвучка */
+function renderList(scope){
+  scope=scope===undefined?state.scope:scope;
+  const all=wordsIn(scope);let q="";
+  const isCur=JSON.stringify(scope)===JSON.stringify(state.scope);
+  $app.innerHTML=`<header class="top"><button class="iconbtn" id="bBack" aria-label="Назад">${ICON.back}</button><div style="flex:1;min-width:0"><div class="label">Просмотр слов</div><h2>${esc(scopeName(scope))} <span class="sub num">· ${ruPl(all.length,"слово","слова","слов")}</span></h2>${Array.isArray(scope)?`<div class="scopelist">${esc(scopeList(scope))}</div>`:""}</div></header>
+  <div class="browsebar"><input class="inp search" id="q" type="search" inputmode="search" autocomplete="off" placeholder="Найти слово (нем. или рус.)" aria-label="Поиск">
+    <button class="btn" id="bHideRu" aria-pressed="false">Скрыть перевод</button></div>
   <div class="legend">${Object.keys(LV_RU).map(k=>`<span style="--c:${LV_C[k]}">${LV_RU[k]}</span>`).join("")}</div>
-  <div class="wlist">${list.map(w=>{const c=state.cards[w.id],lv=level(w.id);
-    const meta=c&&c.reps?(c.due<=Date.now()?"повторить сейчас":"через "+fmtIn(c.due-Date.now())):"";
-    return `<button class="witem" data-say="${esc(w.id)}"><span class="dot" style="--c:${LV_C[lv]}"></span><span class="wi">${icHTML(w,26)}</span><span class="d"><b>${deHTML(w)}${w.pl?` <span class="g-p" style="font-weight:400">· die ${esc(w.pl)}</span>`:""}</b><span>${esc(w.ru)}</span></span><span class="m">${meta}</span></button>`}).join("")}</div>`;
+  <div class="wlist" id="wl"></div>
+  ${all.length?`<button class="primary" id="bLearnThis"><div><b>${isCur?"Учить":"Учить эту тему"}</b><span>${isCur?"текущий выбор":"переключит тренировку на эту тему"}</span></div>${ICON.play}</button>`:""}`;
+  const wl=$app.querySelector("#wl");
+  const row=w=>{const c=state.cards[w.id],lv=level(w.id);
+    const meta=c&&c.reps?(c.due<=Date.now()?"повторить":"через "+fmtIn(c.due-Date.now())):"";
+    return `<div class="wrow"><button class="witem" data-say="${esc(w.id)}" aria-expanded="false"><span class="dot" style="--c:${LV_C[lv]}"></span><span class="wi">${icHTML(w,26)}</span><span class="d"><b>${deHTML(w)}${w.pl?` <span class="g-p" style="font-weight:400">· die ${esc(w.pl)}</span>`:""}</b><span class="ru">${esc(w.ru)}</span></span><span class="m">${meta}</span></button><div class="wx" hidden></div></div>`};
+  const draw=()=>{const n=norm(q);const list=n?all.filter(w=>norm(w.de).includes(n)||norm(w.ru).includes(n)):all;
+    wl.innerHTML=list.length?list.map(row).join(""):`<div class="note" style="padding:16px 4px">Ничего не найдено</div>`;
+    wl.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>{const w=BYID[b.dataset.say];const x=b.nextElementSibling;
+      const open=x.hidden;if(open&&!x.innerHTML)x.innerHTML=(exBlock(w)||`<div class="note">Пример для этого слова пока не добавлен</div>`)+(ALT[w.id]?`<div class="note">также: ${esc(ALT[w.id].join(", "))}</div>`:"");
+      x.hidden=!open;b.setAttribute("aria-expanded",open);b.closest(".wrow").classList.toggle("ru-shown",open);if(open)sayWord(w)})};
+  draw();
+  $app.querySelector("#q").oninput=e=>{q=e.target.value;draw()};
+  const hb=$app.querySelector("#bHideRu");
+  hb.onclick=()=>{const on=hb.getAttribute("aria-pressed")!=="true";hb.setAttribute("aria-pressed",on);hb.textContent=on?"Показать перевод":"Скрыть перевод";wl.classList.toggle("hide-ru",on)};
   $app.querySelector("#bBack").onclick=renderHome;
-  $app.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>sayWord(BYID[b.dataset.say]));
+  const bl=$app.querySelector("#bLearnThis");if(bl)bl.onclick=()=>{state.scope=scope;save();startSession("learn")};
   window.scrollTo(0,0);
 }
 function fmtIn(ms){const m=ms/60e3;if(m<60)return Math.max(1,Math.round(m))+" мин";const h=m/60;if(h<24)return Math.round(h)+" ч";return Math.round(h/24)+" дн"}
@@ -611,10 +653,11 @@ function next(){
   S.cur=S.queue.shift();
   if(S.cur.t.startsWith("sv"))return SVR[S.cur.t](S.cur);
   if(S.cur.t.startsWith("wf"))return WFR[S.cur.t](S.cur);
+  if(S.cur.t.startsWith("md"))return MDR[S.cur.t](S.cur);
   const R={flash:exFlash,intro:exIntro,choice:exChoice,ru2de:exRu2De,de2ru:exDe2Ru,article:exArticle,plural:exPlural,cloze:exCloze,dict:exDict}[S.cur.t];
   R(S.cur.w);
 }
-const KIND={wfIntro:"Вопросительное слово",wfChoice:"Выбери вопросительное слово",wfAnswer:"Выбери ответ",wfType:"Вставь вопросительное слово",wfRu:"Напиши по-немецки",flash:"Карточка",intro:"Новое слово",choice:"Выбери перевод",ru2de:"Напиши по-немецки",de2ru:"Напиши по-русски",article:"Какой артикль?",plural:"Множественное число",cloze:"Вставь слово",dict:"Диктант",svIntro:"Сильный глагол",svChoice:"Выбери форму глагола",svType:"Напиши форму глагола",svCloze:"Вставь глагол",svTable:"Заполни таблицу"};
+const KIND={mdIntro:"Модальный глагол",mdForm:"Выбери форму",mdMeaning:"Какой глагол по смыслу?",mdType:"Напиши форму",mdCloze:"Вставь форму",mdOrder:"Собери предложение",wfIntro:"Вопросительное слово",wfChoice:"Выбери вопросительное слово",wfAnswer:"Выбери ответ",wfType:"Вставь вопросительное слово",wfRu:"Напиши по-немецки",flash:"Карточка",intro:"Новое слово",choice:"Выбери перевод",ru2de:"Напиши по-немецки",de2ru:"Напиши по-русски",article:"Какой артикль?",plural:"Множественное число",cloze:"Вставь слово",dict:"Диктант",svIntro:"Сильный глагол",svChoice:"Выбери форму глагола",svType:"Напиши форму глагола",svCloze:"Вставь глагол",svTable:"Заполни таблицу"};
 function shell(inner){
   const pct=S.total?Math.min(100,S.done/S.total*100):0;
   $app.innerHTML=`<div class="ex"><div class="exhead"><button class="iconbtn" id="bQuit" aria-label="Закончить">${ICON.close}</button><div class="prog"><i style="width:${pct}%"></i></div><span class="sub num">${S.done}/${S.total}</span></div>
@@ -802,23 +845,25 @@ function renderMatch(){
 }
 
 /*STRONG_JS*/
+/*MODAL_JS*/
 /*WF_JS*/
 
 /* ---------- Result ---------- */
 function renderResult(){
   clearInterval(S&&S.timer); save(true);
   const answered=S.done, wrong=[...S.wrongIds].map(getW).filter(Boolean);
-  const isSv=S.mode==="strong"||S.mode==="strongTables", isWf=S.mode==="wf";
+  const isSv=S.mode==="strong"||S.mode==="strongTables", isWf=S.mode==="wf", isMd=S.mode==="modal";
   const mins=Math.max(1,Math.round((Date.now()-S.started)/60e3));
   $app.innerHTML=`<div class="result">
-    <div class="label" style="margin-top:12px">Раунд завершён · ${isSv?"Сильные глаголы":isWf?"Вопросительные слова":esc(scopeName(state.scope))}</div>
+    <div class="label" style="margin-top:12px">Раунд завершён · ${isSv?"Сильные глаголы":isWf?"Вопросительные слова":isMd?"Модальные глаголы":esc(scopeName(state.scope))}</div>
     <div class="score num">${answered}</div><div class="sub">ответов за ${mins} мин · без ошибок ${S.right}</div>
     ${wrong.length?`<div class="panel" style="text-align:left"><div class="label" style="margin-bottom:6px">Ошибки — вернутся скоро</div><div class="wlist">${wrong.map(w=>`<button class="witem" data-say="${esc(w.id)}"><span class="dot" style="--c:var(--bad)"></span><span class="wi">${icHTML(w,26)}</span><span class="d"><b>${deHTML(w)}</b><span>${esc(w.ru)}</span></span><span class="m"></span></button>`).join("")}</div></div>`:`<div class="panel">Ни одной ошибки. Отлично!</div>`}
     <div class="row"><button class="btn" id="bHome">На главную</button><button class="btn main" id="bAgain">Ещё раунд</button></div></div>`;
   const mode=S.mode, svVerbs=(S.svVerbs||[]).map(x=>SVBY[x]);
-  $app.querySelector("#bHome").onclick=isSv?renderStrong:isWf?renderWf:renderHome;
+  $app.querySelector("#bHome").onclick=isSv?renderStrong:isWf?renderWf:isMd?renderModal:renderHome;
   const wfList=(S.wfIds||[]).map(x=>WFBY[x]);
-  $app.querySelector("#bAgain").onclick=()=>mode==="wf"?startWf(wfList.length===1?wfList:undefined):mode==="strong"?startStrong(svVerbs.length===1?svVerbs:undefined):mode==="strongTables"?startStrongTables():startSession(mode);
+  const mdList=(S.mdVerbs||[]).map(x=>MDBY[x]),mdMean=!!S.mdMean;
+  $app.querySelector("#bAgain").onclick=()=>mode==="modal"?(mdMean?startModalMeaning():startModal(mdList.length===1?mdList:undefined)):mode==="wf"?startWf(wfList.length===1?wfList:undefined):mode==="strong"?startStrong(svVerbs.length===1?svVerbs:undefined):mode==="strongTables"?startStrongTables():startSession(mode);
   $app.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>sayWord(getW(b.dataset.say)));
   window.scrollTo(0,0);
 }

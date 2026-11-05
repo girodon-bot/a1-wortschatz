@@ -1,5 +1,5 @@
 // Прогресс лежит в IndexedDB и при обновлении не трогается; здесь только кэш файлов.
-const CACHE="a1-1915f09a";
+const CACHE="a1-9d7be58a";
 const SHELL=["./","index.html","manifest.json","icon-192.png","icon-512.png"];
 self.addEventListener("install",e=>{
   // cache:"reload" — мимо HTTP-кэша GitHub Pages, иначе в новый кэш попадёт старая версия

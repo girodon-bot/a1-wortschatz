@@ -1,0 +1,43 @@
+# инфинитив|лицо|предложение с [формой] и {глаголом в конце}|перевод
+können|ich|Ich [kann] gut {schwimmen}.|Я хорошо умею плавать.
+können|du|[Kannst] du mir {helfen}?|Ты можешь мне помочь?
+können|er|Mein Sohn [kann] schon {lesen}.|Мой сын уже умеет читать.
+können|wir|Wir [können] uns morgen {treffen}.|Мы можем встретиться завтра.
+können|ihr|[Könnt] ihr Deutsch {sprechen}?|Вы умеете говорить по-немецки?
+können|sie|Sie [können] heute nicht {kommen}.|Они не могут сегодня прийти.
+müssen|ich|Ich [muss] heute lange {arbeiten}.|Мне сегодня надо долго работать.
+müssen|du|Du [musst] mehr Wasser {trinken}.|Тебе нужно пить больше воды.
+müssen|er|Er [muss] um sechs Uhr {aufstehen}.|Ему нужно вставать в шесть часов.
+müssen|wir|Wir [müssen] noch {einkaufen}.|Нам ещё надо сходить за покупками.
+müssen|ihr|[Müsst] ihr morgen {arbeiten}?|Вам завтра надо работать?
+müssen|sie|Die Kinder [müssen] um acht im Bett {sein}.|Дети должны быть в кровати в восемь.
+wollen|ich|Ich [will] Arzt {werden}.|Я хочу стать врачом.
+wollen|du|[Willst] du mit uns ins Kino {gehen}?|Хочешь пойти с нами в кино?
+wollen|er|Er [will] ein neues Auto {kaufen}.|Он хочет купить новую машину.
+wollen|wir|Wir [wollen] im Sommer nach Italien {fahren}.|Летом мы хотим поехать в Италию.
+wollen|ihr|Was [wollt] ihr heute {machen}?|Что вы хотите сегодня делать?
+wollen|sie|Sie [wollen] in Berlin {wohnen}.|Они хотят жить в Берлине.
+möchten|ich|Ich [möchte] einen Kaffee {bestellen}.|Я бы хотел заказать кофе.
+möchten|du|[Möchtest] du etwas {trinken}?|Ты бы хотел что-нибудь выпить?
+möchten|er|Er [möchte] Deutsch {lernen}.|Он хотел бы выучить немецкий.
+möchten|wir|Wir [möchten] ein Doppelzimmer {reservieren}.|Мы хотели бы забронировать двухместный номер.
+möchten|ihr|[Möchtet] ihr am Wochenende {kommen}?|Вы бы хотели прийти на выходных?
+möchten|sie|[Möchten] Sie Platz {nehmen}?|Не желаете присесть?
+dürfen|ich|[Darf] ich hier {rauchen}?|Можно мне здесь курить?
+dürfen|du|Du [darfst] nicht so viel Schokolade {essen}.|Тебе нельзя есть столько шоколада.
+dürfen|er|Hier [darf] man nicht {parken}.|Здесь нельзя парковаться.
+dürfen|wir|[Dürfen] wir hier {sitzen}?|Можно нам здесь сесть?
+dürfen|ihr|Heute [dürft] ihr länger {fernsehen}.|Сегодня вам можно дольше смотреть телевизор.
+dürfen|sie|Die Kinder [dürfen] im Garten {spielen}.|Детям можно играть в саду.
+sollen|ich|Der Arzt sagt, ich [soll] viel {schlafen}.|Врач говорит, что мне следует много спать.
+sollen|du|Du [sollst] deine Mutter {anrufen}.|Тебе велели позвонить маме.
+sollen|er|Er [soll] die Tabletten dreimal am Tag {nehmen}.|Ему следует принимать таблетки три раза в день.
+sollen|wir|[Sollen] wir dich am Bahnhof {abholen}?|Нам встретить тебя на вокзале?
+sollen|ihr|Ihr [sollt] die Hausaufgaben {machen}.|Вам велели сделать домашнее задание.
+sollen|sie|Sie [sollen] um neun Uhr {kommen}.|Им сказали прийти в девять часов.
+mögen|ich|Ich [mag] Pizza.|Я люблю пиццу.
+mögen|du|[Magst] du Katzen?|Ты любишь кошек?
+mögen|er|Er [mag] keinen Fisch.|Он не любит рыбу.
+mögen|wir|Wir [mögen] unseren Lehrer.|Нам нравится наш учитель.
+mögen|ihr|[Mögt] ihr Jazz?|Вы любите джаз?
+mögen|sie|Die Kinder [mögen] Schokolade.|Дети любят шоколад.
